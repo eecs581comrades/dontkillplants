@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "node load-database.js",
-    "build": "node ./backend/backend.js"
+    "build": "node ./backend/backend.js",
+    "install:mac": "sh ./scripts/install_mysql_macos.sh && npm run setup:db",
+    "setup:win": "powershell -ExecutionPolicy Bypass -File ./scripts/install_mysql_windows.ps1 && npm run setup:db",
+    "setup:db": "node ./scripts/load-database.js",
+    "install:mysql": "cross-env IS_WINDOWS=true npm run install:mysql:windows || npm run install:mysql:macos",
+    "setup": "echo 'Please run npm setup:mac or npm setup:win'"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +19,9 @@
     "express": "^4.21.1",
     "mysql2": "^3.11.3",
     "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "shelljs": "^0.8.5"
   }
 }
