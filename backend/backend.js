@@ -25,7 +25,7 @@ connection.connect((err) => {
 http.createServer(app);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Server is Working');
 })
 
 app.get('/rose', (req, res) => {
