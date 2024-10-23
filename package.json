@@ -1,0 +1,19 @@
+{
+  "name": "dontkillplants",
+  "version": "1.0.0",
+  "description": "https://docs.google.com/document/d/1bJR-B_plagiwF40nZNEB6ATOiIpI5_DY9gIaRt5F6KY/edit?usp=sharing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "node load-database.js",
+    "build": "node ./backend/backend.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.3",
+    "pg": "^8.13.0"
+  }
+}
