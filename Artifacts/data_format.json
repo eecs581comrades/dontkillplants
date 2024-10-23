@@ -1,0 +1,15 @@
+[
+    {
+        "Plant Common Name": "Rose",
+        "Plant Scientific Name": "Rosa",
+        "Plant Watering Schedule": {
+            "Frequency": "Twice per week",
+            "Amount": "500ml per watering"
+        },
+        "Plant Sunlight Schedule": {
+            "Sunlight Type": "Full Sun",
+            "Duration": "6-8 hours per day"
+        },
+        "Plant Soil Conditions": "Well-drained, loamy soil"
+    }
+]
