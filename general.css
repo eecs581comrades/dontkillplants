@@ -1,12 +1,44 @@
+/*
+Name of code artifact: 2) Basic Home Page
+Description: General Styling for Pages
+Name(s): Katie Golder
+Date Created: 10-23-24
+Dates Revised (Brief description of each revision & author): N/A
+Preconditions (Acceptable/unacceptable input values/types, and meanings) : N/A
+Postconditions (Return values/types, and meanings): N/A
+Error and exception condition values/types that can occur, and meanings: N/A
+Side effects: N/A
+Invariants: N/A
+Known faults: N/A
+*/
+
+/*Makes the background blue*/
 body{
     background-color: rgb(122, 193, 255);
+    font-family: Arial, sans-serif;
+    background-image: url("sun.png"), url("plant.png"); /*Background Image*/
 }
 
+/*Makes the header text white*/
 h1{
-    color: white;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-button {
-    color: rgb(0, 0, 0);
-    border-radius: 12px;
+/*Styles the buttons*/
+button{
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+/*Centers anything with the divider class*/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
