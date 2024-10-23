@@ -3,27 +3,33 @@ Name of code artifact: 2) Basic Home Page
 Description: Starting Screen
 Name(s): Katie Golder
 Date Created: 10-23-24
-Dates Revised: 
-Brief description of each revision & author:
-Preconditions:
-Acceptable/unacceptable input values/types, and meanings:
-Postconditions:
-Return values/types, and meanings:
-Error and exception condition values/types that can occur, and meanings:
-Side effects: 
-Invariants: 
-Known faults:
+Dates Revised (Brief description of each revision & author): N/A
+Preconditions (Acceptable/unacceptable input values/types, and meanings) : Button clicks mean the user wants to go to a new page
+Postconditions (Return values/types, and meanings): Page changes to a new page means they clicked the simulation button; no page change means the about page was clicked
+Error and exception condition values/types that can occur, and meanings: N/A
+Side effects: N/A
+Invariants: If the user is on this page, then they have not clicked any buttons
+Known faults: About button goes nowhere
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream
     <title>Don't Kill Plants</title>
     <link rel="stylesheet" href="general.css">
+=======
+    <title>Don't Kill Plants</title> <!--Tab words-->
+    <link rel="stylesheet" href="general.css"><!--Styles using the general css sheet-->
+>>>>>>> Stashed changes
 </head>
 
 <body>
-    <h1>Don't Kill Plants</h1>
-    <button onclick="location.href='simulation.html'">Simulation</button>
-    <button>About</button>
+    <div class="container">
+        <h1>Don't Kill Plants</h1> <!--Tab words-->
+        <div>
+        <button onclick="location.href='simulation.html'">Simulation</button><!--Button to go to simulation-->
+        <button>About</button><!--Button to go to about page-->
+        <div>
+    </div>
 </body>
 </html>
