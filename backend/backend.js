@@ -8,7 +8,7 @@ const localNetworkHost = '0.0.0.0';
 http.createServer(app);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Server is Working');
 })
 
 app.listen(port, () => {
