@@ -3,13 +3,31 @@
         "Plant Common Name": "Rose",
         "Plant Scientific Name": "Rosa",
         "Plant Watering Schedule": {
-            "Frequency": "Twice per week",
-            "Amount": "500ml per watering"
+          "Frequency": "Twice per week",
+          "Amount": "500ml per watering"
         },
         "Plant Sunlight Schedule": {
-            "Sunlight Type": "Full Sun",
-            "Duration": "6-8 hours per day"
+          "Sunlight Type": "Full Sun",
+          "Duration": "6-8 hours per day"
         },
-        "Plant Soil Conditions": "Well-drained, loamy soil"
-    }
+        "Plant Soil Conditions": "Well-drained, loamy soil",
+        "Plant Lifecycle Information": {
+          "Lifecycle Stage": "Perennial",
+          "Average Lifespan": "35 years",
+          "Growth Rate": "Moderate"
+        },
+        "Plant Temperature Conditions": {
+          "Optimal Range": "60°F to 75°F",
+          "Tolerance": "Can tolerate down to 20°F"
+        },
+        "Plant Humidity Conditions": {
+          "Optimal Humidity": "40-60%",
+          "Tolerance": "Adaptable to drier conditions"
+        },
+        "Important Plant Information": {
+          "Pests": "Aphids, Spider Mites, Black Spot",
+          "Pruning": "Annual pruning recommended in late winter or early spring",
+          "Special Care": "Mulch around base to retain moisture and regulate temperature"
+        }
+      }      
 ]
