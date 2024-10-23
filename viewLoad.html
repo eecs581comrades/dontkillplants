@@ -1,25 +1,56 @@
-<!-- viewLoad.html
+<!-- 
 Name of code artifact: View/Load Saved Simulation
 Description: User login for pre-existing simulations
 Name(s): Chase Curtis
 Date Created: 10-23-24
 Dates Revised: 
-Brief description of each revision & author:
+
 Preconditions:
+- The user must enter both a valid username and password into the form.
+- The input values should be strings and are expected to match pre-existing credentials (in this case, "testuser" for the username and "password123" for the password).
+- The HTML document must load properly with the required input fields and JavaScript enabled.
+
 Acceptable/unacceptable input values/types, and meanings:
+- Acceptable inputs: 
+  - Username: Non-empty string (e.g., "testuser").
+  - Password: Non-empty string (e.g., "password123").
+- Unacceptable inputs:
+  - Empty values for username or password are invalid and will trigger an error message.
+
 Postconditions:
+- Upon successful validation of the credentials, the user is redirected to "simResults.html".
+- If login fails (incorrect credentials), an error message is shown on the page.
+- If an error occurs (e.g., a network issue or JavaScript error), a generic error message will be displayed.
+
 Return values/types, and meanings:
+- The mockLoginCheck function returns a Promise that resolves with an object containing a boolean success property.
+  - If success is true, login is successful, and the user is redirected.
+  - If success is false, login failed, and an error message is displayed.
+
 Error and exception condition values/types that can occur, and meanings:
-Side effects: 
-Invariants: 
+- Error message for empty inputs: "Both username and password are required."
+- Error message for invalid credentials: "Invalid username or password."
+- Error handling in case of server or script issues: "An error occurred. Please try again."
+
+Side effects:
+- The form submission is prevented by calling event.preventDefault() to handle validation and mock login asynchronously.
+
+Invariants:
+- The username and password fields must never be empty.
+- The same mock credentials ("testuser" and "password123") will always result in successful login during the mock check.
+
 Known faults:
+- Since this is a mock login check, it doesn't connect to a real database, so only hardcoded values will work for validation.
+- There is no input validation for security (e.g., no handling of SQL injection, weak password checks, etc.).
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DontKillPlants: Login</title>
+    <link rel="icon" href="the_guy.png" type="image/png">
     <style>
         .error {
             color: red;
