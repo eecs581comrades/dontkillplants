@@ -5,14 +5,36 @@ Name(s): Emily Tso
 Date Created: 10-23-24
 Dates Revised: 
 Brief description of each revision & author:
-Preconditions:
-Acceptable/unacceptable input values/types, and meanings:
+
+Preconditions: 
+    - search_plants() function works and can be accessed.
+    - only strings containing alphabet characters, spaces, and common punctuation 
+      are accepted in the search bar.
+    - no numbers and special characters in the search bar, empty strings will
+      have no action.
+    - input meaning should be the plants user are searching.
+
 Postconditions:
-Return values/types, and meanings:
+    - will return a page with the plants information that user searched.
+    - will return a page with no plants found if plant is not in database.
+
 Error and exception condition values/types that can occur, and meanings:
-Side effects: 
+    - type error if string is not given.
+    - API database error if not connected right.
+    - empty string will prompt nothing.
+
+Side effects:
+    - UI changes and pages need to be updated.
+    - performance impact like results being fetched from database.
+
 Invariants: 
+    - UI state: search bar is visible and functional.
+    - consistent behvaior for the seach and same imput should give same 
+      results each time
+
 Known faults:
+    - case sensitivity for search
+    - whitespaces for search
 -->
 
 <!DOCTYPE html>
@@ -24,6 +46,8 @@ Known faults:
     <title>Plant Simulation</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <style>
+
+        /* CSS styles for the page*/
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -39,7 +63,7 @@ Known faults:
             height: 100vh;
         }
 
-        h1 {
+        h1 { /* header */
             font-size: 48px;
             margin-bottom: 20px;
             color: #333;
@@ -54,7 +78,7 @@ Known faults:
             max-width: 600px;
         }
 
-        #searchbar {
+        #searchbar { /* search bar */
             flex: 1;
             padding: 15px;
             font-size: 18px;
@@ -64,10 +88,10 @@ Known faults:
 
         #searchbar:focus {
             outline: none;
-            border-color: #4CAF50;
+            border-color: #4CAF50; /*Puts a green box around the search bar when clicked*/
         }
 
-        #search-btn {
+        #search-btn { /* enter button that is green */
             padding: 15px 20px;
             font-size: 18px;
             border: none;
@@ -78,7 +102,7 @@ Known faults:
             transition: background-color 0.3s;
         }
 
-        #search-btn:hover {
+        #search-btn:hover { /* search button hover is green*/
             background-color: #45a049;
         }
 
@@ -92,9 +116,11 @@ Known faults:
 
 <body>
     <div class="container">
-        <h1>Plant Simulation</h1>
-        <div class="search-container">
-            <input id="searchbar" onkeyup="search_plants()" type="text" name="search" placeholder="Search plants..">
+        <h1>Plant Simulation</h1> <!--Title page of the simulation-->
+        <div class="search-container"> <!--container for search bar-->
+            <!--search bar, placeholder for where user types plants is "Search plants..."-->
+            <input id="searchbar" onkeyup="search_plants()" type="text" name="search" placeholder="Search plants...">
+            <!--Enter button next to search bar-->
             <button id="search-btn" onclick="search_plants()">Enter</button>
         </div>
     </div>
