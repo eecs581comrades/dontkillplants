@@ -3,7 +3,7 @@ const path = require('path');
 
 // Replace backslashes with forward slashes for Windows compatibility
 const user = 'root';
-const password = 'PlantsAreCool24';
+const password = '';
 const host = 'localhost';
 const database = 'dontkillplants';
 let sqlFile = path.join(__dirname, '..', 'db', 'initial_database.sql').replace(/\\/g, '/'); // Ensure slashes
