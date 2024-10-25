@@ -2,6 +2,7 @@ const express = require('express')
 const http = require('http');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const path = require('path')
 
 const app = express();
 const port = 5100;
@@ -10,7 +11,7 @@ const localNetworkHost = '0.0.0.0';
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'PlantsAreCool24',
+  password: '',
   database: 'dontkillplants'
 });
 
@@ -24,8 +25,10 @@ connection.connect((err) => {
 
 http.createServer(app);
 
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 app.get('/', (req, res) => {
-  res.send('Server is Working');
+  res.sendFile(path.join(__dirname, '../frontend/', 'home.html'));
 })
 
 app.get('/rose', (req, res) => {
@@ -50,3 +53,5 @@ app.post('/', (req, res) => {
 app.use(bodyParser.json());
 
 // Server definition
+
+
