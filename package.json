@@ -10,7 +10,8 @@
     "setup:win": "powershell -ExecutionPolicy Bypass -File ./scripts/install_mysql_windows.ps1 && npm run setup:db",
     "setup:db": "node ./scripts/load-database.js",
     "install:mysql": "cross-env IS_WINDOWS=true npm run install:mysql:windows || npm run install:mysql:macos",
-    "setup": "echo 'Please run npm setup:mac or npm setup:win'"
+    "setup": "echo 'Please run npm setup:mac or npm setup:win'",
+    "postinstall": "node ./platform-setup.js"
   },
   "keywords": [],
   "author": "",
