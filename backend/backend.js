@@ -31,16 +31,18 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/', 'home.html'));
 })
 
-app.get('/rose', (req, res) => {
-  connection.query('SELECT * FROM plants WHERE plant_common_name="Rose"', (err, results) => {
+app.get('/search/:plantName', (req, res) => {
+  const plantName = req.params.plantName;
+  connection.query('SELECT * FROM plants WHERE plant_common_name = ?', [plantName], (err, results) => {
     if (err) {
-      console.error('Error fetching rose plant:', err);
+      console.error('Error fetching plant:', err);
       res.status(500).send('Server error');
       return;
     }
     res.json(results);
   });
 });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
