@@ -18,6 +18,8 @@ if (isMac) {
     console.log(`Mac setup stdout: ${stdout}`);
   });
 } else if (isWindows) {
+  console.log("Running setup for Windows...");
+  console.log("\n\tWhen asked for a password for the SQL database, hit enter for 'no password' unless you already have a root password set up for mysql on this device.\n\n");
   exec("npm run setup:win", (error, stdout, stderr) => {
     if (error) {
       console.error(`Windows setup error: ${error.message}`);
