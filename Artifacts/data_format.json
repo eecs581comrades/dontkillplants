@@ -29,5 +29,17 @@
           "Pruning": "Annual pruning recommended in late winter or early spring",
           "Special Care": "Mulch around base to retain moisture and regulate temperature"
         }
-      }      
+      },
+      {
+        "Username": "MPETILLO",
+        "Password": "TotallyUnhackable",
+        "User ID": 1
+      },
+      {
+        "Simulation ID": 1,
+        "Date Created": "10/27/24 11:59PM",
+        "Plant": "Rose",
+        "Plant Log": "blah blah blah plant log things blah blah blah",
+        "User ID": 1
+      }
 ]
