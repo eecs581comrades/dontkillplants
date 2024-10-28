@@ -1,3 +1,13 @@
+
+// Name of code artifact: all of them
+// Description: Node.js server
+// Name(s): Matthew Petillo
+// Date Created: 10-23-24
+// Dates Revised: 10-2-24
+// Brief description of each revision & author:
+
+//This is the 
+
 const express = require('express')
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -33,7 +43,7 @@ app.get('/', (req, res) => {
 
 app.get('/search/:plantName', (req, res) => {
   const plantName = req.params.plantName;
-  connection.query('SELECT * FROM plants WHERE plant_common_name = ?', [plantName], (err, results) => {
+  connection.query('SELECT * FROM plants WHERE plant_common_name LIKE ?', [`%${plantName}`], (err, results) => {
     if (err) {
       console.error('Error fetching plant:', err);
       res.status(500).send('Server error');
@@ -43,6 +53,21 @@ app.get('/search/:plantName', (req, res) => {
   });
 });
 
+app.get('search/:username&password', (req, res) => {
+  const username = req.params.username;
+  const password = req.params.password;
+  connection.query('SELECT * FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
+    if (err) {
+      console.error('Error fetching user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    if (results.length > 0) {
+      res.status(200).send("Log-in Successful");
+    } else {
+      res.status(401).send('Invalid username or password');
+  }});
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -53,7 +78,4 @@ app.post('/', (req, res) => {
 })
 // Registers the app to use bodyParser to make our lives easier and avoid needing to decode json frequently.
 app.use(bodyParser.json());
-
-// Server definition
-
 
