@@ -40,7 +40,7 @@ CREATE TABLE `plants` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---creates user_pass_combo table
+-- Create `user_pass_combo` table
 CREATE TABLE `user_pass_combo` (
   `username` text,
   `password` text,
@@ -49,7 +49,7 @@ CREATE TABLE `user_pass_combo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---creates simulations table
+-- Create `simulations` table
 CREATE TABLE `simulations` (
   `simulation_id` int NOT NULL AUTO_INCREMENT,
   `date_created` timestamp DEFAULT CURRENT_TIMESTAMP,
