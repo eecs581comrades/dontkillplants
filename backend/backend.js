@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
 app.get('/search/:plantName', (req, res) => {
   const plantName = req.params.plantName;
-  connection.query('SELECT * FROM plants WHERE plant_common_name LIKE ?', [`%${plantName}`], (err, results) => {
+  connection.query('SELECT * FROM plants WHERE plant_common_name LIKE ?', [plantName], (err, results) => {
     if (err) {
       console.error('Error fetching plant:', err);
       res.status(500).send('Server error');
