@@ -95,6 +95,31 @@ app.post('/account/add/:username/:password', (req, res) => {
   });
 });
 
+app.post('/simulations/add/:user_id/:plant_id', (req, res) => {
+  const user_id = req.params.user_id;
+  const plant_id = req.params.plant_id;
+  connection.query("INSERT INTO simulations (plant_id, user_id) VALUES (?, ?)" [plant_id, user_id], (err, results) => {
+    if (err){
+      console.error('Error adding simulation:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    res.status(201).send("Simulation created successfully");
+  })
+});
+
+app.get('/simulations/pull/:user_id/', (req, res) => {
+  const user_id = req.params.user_id;
+  connection.query("SELECT * FROM simulations WHERE user_id = ?", [user_id], (err, results) => {
+    if (err){
+      console.error('Error fetching user simulations');
+      res.status(500).send('Server error');
+      return;
+    }
+    res.json(results);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
