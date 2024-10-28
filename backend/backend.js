@@ -53,7 +53,7 @@ app.get('/search/:plantName', (req, res) => {
   });
 });
 
-app.get('/account/pull/:username&password', (req, res) => {
+app.get('/account/pull/:username/:password', (req, res) => {
   const username = req.params.username;
   const password = req.params.password;
   connection.query('SELECT * FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
