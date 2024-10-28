@@ -99,11 +99,30 @@ Known faults:
         <h1>Plant Simulation</h1> <!--Title page of the simulation-->
         <div class="search-container"> <!--container for search bar-->
             <!--search bar, placeholder for where user types plants is "Search plants..."-->
-            <input id="searchbar" onkeyup="search_plants()" type="text" name="search" placeholder="Search plants...">
+            <input id="searchbar" type="text" name="search" placeholder="Search plants...">
             <!--Enter button next to search bar-->
             <button id="search-btn" onclick="search_plants()">Enter</button>
         </div>
     </div>
+
+    <script>
+        function search_plants() {
+            const plantName = document.getElementById('searchbar').value.trim();
+            
+            // Check if input is valid
+            if (plantName === "") {
+                alert("Please enter a plant name.");
+                return;
+            }
+            
+            // Store the plant name in localStorage
+            localStorage.setItem('plantName', plantName);
+            
+            // Redirect to results page
+            window.location.href = 'simResults.html';
+        }
+    </script>
+
 </body>
 
 </html>
