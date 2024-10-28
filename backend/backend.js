@@ -103,7 +103,7 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
             res.status(500).send('Server error');
             return;
           }
-          res.json(results3);
+          res.status(200).json(results3)
           return;
       });
     });
@@ -131,7 +131,7 @@ app.get('/simulations/pull/:user_id/', (req, res) => { //returns all simulations
       res.status(500).send('Server error');
       return;
     }
-    res.json(results);
+    res.status(200).json(results)
   })
 })
 
