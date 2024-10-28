@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Name of code artifact: All of them
+# Description: Script for setting up the local database after installing required packages from npm on MacOS
+# Name(s): William Johnson
+# Date Created: 10-25-24
+# Dates Revised:
+# Brief description of each revision & author:
+
+
 # Check for Homebrew and install if not found
 if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."

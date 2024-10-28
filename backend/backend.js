@@ -1,7 +1,7 @@
 
 // Name of code artifact: all of them
 // Description: Node.js server
-// Name(s): Matthew Petillo, Wil Johnson
+// Name(s): Matthew Petillo, William Johnson
 // Date Created: 10-23-24
 // Dates Revised: 10-2-24
 // Brief description of each revision & author:
