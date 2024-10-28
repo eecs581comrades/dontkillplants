@@ -16,7 +16,7 @@ Known faults: N/A
 body{
     background-color: rgb(122, 193, 255);
     font-family: Arial, sans-serif;
-    background-image: url("sun.png"), url("plant.png"), url("the_guy.png"); /*Background Image*/
+    background-image: url("img/sun.png"), url("img/plant.png"), url("img/the_guy.png"); /*Background Image*/
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: top left, bottom right, bottom;
     background-size: none, none, cover
