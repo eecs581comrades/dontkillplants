@@ -6,95 +6,95 @@ Date Created: 10-23-24
 Dates Revised: 
 
 Preconditions:
-- The user must enter both a valid username and password into the form.
-- The input values should be strings and are expected to match pre-existing credentials (in this case, "testuser" for the username and "password123" for the password).
-- The HTML document must load properly with the required input fields and JavaScript enabled.
+- User must have a valid username and password for an existing account.
+- The server must be running and accessible at the specified URL.
 
 Acceptable/unacceptable input values/types, and meanings:
-- Acceptable inputs: 
-  - Username: Non-empty string (e.g., "testuser").
-  - Password: Non-empty string (e.g., "password123").
-- Unacceptable inputs:
-  - Empty values for username or password are invalid and will trigger an error message.
+- Acceptable: Non-empty strings for both username and password.
+- Unacceptable: Empty strings or any non-string input types.
 
 Postconditions:
-- Upon successful validation of the credentials, the user is redirected to "simResults.html".
-- If login fails (incorrect credentials), an error message is shown on the page.
-- If an error occurs (e.g., a network issue or JavaScript error), a generic error message will be displayed.
+- User is redirected to the simulation results page upon successful login.
+- User ID is stored in local storage for subsequent requests.
 
 Return values/types, and meanings:
-- The mockLoginCheck function returns a Promise that resolves with an object containing a boolean success property.
-  - If success is true, login is successful, and the user is redirected.
-  - If success is false, login failed, and an error message is displayed.
+- Returns a JSON object containing user details (e.g., user ID) if login is successful.
+- Returns an error message if login fails.
 
 Error and exception condition values/types that can occur, and meanings:
-- Error message for empty inputs: "Both username and password are required."
-- Error message for invalid credentials: "Invalid username or password."
-- Error handling in case of server or script issues: "An error occurred. Please try again."
+- Network errors during fetch result in a console error log.
+- Invalid username or password prompts an error message on the page.
 
 Side effects:
-- The form submission is prevented by calling event.preventDefault() to handle validation and mock login asynchronously.
+- Updates local storage with user ID if login is successful.
+- Changes the current page to the results page upon successful login.
 
 Invariants:
-- The username and password fields must never be empty.
-- The same mock credentials ("testuser" and "password123") will always result in successful login during the mock check.
+- The form must always contain fields for username and password.
+- Local storage is only updated on successful login.
 
 Known faults:
-- Since this is a mock login check, it doesn't connect to a real database, so only hardcoded values will work for validation.
-- There is no input validation for security (e.g., no handling of SQL injection, weak password checks, etc.).
+- Potential for cross-site scripting (XSS) if user input is not properly sanitized on the server-side.
+- Hardcoded server URL can lead to issues in different environments (e.g., production).
+
 -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="icon" href="img/the_guy.png" type="image/png">
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for different devices -->
+    <title>Login</title> <!-- Title of the webpage -->
+    <link rel="icon" href="img/the_guy.png" type="image/png"> <!-- Favicon for the webpage -->
     <style>
         .error {
-            color: red;
+            color: red; /* Style for error messages */
         }
     </style>
-    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/general.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-    <h1>Log In</h1>
-    <form id="login-form">
+    <h1>Log In</h1> <!-- Main heading of the login page -->
+    <form id="login-form"> <!-- Form for user login -->
         <label for="username">Username:</label><br>
-        <input type="text" id="username" required><br><br>
+        <input type="text" id="username" required><br><br> <!-- Input field for username, marked as required -->
         <label for="password">Password:</label><br>
-        <input type="password" id="password" required><br><br>
-        <button type="submit">Log In</button>
+        <input type="password" id="password" required><br><br> <!-- Input field for password, marked as required -->
+        <button type="submit">Log In</button> <!-- Submit button for the form -->
     </form>
-    <p id="login-message"></p>
+    <p id="login-message"></p> <!-- Paragraph for displaying login messages -->
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+        document.getElementById('login-form').addEventListener('submit', function(e) { // Event listener for form submission
+            e.preventDefault(); // Prevent the default form submission behavior
+            const username = document.getElementById('username').value; // Get username input value
+            const password = document.getElementById('password').value; // Get password input value
+            const plantId = localStorage.getItem('plantId'); // Retrieve plant ID from local storage (if needed)
 
-            fetch(`http://localhost:5100/account/pull/${username}/${password}`)
-                // Inside the login success block
+            fetch(`http://localhost:5100/account/pull/${username}/${password}`) // Fetch request to validate login credentials
                 .then(response => {
-                    if (response.ok) {
-                        document.getElementById('login-message').textContent = "Log-in Successful!";
-                        return response.json(); // Make sure to get user info, including ID
+                    if (response.ok) { // If the response is successful
+                        document.getElementById('login-message').textContent = "Log-in Successful!"; // Display success message
+                        return response.json(); // Parse and return the JSON response
                     } else {
-                        document.getElementById('login-message').textContent = "Invalid username or password.";
+                        document.getElementById('login-message').textContent = "Invalid username or password."; // Display error message
                     }
                 })
                 .then(data => {
                     // Assuming your SQL fetch returns user ID
-                    localStorage.setItem('userId', data.user_id); // Save user ID
-                    window.location.href = 'simResults.html';
+                    localStorage.setItem('userId', data.user_id); // Save user ID to local storage
+                    if (plantId !== null) { // Check if plant ID is stored
+                        // Save simulation to the database
+                        fetch(`http://localhost:5100/simulations/add/${data.user_id}/${plantId}`, { // Fetch request to save simulation
+                            method: 'POST' // Specifies the request method
+                        });
+                    }
+                    window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
                 })
                 .catch(error => {
-                    console.error('Error during login:', error);
+                    console.error('Error during login:', error); // Log any errors that occur during the fetch
                 });
         });
     </script>
 </body>
-
 </html>

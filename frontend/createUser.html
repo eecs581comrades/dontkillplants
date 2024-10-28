@@ -1,63 +1,105 @@
+<!-- 
+Name of code artifact: Create User Page
+Description: Create new user to save simulation
+Name(s): Chase Curtis
+Date Created: 10-23-24
+Dates Revised: 
+
+Preconditions:
+- User must provide a unique username and a secure password.
+
+Acceptable/unacceptable input values/types, and meanings:
+- Acceptable: Non-empty strings for both username and password.
+- Unacceptable: Empty strings or duplicate usernames.
+
+Postconditions:
+- New user account is created and associated simulation data is saved.
+
+Return values/types, and meanings:
+- Returns a success message upon successful account creation.
+- Returns error messages for invalid input or server issues.
+
+Error and exception condition values/types that can occur, and meanings:
+- Network errors during fetch result in a console error log.
+- Username already exists or other validation errors return appropriate messages.
+
+Side effects:
+- Updates the database with the new user account and associated simulation data.
+- Modifies the current page to redirect the user upon successful account creation.
+
+Invariants:
+- The form must always include fields for username and password.
+- Local storage is only accessed if the plant ID is stored.
+
+Known faults:
+- Potential for SQL injection or XSS if user input is not properly sanitized on the server side.
+- Hardcoded server URL may lead to issues in different environments (e.g., production).
+
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- Specifies the language of the document -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
+    <meta charset="UTF-8"> <!-- Sets character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on various devices -->
+    <title>Create Account</title> <!-- Title of the webpage displayed in the browser tab -->
+    <link rel="icon" href="img/the_guy.png" type="image/png">
+    <link rel="stylesheet" href="css/general.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; 
             margin: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Create Account</h1>
-    <form id="register-form">
+    <h1>Create Account</h1> <!-- Main heading of the page -->
+    <form id="register-form"> <!-- Form for user account creation -->
         <label for="new-username">Username:</label><br>
-        <input type="text" id="new-username" required><br><br>
+        <input type="text" id="new-username" required><br><br> <!-- Input for username, marked as required -->
         <label for="new-password">Password:</label><br>
-        <input type="password" id="new-password" required><br><br>
-        <button type="submit">Create Account</button>
+        <input type="password" id="new-password" required><br><br> <!-- Input for password, marked as required -->
+        <button type="submit">Create Account</button> <!-- Button to submit the form -->
     </form>
-    <p id="register-message"></p>
+    <p id="register-message"></p> <!-- Paragraph for displaying registration messages -->
 
     <script>
-        document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('new-username').value;
-            const password = document.getElementById('new-password').value;
-            const plantId = localStorage.getItem('plantId'); // Assuming plantId is stored in localStorage
+        document.getElementById('register-form').addEventListener('submit', function(e) { // Event listener for form submission
+            e.preventDefault(); // Prevents the default form submission behavior
+            const username = document.getElementById('new-username').value; // Gets the username input value
+            const password = document.getElementById('new-password').value; // Gets the password input value
+            const plantId = localStorage.getItem('plantId'); // Retrieves plant ID from local storage (if needed)
     
-            fetch(`http://localhost:5100/account/add/${username}/${password}`, {
-                method: 'POST'
+            fetch(`http://localhost:5100/account/add/${username}/${password}`, { // Fetch request to add new user
+                method: 'POST' // Specifies the request method
             })
             .then(response => {
-                if (response.ok) {
-                    document.getElementById('register-message').textContent = "Account created successfully!";
-                    
-                    // Save simulation to the database
-                    return fetch(`http://localhost:5100/simulations/add/${username}/${plantId}`, {
-                        method: 'POST'
-                    });
+                if (response.ok) { // Checks if the response indicates success
+                    document.getElementById('register-message').textContent = "Account created successfully!"; // Displays success message
                 } else {
-                    return response.text().then(text => {
-                        document.getElementById('register-message').textContent = text;
+                    return response.text().then(text => { // Handles errors by reading the response text
+                        document.getElementById('register-message').textContent = text; // Displays error message
                     });
                 }
             })
             .then(response => {
-                if (response.ok) {
-                    alert("Simulation saved to your user information!");
-                    window.location.href = 'home.html'; // Redirect to home page
+                if (response.ok) { // Checks if the simulation save response is successful
+                    localStorage.setItem('userId', data.user_id); // Save user ID to local storage
+                    if (plantId !== null) { // Check if plant ID is stored
+                        // Save simulation to the database
+                        fetch(`http://localhost:5100/simulations/add/${data.user_id}/${plantId}`, { // Fetch request to save simulation
+                            method: 'POST' // Specifies the request method
+                        });
+                    }
+                    window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
                 } else {
-                    return response.text().then(text => {
-                        alert("Error saving simulation: " + text);
+                    return response.text().then(text => { // Handles errors during simulation save
+                        alert("Error saving simulation: " + text); // Alerts user of save error
                     });
                 }
             })
             .catch(error => {
-                console.error('Error during registration:', error);
+                console.error('Error during registration:', error); // Logs any errors during the fetch process
             });
         });
     </script>
