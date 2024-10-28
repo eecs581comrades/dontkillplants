@@ -58,6 +58,7 @@ app.get('/search/:plantName', (req, res) => { //accepts plant name, returns plan
       return;
     }
     res.json(results);
+    return;
   });
 });
 
@@ -71,7 +72,7 @@ app.get('/account/pull/:username/:password', (req, res) => { //returns account i
       return;
     }
     if (results.length > 0) {
-      console.log(results)
+      res.status(200).json(results)
     } else {
       res.status(401).send('Invalid username or password');
   }});
@@ -131,7 +132,8 @@ app.get('/simulations/pull/:user_id/', (req, res) => { //returns all simulations
       res.status(500).send('Server error');
       return;
     }
-    res.status(200).json(results)
+    res.status(200).json(results);
+    return;
   })
 })
 
