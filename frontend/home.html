@@ -25,9 +25,18 @@ Known faults: About button goes nowhere
         <div>
         <button onclick="location.href='simulation.html'">Simulation</button><!--Button to go to simulation-->
         <button onclick="location.href='viewLoad.html'">Login</button>
+        <button onclick="location.href='createUser.html'">Create User</button>
         <button>About</button><!--Button to go to about page-->
-        <div>
+        </div>
     </div>
+    <script>
+        let plantId = null;
+        let userId = null;
+
+        // Store in local storage
+        localStorage.setItem('plantId', plantId);
+        localStorage.setItem('userId', userId);
+    </script>
 </body>
 </html>
 
