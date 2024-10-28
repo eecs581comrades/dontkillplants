@@ -45,3 +45,10 @@ button{
     justify-content: center;
     height: 100vh;
 }
+
+.box {
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
