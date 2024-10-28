@@ -11,7 +11,7 @@ prerequsites: chocolatey, which can be found at https://chocolatey.org/
 
 run npm install
 
-### <sql does not work>
+### < sql does not work >
 
 if creating the SQL instance does not work, run the following commands manually: 
 
@@ -23,7 +23,7 @@ CREATE DATABASE dontkillplants
 
 use dontkillplants
 
-### </sql does not work>
+### < /sql does not work >
 
 npm run build
 
