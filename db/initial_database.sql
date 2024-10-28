@@ -30,18 +30,20 @@ CREATE TABLE `plants` (
   PRIMARY KEY (`plant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `simulations` (
-  'user_id' int,
-  'simulation_id' int NOT NULL AUTO_INCREMENT,
-  'date_created' DEFAULT CURRENT_TIMESTAMP,
-  'plant_id' int DEFAULT NULL,
-  'plant_log' text,
-  PRIMARY KEY ('simulation_id'),
-  FOREIGN KEY ('user_id') REFERENCES user_pass_combo('user_id')
+CREATE TABLE `user_pass_combo` (
+  `username` text,
+  `password` text,
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `user_pass_combo` (
-  'username' text,
-  'password' text,
-  'user_id' int NOT NULL AUTO_INCREMENT,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `simulations` (
+  `simulation_id` int NOT NULL AUTO_INCREMENT,
+  `date_created` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `plant_id` int DEFAULT NULL,
+  `plant_log` text,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`simulation_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `user_pass_combo`(`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
