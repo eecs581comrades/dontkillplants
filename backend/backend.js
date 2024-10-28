@@ -62,6 +62,20 @@ app.get('/search/:plantName', (req, res) => { //accepts plant name, returns plan
   });
 });
 
+app.get('/search/id/:plantId', (req, res) => {
+  const plantId = req.params.plantId; // Retrieve plant ID from request
+  connection.query('SELECT * FROM plants WHERE plant_id = ?', [plantId], (err, results) => {
+    if (err) {
+      console.error('Error fetching plant:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    res.json(results);
+    return;
+  });
+});
+
+
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
   const password = req.params.password;
@@ -72,7 +86,7 @@ app.get('/account/pull/:username/:password', (req, res) => { //returns account i
       return;
     }
     if (results.length > 0) {
-      res.status(200).json(results)
+      res.status(200).json(results[0])
     } else {
       res.status(401).send('Invalid username or password');
   }});
@@ -111,31 +125,34 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
   };
 })});
 
-app.post('/simulations/add/:user_id/:plant_id', (req, res) => { //returns 201 for successful simulation add
-  const user_id = req.params.user_id;
-  const plant_id = req.params.plant_id;
-  connection.query("INSERT INTO simulations (plant_id, user_id) VALUES (?, ?)" [plant_id, user_id], (err, results) => {
-    if (err){
-      console.error('Error adding simulation:', err);
-      res.status(500).send('Server error');
+app.post('/simulations/add/:user_id/:plant_id', (req, res) => { 
+  const user_id = parseInt(req.params.user_id, 10); 
+  const plant_id = parseInt(req.params.plant_id, 10); 
+  connection.query("INSERT INTO simulations (plant_id, user_id) VALUES (?, ?)", [plant_id, user_id], (err, results) => {
+    if (err) {
+      console.error('Error adding simulation:', err.message);  // Log detailed error
+      res.status(500).send(`Server error: ${err.message}`);    // Return error message to client
       return;
     }
     res.status(201).send("Simulation created successfully");
-  })
+  });
 });
 
-app.get('/simulations/pull/:user_id/', (req, res) => { //returns all simulations found under user ID
-  const user_id = req.params.user_id;
-  connection.query("SELECT * FROM simulations WHERE user_id = ?", [user_id], (err, results) => {
-    if (err){
-      console.error('Error fetching user simulations');
-      res.status(500).send('Server error');
-      return;
-    }
-    res.status(200).json(results);
-    return;
-  })
-})
+app.get('/simulations/:userId', (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
+  console.log(`Fetching simulations for userId: ${userId}`); // Log userId
+
+  // Sample query to check database response
+  connection.query('SELECT * FROM simulations WHERE user_id = ?', [userId], (err, results) => {
+      if (err) {
+          console.error('Database query error:', err);
+          res.status(500).send('Database query failed');
+          return;
+      }
+      console.log('Database results:', results); // Log results
+      res.json(results);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

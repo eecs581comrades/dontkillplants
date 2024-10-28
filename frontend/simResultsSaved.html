@@ -2,39 +2,31 @@
 Name of code artifact: Simulation Results Page
 Description: Shows Results of simulation ran
 Name(s): Chase Curtis
-Date Created: 10-23-24
+Date Created: 10-27-24
 Dates Revised: 
 
-Preconditions:
-- User must have run a simulation and have a valid plant name stored in localStorage.
+Preconditions: User must have a valid plant ID stored in localStorage.
 
-Acceptable/unacceptable input values/types, and meanings:
-- Acceptable: Valid plant names stored as strings in localStorage.
-- Unacceptable: Empty or undefined plant names.
+Acceptable/unacceptable input values/types, and meanings: 
+- Acceptable: Valid plant ID stored in localStorage. 
+- Unacceptable: Missing or invalid plant ID.
 
-Postconditions:
-- Displays the results of the plant simulation or an error message if no results are found.
+Postconditions: Displays plant simulation results or relevant messages if none exist.
 
-Return values/types, and meanings:
-- Returns JSON data containing plant details if the fetch is successful.
-- Returns error messages for invalid input or fetch failures.
+Return values/types, and meanings: 
+- Returns an object containing plant details or an error message if retrieval fails.
 
-Error and exception condition values/types that can occur, and meanings:
-- Network errors during fetch result in a console error log.
-- Missing plant name or user ID will display appropriate messages.
+Error and exception condition values/types that can occur, and meanings: 
+- Network errors during fetch, missing plant ID, or empty results.
 
-Side effects:
+Side effects: 
 - Updates the DOM with plant details or error messages.
-- Stores the plant ID in localStorage for later use.
 
-Invariants:
-- The page must always attempt to retrieve a plant name from localStorage.
-- Plant details will only be displayed if valid data is fetched from the backend.
+Invariants: 
+- The page structure remains consistent regardless of the plant data.
 
-Known faults:
-- Potential for XSS if user input is not properly sanitized when stored in localStorage.
-- Hardcoded server URLs may lead to issues in different environments (e.g., production).
-
+Known faults: 
+- None identified; consider adding more robust error handling for edge cases.
 -->
 
 <!DOCTYPE html>
@@ -54,22 +46,21 @@ Known faults:
         </div>
         <!-- Navigation Links -->
         <div>
-            <button onclick="window.location.href='viewLoad.html'">Log In</button> <!-- Button to navigate to the login page -->
-            <button onclick="window.location.href='createUser.html'">Create Account</button> <!-- Button to navigate to the create account page -->
+            <button onclick="window.location.href='viewCurrentSimulations.html'">Go Back</button> <!-- Back to Account -->
         </div>
     </div>
 
     <script>
-        // Retrieve plant name from localStorage
-        const plantName = localStorage.getItem('plantName'); // Gets the plant name stored in localStorage
+        // Retrieve plant ID from localStorage
+        const plantId = localStorage.getItem('plantId'); // Gets the plant ID stored in localStorage
 
-        // Check if plant name exists
-        if (plantName) { // Verifies that a plant name was retrieved
-            // Log plant name for debugging
-            console.log("Searching for plant:", plantName); // Logs the plant name being searched
+        // Check if plant ID exists
+        if (plantId) { // Verifies that a plant ID was retrieved
+            // Log plant ID for debugging
+            console.log("Searching for plant with ID:", plantId); // Logs the plant ID being searched
 
             // Fetch plant data from the backend
-            fetch(`http://localhost:5100/search/${encodeURIComponent(plantName)}`) // Fetches plant data from the server
+            fetch(`http://localhost:5100/search/id/${encodeURIComponent(plantId)}`) // Fetches plant data from the server using plant ID
                 .then(response => { // Handles the server response
                     if (!response.ok) { // Checks for an error response
                         throw new Error("Network response was not ok"); // Throws an error if the response is not ok
@@ -99,25 +90,6 @@ Known faults:
                             <p><strong>Humidity Tolerance:</strong> ${plant.humidity_tolerance}</p> <!-- Displays humidity tolerance -->
                             <p><strong>Important Information:</strong> ${plant.important_info}</p> <!-- Displays important information -->
                         `;
-                         // Check if userId exists
-                        const userId = localStorage.getItem('userId'); // Retrieve user ID from localStorage
-                        if (userId !== 'null') { // Check if the user is logged in
-                            fetch(`http://localhost:5100/simulations/add/${userId}/${plant.plant_id}`, { // Fetch request to save simulation for the user
-                                method: 'POST' // Specifies the request method
-                            })
-                            .then(response => { // Handles the server response
-                                if (response.ok) { // Checks for a successful response
-                                    alert("Simulation created successfully and saved to your account!"); // Alerts user of success
-                                } else {
-                                    alert("Error saving simulation. Please try again."); // Alerts user of failure
-                                }
-                            })
-                            .catch(error => { // Catches errors during the fetch
-                                console.error('Error during simulation saving:', error); // Logs the error
-                                alert("Error saving simulation. Please try again."); // Alerts user of error
-                            });
-                        }
-                        
                     } else {
                         resultsDiv.innerHTML = '<p>No results found for this plant.</p>'; // Displays message if no results found
                     }
@@ -127,7 +99,7 @@ Known faults:
                     document.getElementById('plant-results').innerHTML = '<p>Error retrieving plant details. Please try again.</p>'; // Displays error message
                 });
         } else {
-            document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant name
+            document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant ID
         }
     </script>
 </body>

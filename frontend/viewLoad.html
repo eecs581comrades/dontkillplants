@@ -69,7 +69,7 @@ Known faults:
             e.preventDefault(); // Prevent the default form submission behavior
             const username = document.getElementById('username').value; // Get username input value
             const password = document.getElementById('password').value; // Get password input value
-            const plantId = localStorage.getItem('plantId'); // Retrieve plant ID from local storage (if needed)
+            const plantId = localStorage.getItem('plantId');
 
             fetch(`http://localhost:5100/account/pull/${username}/${password}`) // Fetch request to validate login credentials
                 .then(response => {
@@ -78,23 +78,39 @@ Known faults:
                         return response.json(); // Parse and return the JSON response
                     } else {
                         document.getElementById('login-message').textContent = "Invalid username or password."; // Display error message
+                        throw new Error('Invalid credentials');
                     }
                 })
                 .then(data => {
-                    // Assuming your SQL fetch returns user ID
-                    localStorage.setItem('userId', data.user_id); // Save user ID to local storage
-                    if (plantId !== null) { // Check if plant ID is stored
+                    const user = Array.isArray(data) ? data[0] : data;
+                    localStorage.setItem('userId', user.user_id); // Save user ID to local storage
+
+                    if (plantId !== 'null') { // Check if plant ID is stored
+                        console.log('Attempting to add simulation with:', { user_id: user.user_id, plant_id: plantId });
+    
                         // Save simulation to the database
-                        fetch(`http://localhost:5100/simulations/add/${data.user_id}/${plantId}`, { // Fetch request to save simulation
-                            method: 'POST' // Specifies the request method
-                        });
+                        fetch(`http://localhost:5100/simulations/add/${user.user_id}/${plantId}`, {
+                            method: 'POST'
+                        })
+                        .then(simulationResponse => {
+                            if (simulationResponse.ok) {
+                                console.log("Simulation created successfully");
+                                window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
+                            } else {
+                                console.error("Error creating simulation:", simulationResponse.statusText);
+                                simulationResponse.text().then(text => console.error("Server response:", text));
+                            }
+                        })
+                        .catch(error => console.error('Error saving simulation:', error)); // Log errors if they occur
+                    } else {
+                        window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
                     }
-                    window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
                 })
                 .catch(error => {
                     console.error('Error during login:', error); // Log any errors that occur during the fetch
                 });
         });
     </script>
+    
 </body>
 </html>

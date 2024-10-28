@@ -68,7 +68,6 @@ Known faults:
             e.preventDefault(); // Prevents the default form submission behavior
             const username = document.getElementById('new-username').value; // Gets the username input value
             const password = document.getElementById('new-password').value; // Gets the password input value
-            const plantId = localStorage.getItem('plantId'); // Retrieves plant ID from local storage (if needed)
     
             fetch(`http://localhost:5100/account/add/${username}/${password}`, { // Fetch request to add new user
                 method: 'POST' // Specifies the request method
@@ -83,20 +82,7 @@ Known faults:
                 }
             })
             .then(response => {
-                if (response.ok) { // Checks if the simulation save response is successful
-                    localStorage.setItem('userId', data.user_id); // Save user ID to local storage
-                    if (plantId !== null) { // Check if plant ID is stored
-                        // Save simulation to the database
-                        fetch(`http://localhost:5100/simulations/add/${data.user_id}/${plantId}`, { // Fetch request to save simulation
-                            method: 'POST' // Specifies the request method
-                        });
-                    }
-                    window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
-                } else {
-                    return response.text().then(text => { // Handles errors during simulation save
-                        alert("Error saving simulation: " + text); // Alerts user of save error
-                    });
-                }
+                window.location.href = 'viewLoad.html'; // Redirect to results page
             })
             .catch(error => {
                 console.error('Error during registration:', error); // Logs any errors during the fetch process
