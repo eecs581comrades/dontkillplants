@@ -1,3 +1,10 @@
+# Name of code artifact: All of them
+# Description: Script for setting up the local database after installing required packages from npm on Windows
+# Name(s): William Johnson
+# Date Created: 10-25-24
+# Dates Revised:
+# Brief description of each revision & author:
+
 # Check if Chocolatey is installed and install it if necessary
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     Write-Output "Chocolatey not found. Installing Chocolatey..."

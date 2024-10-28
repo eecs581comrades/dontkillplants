@@ -1,3 +1,10 @@
+// Name of code artifact: All of them
+// Description: Node.js setup script for configuring the local database
+// Name(s): William Johnson
+// Date Created: 10-25-24
+// Dates Revised:
+// Brief description of each revision & author:
+
 const { spawn } = require('child_process');
 const path = require('path');
 
