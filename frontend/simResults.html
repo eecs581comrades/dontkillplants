@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Simulation Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Simulation Results</h1>
+        <div id="plant-results">
+            <!-- Placeholder for displaying plant details -->
+        </div>
+        <!-- Navigation Links -->
+        <div>
+            <button onclick="window.location.href='viewLoad.html'">Log In</button>
+            <button onclick="window.location.href='createUser.html'">Create Account</button>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve plant name from localStorage
+        const plantName = localStorage.getItem('plantName');
+
+        // Check if plant name exists
+        if (plantName) {
+            // Log plant name for debugging
+            console.log("Searching for plant:", plantName);
+
+            // Fetch plant data from the backend
+            fetch(`http://localhost:5100/search/${encodeURIComponent(plantName)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const resultsDiv = document.getElementById('plant-results');
+                    console.log("Received data:", data); // Log data for debugging
+                    if (data.length > 0) {
+                        const plant = data[0];
+                        const plantId = plant.plant_id;
+                        resultsDiv.innerHTML = `
+                            <h2>${plant.plant_common_name}</h2>
+                            <p><strong>Scientific Name:</strong> ${plant.plant_scientific_name}</p>
+                            <p><strong>Watering Frequency:</strong> ${plant.watering_frequency}</p>
+                            <p><strong>Watering Amount:</strong> ${plant.watering_amount}</p>
+                            <p><strong>Sunlight Type:</strong> ${plant.sunlight_type}</p>
+                            <p><strong>Sunlight Duration:</strong> ${plant.sunlight_duration}</p>
+                            <p><strong>Soil Conditions:</strong> ${plant.soil_conditions}</p>
+                            <p><strong>Lifecycle Stage:</strong> ${plant.lifecycle_stage}</p>
+                            <p><strong>Average Lifespan:</strong> ${plant.average_lifespan}</p>
+                            <p><strong>Growth Rate:</strong> ${plant.growth_rate}</p>
+                            <p><strong>Optimal Temperature Range:</strong> ${plant.temperature_optimal_range}</p>
+                            <p><strong>Temperature Tolerance:</strong> ${plant.temperature_tolerance}</p>
+                            <p><strong>Optimal Humidity:</strong> ${plant.humidity_optimal}</p>
+                            <p><strong>Humidity Tolerance:</strong> ${plant.humidity_tolerance}</p>
+                            <p><strong>Important Information:</strong> ${plant.important_info}</p>
+                        `;
+                        
+                    } else {
+                        resultsDiv.innerHTML = '<p>No results found for this plant.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching plant details:', error);
+                    document.getElementById('plant-results').innerHTML = '<p>Error retrieving plant details. Please try again.</p>';
+                });
+        } else {
+            document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>';
+        }
+        if (userId) {
+            fetch(`http://localhost:5100/simulations/add/${userId}/${plant.plant_id}`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Simulation created successfully and saved to your account!");
+                } else {
+                    alert("Error saving simulation. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error during simulation saving:', error);
+                alert("Error saving simulation. Please try again.");
+            });
+        } else {
+            alert("You must be logged in to save this simulation.");
+        }
+    </script>
+</body>
+</html>
