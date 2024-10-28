@@ -64,7 +64,7 @@ app.get('/search/:plantName', (req, res) => { //accepts plant name, returns plan
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
   const password = req.params.password;
-  connection.query('SELECT * FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
+  connection.query('SELECT user_id FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
     if (err) {
       console.error('Error fetching user:', err);
       res.status(500).send('Server error');
