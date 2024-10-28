@@ -107,7 +107,7 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
       });
     });
   };
-});
+})});
 
 app.post('/simulations/add/:user_id/:plant_id', (req, res) => { //returns 201 for successful simulation add
   const user_id = req.params.user_id;
@@ -143,4 +143,3 @@ app.post('/', (req, res) => {
 })
 // Registers the app to use bodyParser to make our lives easier and avoid needing to decode json frequently.
 app.use(bodyParser.json());
-
