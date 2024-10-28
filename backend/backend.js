@@ -53,7 +53,7 @@ app.get('/search/:plantName', (req, res) => {
   });
 });
 
-app.get('/account/:username&password', (req, res) => {
+app.get('/account/pull/:username&password', (req, res) => {
   const username = req.params.username;
   const password = req.params.password;
   connection.query('SELECT * FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
@@ -63,10 +63,36 @@ app.get('/account/:username&password', (req, res) => {
       return;
     }
     if (results.length > 0) {
-      res.status(200).send("Log-in Successful");
+      res.status(202).send("Log-in Successful");
     } else {
       res.status(401).send('Invalid username or password');
   }});
+});
+
+app.post('/account/add/:username/:password', (req, res) => {
+  const username = req.params.username;
+  const password = req.params.password;
+  connection.query('SELECT * FROM user_pass_combo WHERE username = ?', [username], (err, results) => {
+    if (err) {
+      console.error('Error adding user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    if (results.length > 0) {
+      res.status(400).send('Username already exists');
+      return;
+    }
+    else {
+      connection.query("INSERT INTO user_pass_combo (username, password) VALUES (?, ?)", [username, password], (err, results) => {
+        if (err) {
+          console.error('Error adding user:', err);
+          res.status(500).send('Server error');
+          return;
+        }
+        res.status(201).send("Account created successfully");
+      });
+    }
+  });
 });
 
 app.listen(port, () => {
