@@ -6,6 +6,8 @@ USE dontkillplants;
 
 -- Drop the table if it exists to avoid conflicts during creation
 DROP TABLE IF EXISTS `plants`;
+DROP TABLE IF EXISTS `simulations`;
+DROP TABLE IF EXISTS `user_pass_combo`;
 
 -- Create the `plants` table
 CREATE TABLE `plants` (
@@ -27,3 +29,19 @@ CREATE TABLE `plants` (
   `important_info` text,
   PRIMARY KEY (`plant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `simulations` (
+  'user_id' int,
+  'simulation_id' int NOT NULL AUTO_INCREMENT,
+  'date_created' DEFAULT CURRENT_TIMESTAMP,
+  'plant_id' int DEFAULT NULL,
+  'plant_log' text,
+  PRIMARY KEY ('simulation_id'),
+  FOREIGN KEY ('user_id') REFERENCES user_pass_combo('user_id')
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `user_pass_combo` (
+  'username' text,
+  'password' text,
+  'user_id' int NOT NULL AUTO_INCREMENT,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
