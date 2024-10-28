@@ -64,7 +64,7 @@ app.get('/search/:plantName', (req, res) => { //accepts plant name, returns plan
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
   const password = req.params.password;
-  connection.query('SELECT * FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
+  connection.query('SELECT user_id FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
     if (err) {
       console.error('Error fetching user:', err);
       res.status(500).send('Server error');
@@ -107,7 +107,7 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
       });
     });
   };
-});
+})});
 
 app.post('/simulations/add/:user_id/:plant_id', (req, res) => { //returns 201 for successful simulation add
   const user_id = req.params.user_id;
@@ -143,4 +143,3 @@ app.post('/', (req, res) => {
 })
 // Registers the app to use bodyParser to make our lives easier and avoid needing to decode json frequently.
 app.use(bodyParser.json());
-
