@@ -104,6 +104,7 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
             return;
           }
           res.json(results3);
+          return;
       });
     });
   };
