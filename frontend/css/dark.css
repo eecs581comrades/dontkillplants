@@ -1,8 +1,8 @@
 /*
-Name of code artifact: 2) Basic Home Page
-Description: General Styling for Pages
+Name of code artifact: 
+Description: 
 Name(s): Katie Golder
-Date Created: 10-23-24
+Date Created: 10-28-24
 Dates Revised (Brief description of each revision & author): N/A
 Preconditions (Acceptable/unacceptable input values/types, and meanings) : N/A
 Postconditions (Return values/types, and meanings): N/A
@@ -14,9 +14,9 @@ Known faults: N/A
 
 /*Makes the background blue*/
 body{
-    background-color: rgb(122, 193, 255);
+    background-color: rgb(28, 11, 121);
     font-family: Arial, sans-serif;
-    background-image: url("img/sun.png"), url("img/plant.png"), url("img/the_guy.png"), url("img/ground.png"); /*Background Image*/
+    background-image: url("img/moon.png"), url("img/nightPlant.png"), url("img/the_guy.png"),  url("img/nightGround.png"); /*Background Image*/
     background-repeat: no-repeat, no-repeat, no-repeat, repeat-x;
     background-position: 2% 2%, 98% 82%, 50% 82%, bottom;
     background-size: none, none, cover
@@ -26,13 +26,13 @@ body{
 h1{
     font-size: 48px;
     margin-bottom: 20px;
-    color: #333;
+    color: #cbcbcb;
 }
 
 /*Styles the buttons*/
 button{
-    background-color: #4CAF50;
-    color: white;
+    background-color: #000000;
+    color: rgb(201, 201, 201);
     border-radius: 10px;
     padding: 10px 20px;
 }
@@ -47,7 +47,7 @@ button{
 }
 
 .box {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     flex-direction: column;
     align-items: center;
     justify-content: center;
