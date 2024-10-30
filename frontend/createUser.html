@@ -44,7 +44,8 @@ Known faults:
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on various devices -->
     <title>Create Account</title> <!-- Title of the webpage displayed in the browser tab -->
     <link rel="icon" href="css/img/the_guy.png" type="image/png">
-    <link rel="stylesheet" href="css/general.css">
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
     <style>
         body {
             font-family: Arial, sans-serif; 
@@ -53,6 +54,7 @@ Known faults:
     </style>
 </head>
 <body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <h1>Create Account</h1> <!-- Main heading of the page -->
     <form id="register-form"> <!-- Form for user account creation -->
         <label for="new-username">Username:</label><br>
