@@ -36,9 +36,11 @@ Known faults:
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on various devices -->
     <title>Plant Simulation Results</title> <!-- Title of the webpage displayed in the browser tab -->
     <link rel="icon" href="css/img/the_guy.png" type="image/png"> <!-- Favicon for the webpage -->
-    <link rel="stylesheet" href="css/general.css"> <!-- Link to external CSS file for styling -->
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
 </head>
 <body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container"> <!-- Container for the page content -->
         <h1>Plant Simulation Results</h1> <!-- Main heading of the page -->
         <div id="plant-results"> <!-- Placeholder for displaying plant details -->

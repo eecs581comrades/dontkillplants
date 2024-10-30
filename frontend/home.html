@@ -16,13 +16,13 @@ Known faults: About button goes nowhere
 <head>
     <title>Don't Kill Plants</title>
     <link rel="icon" href="css/img/the_guy.png" type="image/png">
-    <script type="text/javascript" src="js/themeToggle.js"></script>
-    <link id="theme" rel="stylesheet" 
-          type="text/css" href="css/general.css" />
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
     
 </head>
 
 <body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container">
         <h1>Don't Kill Plants</h1> <!--Tab words-->
         <div>
@@ -32,8 +32,6 @@ Known faults: About button goes nowhere
         <button>About</button><!--Button to go to about page-->
         </div>
     </div>
-
-    <button onclick="toggleTheme()">Switch</button>
     
     <script>
         let plantId = null;

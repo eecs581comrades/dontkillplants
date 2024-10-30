@@ -16,10 +16,10 @@ Known faults: N/A
 body{
     background-color: rgb(28, 11, 121);
     font-family: Arial, sans-serif;
-    background-image: url("img/moon.png"), url("img/nightPlant.png"), url("img/the_guy.png"),  url("img/nightGround.png"); /*Background Image*/
-    background-repeat: no-repeat, no-repeat, no-repeat, repeat-x;
-    background-position: 2% 2%, 98% 82%, 50% 82%, bottom;
-    background-size: none, none, cover
+    background-image: url("img/nightPlant.png"), url("img/the_guy.png"),  url("img/nightGround.png"); /*Background Image*/
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: 98% 82%, 50% 82%, bottom;
+    background-size: none, cover
 }
 
 /*Makes the header text white*/
@@ -37,18 +37,32 @@ button{
     padding: 10px 20px;
 }
 
+.themeButton {
+    background-color: rgb(31, 67, 244);
+    border-radius: 50%;
+    padding: 70px;
+    z-index: 900;
+}
+
 /*Centers anything with the divider class*/
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    /*justify-content: center;*/
+    height: 80vh;
 }
 
+/*
 .box {
     background-color: rgb(0, 0, 0);
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+*/
+
+/*Styles form input instruction text*/
+label {
+    color: rgb(255, 255, 255);
 }

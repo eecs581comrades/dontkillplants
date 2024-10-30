@@ -33,9 +33,11 @@ Known faults:
 <head>
     <title>Don't Kill Plants</title> <!-- Title of the page displayed in the browser tab -->
     <link rel="icon" href="css/img/the_guy.png" type="image/png"> <!-- Favicon for the webpage -->
-    <link rel="stylesheet" href="css/general.css"> <!-- Link to external CSS for styling -->
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
 </head>
 <body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container"> <!-- Main container for the page layout -->
         <div class="box" style="height: 500px; width: 500px;"> <!-- Box containing the simulation title and buttons -->
             <h1 style="text-align: center;">View Simulations</h1> <!-- Header for the page -->
