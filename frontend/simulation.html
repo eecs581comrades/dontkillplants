@@ -48,8 +48,7 @@ Known faults:
     <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
     <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
     <style>
-
-        /* CSS styles for the page*/
+        /* CSS styles for the page */
         .search-container {
             display: flex;
             align-items: center;
@@ -83,7 +82,24 @@ Known faults:
             transition: background-color 0.3s;
         }
 
-        #search-btn:hover { /* search button hover is green*/
+        #search-btn:hover { /* search button hover is green */
+            background-color: #45a049;
+        }
+
+        /* Style for the FAQ button */
+        #faq-btn {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        #faq-btn:hover {
             background-color: #45a049;
         }
 
@@ -99,12 +115,19 @@ Known faults:
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container">
         <h1>Plant Simulation</h1> <!--Title page of the simulation-->
+        
+        
         <div class="search-container"> <!--container for search bar-->
             <!--search bar, placeholder for where user types plants is "Search plants..."-->
             <input id="searchbar" type="text" name="search" placeholder="Search plants...">
             <!--Enter button next to search bar-->
             <button id="search-btn" onclick="search_plants()">Enter</button>
+
         </div>
+
+        <!-- FAQ Button -->
+        <button id="faq-btn" onclick="location.href='faq.html'">Go to FAQ</button>
+
     </div>
 
     <script>
@@ -123,9 +146,7 @@ Known faults:
             // Redirect to results page
             window.location.href = 'simResults.html';
         }
-        
     </script>
-
 </body>
 
 </html>
