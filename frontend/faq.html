@@ -1,0 +1,144 @@
+<!-- simulation.html
+Name of code artifact: 4) Simulation Creation
+Description: Simulation start page
+Name(s): Emily Tso
+Date Created: 10-31-24
+Dates Revised: 
+Brief description of each revision & author:
+
+Preconditions: 
+    - search_plants() function works and can be accessed.
+    - only strings containing alphabet characters, spaces, and common punctuation 
+      are accepted in the search bar.
+    - no numbers and special characters in the search bar, empty strings will
+      have no action.
+    - input meaning should be the plants user are searching.
+
+Postconditions:
+    - will return a page with the plants information that user searched.
+    - will return a page with no plants found if plant is not in database.
+
+Error and exception condition values/types that can occur, and meanings:
+    - type error if string is not given.
+    - API database error if not connected right.
+    - empty string will prompt nothing.
+
+Side effects:
+    - UI changes and pages need to be updated.
+    - performance impact like results being fetched from database.
+
+Invariants: 
+    - UI state: search bar is visible and functional.
+    - consistent behvaior for the seach and same imput should give same 
+      results each time
+
+Known faults:
+    - case sensitivity for search
+    - whitespaces for search
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="icon" href="css/img/the_guy.png" type="image/png">
+    <script type="text/javascript" src="js/themeToggle.js"></script>
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" />
+    <style>
+        
+        /* FAQ Styles */
+        .faq-section {
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            color: #4CAF50;
+            margin: 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e0f7e8;
+        }
+
+        /* Answer Styles - Hidden by Default */
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            color: #333;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            line-height: 1.6;
+        }
+
+        /* Open icon style */
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate icon when open */
+        .faq-section.open .faq-question::after {
+            content: '-';
+            transform: rotate(90deg);
+        }
+
+        /* Small devices */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
+    <div class="container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-section">
+        <div class="faq-question" onclick="toggleAnswer(this)">What is Plant Simulation?</div>
+        <div class="faq-answer">Plant Simulation is a tool used to simulate the growth and behavior of different plants. It helps users understand various aspects of plant life and provides insights into plant-related questions.</div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-question" onclick="toggleAnswer(this)">How do I search for plants?</div>
+        <div class="faq-answer">To search for plants, simply type the name of the plant in the search bar and click "Enter". The system will provide you with relevant information about the plant.</div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-question" onclick="toggleAnswer(this)">Can I save my plant searches?</div>
+        <div class="faq-answer">Yes, the plant names you search are stored temporarily. This allows you to view them again if you navigate back to the search results page.</div>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const faqSection = element.parentElement;
+            faqSection.classList.toggle("open");
+
+            // Toggle visibility of the answer
+            const answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+    <div>
+</body>
+
+</html>
