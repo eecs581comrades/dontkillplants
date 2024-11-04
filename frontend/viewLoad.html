@@ -56,6 +56,7 @@ Known faults:
 </head>
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
+    <div class="container">
     <h1>Log In</h1> <!-- Main heading of the login page -->
     <form id="login-form"> <!-- Form for user login -->
         <label for="username">Username:</label><br>
@@ -65,7 +66,7 @@ Known faults:
         <button type="submit">Log In</button> <!-- Submit button for the form -->
     </form>
     <p id="login-message"></p> <!-- Paragraph for displaying login messages -->
-
+    </div>
     <script>
         document.getElementById('login-form').addEventListener('submit', function(e) { // Event listener for form submission
             e.preventDefault(); // Prevent the default form submission behavior
