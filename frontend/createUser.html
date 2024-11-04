@@ -55,6 +55,8 @@ Known faults:
 </head>
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
+    <div class="container"> <!-- Main container for the page layout -->
+    </div>
     <h1>Create Account</h1> <!-- Main heading of the page -->
     <form id="register-form"> <!-- Form for user account creation -->
         <label for="new-username">Username:</label><br>
@@ -64,7 +66,7 @@ Known faults:
         <button type="submit">Create Account</button> <!-- Button to submit the form -->
     </form>
     <p id="register-message"></p> <!-- Paragraph for displaying registration messages -->
-
+    </div>
     <script>
         document.getElementById('register-form').addEventListener('submit', function(e) { // Event listener for form submission
             e.preventDefault(); // Prevents the default form submission behavior
