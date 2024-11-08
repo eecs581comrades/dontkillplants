@@ -28,7 +28,8 @@
         "Pests": "Aphids, Leafhoppers",
         "Pruning": "Prune lightly after flowering",
         "Special Care": "Avoid overwatering to prevent root rot"
-      }
+      },
+      "Plant Soil Image": "css/img/soil/sandy.webp"
     },
     {
       "Plant Common Name": "Aloe Vera",
@@ -59,7 +60,8 @@
         "Pests": "Aphids, Mealybugs",
         "Pruning": "Remove dead or damaged leaves",
         "Special Care": "Allow soil to dry out between waterings"
-      }
+      },
+      "Plant Soil Image": "css/img/soil/sandy.webp"
     },
     {
       "Plant Common Name": "Basil",
@@ -90,7 +92,8 @@
         "Pests": "Aphids, Whiteflies",
         "Pruning": "Pinch back regularly to promote growth",
         "Special Care": "Avoid wetting leaves to prevent fungal issues"
-      }
+      },
+      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
     },
     {
       "Plant Common Name": "Snake Plant",
@@ -121,7 +124,8 @@
         "Pests": "Mealybugs, Spider Mites",
         "Pruning": "Remove damaged leaves as needed",
         "Special Care": "Avoid overwatering to prevent root rot"
-      }
+      },
+      "Plant Soil Image": "css/img/soil/sandy.webp"
     },
     {
       "Plant Common Name": "Peace Lily",
@@ -152,7 +156,8 @@
         "Pests": "Spider Mites, Aphids",
         "Pruning": "Remove faded blooms to promote growth",
         "Special Care": "Mist leaves regularly in dry climates"
-      }
+      },
+      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
     },
     {
         "Plant Common Name": "Spider Plant",
@@ -183,7 +188,8 @@
         "Pests": "Spider Mites, Aphids",
         "Pruning": "Remove dead leaves regularly",
         "Special Care": "Repot every 1-2 years for optimal growth"
-        }
+        },
+        "Plant Soil Image": "css/img/soil/loam.webp"
     },
     {
         "Plant Common Name": "Mint",
@@ -214,7 +220,8 @@
         "Pests": "Aphids, Spider Mites",
         "Pruning": "Trim regularly to encourage bushy growth",
         "Special Care": "Keep contained as it spreads quickly"
-        }
+        },
+        "Plant Soil Image": "css/img/soil/rich.webp"
     },
     {
         "Plant Common Name": "Fern",
@@ -245,7 +252,8 @@
         "Pests": "Mealybugs, Scale",
         "Pruning": "Remove dead fronds regularly",
         "Special Care": "Mist regularly in dry climates"
-        }
+        },
+        "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
     },
     {
         "Plant Common Name": "Jade Plant",
@@ -276,7 +284,8 @@
         "Pests": "Mealybugs, Scale",
         "Pruning": "Prune lightly to shape",
         "Special Care": "Allow soil to dry completely between waterings"
-        }
+        },
+        "Plant Soil Image": "css/img/soil/sandy.webp"
     },
     {
         "Plant Common Name": "Orchid",
@@ -307,6 +316,7 @@
         "Pests": "Mealybugs, Aphids",
         "Pruning": "Remove dead or wilted blooms",
         "Special Care": "Avoid overwatering; mist leaves lightly"
-        }
+        },
+        "Plant Soil Image": "css/img/soil/willow.webp"
     }      
 ]

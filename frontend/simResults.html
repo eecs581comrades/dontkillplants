@@ -51,8 +51,8 @@ Known faults:
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container"> <!-- Container for the page content -->
         <h1>Plant Simulation Results</h1> <!-- Main heading of the page -->
-        <div id="plant-results"> <!-- Placeholder for displaying plant details -->
-            <!-- Plant details will be injected here by JavaScript -->
+        <div>
+            <div id="plant-results"> </div><!-- Placeholder for displaying plant details -->
         </div>
         <!-- Navigation Links -->
         <div>
@@ -97,6 +97,7 @@ Known faults:
                         const plant = data[0]; // Gets the first plant object from the returned array
                         localStorage.setItem('plantId', plant.plant_id); // Saves the plant ID in localStorage
                         resultsDiv.innerHTML = ` <!-- Inserts plant details into the results div -->
+                            <div>
                             <h2>${plant.plant_common_name}</h2> <!-- Displays the common name of the plant -->
                             <p><strong>Scientific Name:</strong> ${plant.plant_scientific_name}</p> <!-- Displays the scientific name -->
                             <p><strong>Watering Frequency:</strong> ${plant.watering_frequency}</p> <!-- Displays watering frequency -->
@@ -112,6 +113,10 @@ Known faults:
                             <p><strong>Optimal Humidity:</strong> ${plant.humidity_optimal}</p> <!-- Displays optimal humidity -->
                             <p><strong>Humidity Tolerance:</strong> ${plant.humidity_tolerance}</p> <!-- Displays humidity tolerance -->
                             <p><strong>Important Information:</strong> ${plant.important_info}</p> <!-- Displays important information -->
+                            </div>
+                            <div>
+                            <img src="${plant.soil_image}" alt="Soil Image" style="width: 100%; height: auto;">
+                            </div>
                         `;
                          // Check if userId exists
                         const userId = localStorage.getItem('userId'); // Retrieve user ID from localStorage

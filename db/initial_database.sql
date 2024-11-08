@@ -35,6 +35,7 @@ CREATE TABLE `plants` (
   `temperature_tolerance` varchar(100) DEFAULT NULL,
   `humidity_optimal` varchar(100) DEFAULT NULL,
   `humidity_tolerance` varchar(100) DEFAULT NULL,
+  `soil_image` varchar(100) DEFAULT NULL,
   `important_info` text,
   PRIMARY KEY (`plant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
