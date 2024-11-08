@@ -42,6 +42,7 @@ CREATE TABLE `plants` (
   `temperature_tolerance_bottom` int DEFAULT NULL,
   `humidity_optimal` text DEFAULT NULL,
   `humidity_tolerance` text DEFAULT NULL,
+  `soil_image` text DEFAULT NULL,
   `important_info` text,
   PRIMARY KEY (`plant_id`),
   FULLTEXT (`plant_common_name`, `plant_scientific_name`, `watering_frequency`, `sunlight_type`, `soil_conditions`, 
