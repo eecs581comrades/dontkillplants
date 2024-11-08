@@ -14,9 +14,12 @@ Known faults:
 
 function toggleTheme() {
     let theme = document.getElementById('theme');
-    if (theme.getAttribute('href') == 'css/general.css') {
-        theme.setAttribute('href', 'css/dark.css');
-    } else {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
         theme.setAttribute('href', 'css/general.css');
+        localStorage.setItem('darkMode', null);
+    } else {
+        theme.setAttribute('href', 'css/dark.css');
+        localStorage.setItem('darkMode', 'enabled');
     }
 }

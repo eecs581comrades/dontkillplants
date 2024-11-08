@@ -40,6 +40,15 @@ Known faults: About button goes nowhere
         // Store in local storage
         localStorage.setItem('plantId', plantId);
         localStorage.setItem('userId', userId);
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
     </script>
 </body>
 </html>

@@ -53,6 +53,15 @@ Known faults:
     </div>
 
     <script>
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
         // Retrieve plant ID from localStorage
         const plantId = localStorage.getItem('plantId'); // Gets the plant ID stored in localStorage
 
