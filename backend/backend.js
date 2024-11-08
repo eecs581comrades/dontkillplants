@@ -75,6 +75,75 @@ app.get('/search/id/:plantId', (req, res) => {
   });
 });
 
+app.post('/search/:plantInfoPartial', async (req, res) => {
+  const plantInfoPartial = "%" + req.params.plantInfoPartial + "%";
+  const {
+    wateringFrequency,
+    sunlightType,
+    soilCondition,
+    growthRate,
+    tempTolerance,
+    humidityTolerance,
+  } = req.body || {};
+
+  try {
+    // Simplified search query without a subquery
+    let searchQuery = `
+      SELECT plant_id, plant_common_name, plant_scientific_name
+      FROM plants
+      WHERE (plant_common_name LIKE ? OR plant_scientific_name LIKE ?)
+    `;
+
+    const queryParams = [plantInfoPartial, plantInfoPartial];
+
+    // Add additional filters based on request body
+    if (wateringFrequency) {
+      searchQuery += ' AND watering_frequency = ?';
+      queryParams.push(wateringFrequency);
+    }
+    if (sunlightType) {
+      searchQuery += ' AND sunlight_type = ?';
+      queryParams.push(sunlightType);
+    }
+    if (soilCondition) {
+      searchQuery += ' AND soil_conditions = ?';
+      queryParams.push(soilCondition);
+    }
+    if (growthRate) {
+      searchQuery += ' AND growth_rate = ?';
+      queryParams.push(growthRate);
+    }
+    if (tempTolerance) {
+      searchQuery += ' AND temperature_tolerance = ?';
+      queryParams.push(tempTolerance);
+    }
+
+    // Append limiting
+    searchQuery += ' LIMIT 10';
+
+    console.log(searchQuery);
+
+    // Execute the query and log the response
+    const [results] = await connection.promise().query(searchQuery, queryParams);
+
+    console.log(results);
+
+    // Prepare response data
+    const plantList = results.map(result => ({
+      id: result.plant_id,
+      commonName: result.plant_common_name,
+      scientificName: result.plant_scientific_name,
+      relevance: result.relevance
+    }));
+
+    res.status(200).json({ success: true, plants: plantList });
+  } catch (error) {
+    console.error('Error executing search query:', error.message);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+
 
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
