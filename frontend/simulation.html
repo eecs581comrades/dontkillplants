@@ -58,6 +58,21 @@ Known faults:
             max-width: 600px;
         }
 
+        .search-results-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            width: 50%;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            display: none;
+        }
+
         #searchbar { /* search bar */
             flex: 1;
             padding: 15px;
@@ -103,6 +118,14 @@ Known faults:
             background-color: #45a049;
         }
 
+        .result-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .result-item:hover {
+            background-color: #f0f0f0;
+        }
+
         @media (max-width: 600px) {
             .search-container {
                 width: 90%; 
@@ -124,7 +147,9 @@ Known faults:
             <button id="search-btn" onclick="search_plants()">Enter</button>
 
         </div>
-
+        <div class="search-results-container" id="resultsDropdown">
+            <div style="width:100%; background-color: #ddd;"><h3>test</h3></div>
+        </div>
         <!-- FAQ Button -->
         <button id="faq-btn" onclick="location.href='faq.html'">Go to FAQ</button>
 
@@ -146,6 +171,82 @@ Known faults:
             // Redirect to results page
             window.location.href = 'simResults.html';
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchField = document.getElementById('searchbar');
+            const resultsDropdown = document.getElementById('resultsDropdown');
+
+            let timeout = null;
+
+            // Function to query the server for plant search results
+            async function searchSuggestions(query) {
+                try {
+                    const response = await fetch(`/search/${encodeURIComponent(query)}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({})
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        return data.plants;
+                    }
+                } catch (error) {
+                    console.error('Error fetching plant data:', error);
+                }
+                return [];
+            }
+
+            // Function to show results in the dropdown
+            function showResults(results) {
+                resultsDropdown.innerHTML = ''; // Clear previous results
+
+                if (results.length > 0) {
+                resultsDropdown.style.display = 'block';
+
+                results.forEach(plant => {
+                    const item = document.createElement('div');
+                    item.className = 'result-item';
+                    item.textContent = `${plant.commonName} (${plant.scientificName})`;
+                    
+                    item.addEventListener('click', () => {
+                    searchField.value = plant.commonName;
+                    resultsDropdown.style.display = 'none';
+                    });
+
+                    resultsDropdown.appendChild(item);
+                });
+                } else {
+                resultsDropdown.style.display = 'none';
+                }
+            }
+
+            // Event listener for input in the search field
+            searchField.addEventListener('input', () => {
+                const query = searchField.value.trim();
+
+                if (timeout) {
+                    clearTimeout(timeout);
+                }
+
+                if (query.length === 0) {
+                    resultsDropdown.style.display = 'none';
+                    return;
+                }
+
+                // Set a slight delay before querying to avoid excessive requests
+                timeout = setTimeout(async () => {
+                    const results = await searchSuggestions(query);
+                    showResults(results);
+                }, 300); // 300 ms delay
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!resultsDropdown.contains(event.target) && event.target !== searchField) {
+                resultsDropdown.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 
