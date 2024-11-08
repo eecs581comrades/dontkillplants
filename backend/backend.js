@@ -26,6 +26,9 @@ const app = express();
 const port = 5100;
 const localNetworkHost = '0.0.0.0';
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10; // Number of salt rounds for hashing
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -151,7 +154,20 @@ app.get('/account/pull/:username/:password', (req, res) => { //returns account i
       return;
     }
     if (results.length > 0) {
-      res.status(200).json(results[0])
+      const hashedPassword = results[0].password;
+      bcrypt.compare(password, hashedPassword, (err, result) => {
+        if (err) {
+          console.error('Error comparing passowrds:', err);
+          res.status(500).send('Server error');
+          return;
+        }
+        if (result) {
+          res.status(200).json({ user_id: results[0].user_id });
+        }
+        else {
+          res.status(401).send('Invalid username or password');
+        }
+      });
     } else {
       res.status(401).send('Invalid username or password');
   }});
@@ -170,23 +186,30 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
       res.status(400).send('Username already exists');
       return;
     }
-    else {
-      connection.query("INSERT INTO user_pass_combo (username, password) VALUES (?, ?)", [username, password], (err, results2) => {
+    else {  
+      bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
         if (err) {
-          console.error('Error adding user:', err);
+          console.error('Error hasing password:', err);
           res.status(500).send('Server error');
           return;
         }
-        connection.query('SELECT user_id FROM user_pass_combo WHERE username = ?', [username], (err, results3) => {
+        connection.query("INSERT INTO user_pass_combo (username, password) VALUES (?, ?)", [username, hashedPassword], (err, results2) => {
           if (err) {
-            console.error('Error fetching user:', err);
+            console.error('Error adding user:', err);
             res.status(500).send('Server error');
             return;
           }
-          res.status(200).json(results3)
-          return;
+          connection.query('SELECT user_id FROM user_pass_combo WHERE username = ?', [username], (err, results3) => {
+            if (err) {
+              console.error('Error fetching user:', err);
+              res.status(500).send('Server error');
+              return;
+            }
+            res.status(200).json(results3)
+            return;
+        });
       });
-    });
+      });
   };
 })});
 
