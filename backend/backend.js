@@ -121,12 +121,8 @@ app.post('/search/:plantInfoPartial', async (req, res) => {
     // Append limiting
     searchQuery += ' LIMIT 10';
 
-    console.log(searchQuery);
-
     // Execute the query and log the response
     const [results] = await connection.promise().query(searchQuery, queryParams);
-
-    console.log(results);
 
     // Prepare response data
     const plantList = results.map(result => ({
