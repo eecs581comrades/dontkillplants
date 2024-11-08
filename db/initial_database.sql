@@ -13,12 +13,12 @@ CREATE DATABASE IF NOT EXISTS dontkillplants;
 -- Use the database
 USE dontkillplants;
 
--- Drop the table if it exists to avoid conflicts during creation
+-- Drop the tables if they exist to avoid conflicts during creation
 DROP TABLE IF EXISTS `plants`;
 DROP TABLE IF EXISTS `simulations`;
 DROP TABLE IF EXISTS `user_pass_combo`;
 
--- Create the `plants` table
+-- Create the `plants` table with FULLTEXT indexes on searchable fields
 CREATE TABLE `plants` (
   `plant_id` int NOT NULL AUTO_INCREMENT,
   `plant_common_name` varchar(100) DEFAULT NULL,
@@ -36,9 +36,10 @@ CREATE TABLE `plants` (
   `humidity_optimal` varchar(100) DEFAULT NULL,
   `humidity_tolerance` varchar(100) DEFAULT NULL,
   `important_info` text,
-  PRIMARY KEY (`plant_id`)
+  PRIMARY KEY (`plant_id`),
+  FULLTEXT (`plant_common_name`, `plant_scientific_name`, `watering_frequency`, `sunlight_type`, `soil_conditions`, 
+            `lifecycle_stage`, `growth_rate`, `temperature_optimal_range`, `humidity_optimal`, `important_info`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 
 -- Create `user_pass_combo` table
 CREATE TABLE `user_pass_combo` (
@@ -48,8 +49,7 @@ CREATE TABLE `user_pass_combo` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
--- Create `simulations` table
+-- Create `simulations` table with foreign key referencing `user_pass_combo`
 CREATE TABLE `simulations` (
   `simulation_id` int NOT NULL AUTO_INCREMENT,
   `date_created` timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -59,4 +59,3 @@ CREATE TABLE `simulations` (
   PRIMARY KEY (`simulation_id`),
   FOREIGN KEY (`user_id`) REFERENCES `user_pass_combo`(`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
