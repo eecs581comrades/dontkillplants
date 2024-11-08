@@ -68,6 +68,15 @@ Known faults:
     <p id="register-message"></p> <!-- Paragraph for displaying registration messages -->
     </div>
     <script>
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
         document.getElementById('register-form').addEventListener('submit', function(e) { // Event listener for form submission
             e.preventDefault(); // Prevents the default form submission behavior
             const username = document.getElementById('new-username').value; // Gets the username input value
