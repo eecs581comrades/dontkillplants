@@ -1,6 +1,6 @@
 -- Name of code artifact: All of them
 -- Description: Initial database definition in SQL for the dontkillplants database.
--- Name(s): William Johnson
+-- Name(s): William Johnson, Matthew Petillo
 -- Date Created: 10-23-24
 -- Dates Revised: 10-27-24
 -- Brief description of each revision & author:
@@ -21,20 +21,27 @@ DROP TABLE IF EXISTS `user_pass_combo`;
 -- Create the `plants` table with FULLTEXT indexes on searchable fields
 CREATE TABLE `plants` (
   `plant_id` int NOT NULL AUTO_INCREMENT,
-  `plant_common_name` varchar(100) DEFAULT NULL,
-  `plant_scientific_name` varchar(100) DEFAULT NULL,
-  `watering_frequency` varchar(100) DEFAULT NULL,
-  `watering_amount` varchar(100) DEFAULT NULL,
-  `sunlight_type` varchar(100) DEFAULT NULL,
-  `sunlight_duration` varchar(100) DEFAULT NULL,
-  `soil_conditions` text,
-  `lifecycle_stage` varchar(100) DEFAULT NULL,
-  `average_lifespan` varchar(100) DEFAULT NULL,
-  `growth_rate` varchar(100) DEFAULT NULL,
-  `temperature_optimal_range` varchar(100) DEFAULT NULL,
-  `temperature_tolerance` varchar(100) DEFAULT NULL,
-  `humidity_optimal` varchar(100) DEFAULT NULL,
-  `humidity_tolerance` varchar(100) DEFAULT NULL,
+  `plant_common_name` text DEFAULT NULL,
+  `plant_scientific_name` text DEFAULT NULL,
+  `watering_frequency` text DEFAULT NULL,
+  `watering_frequency_int` int DEFAULT NULL,
+  `watering_amount` text DEFAULT NULL,
+  `watering_amount_int` int DEFAULT NULL,
+  `sunlight_type` text DEFAULT NULL,
+  `sunlight_duration` text DEFAULT NULL,
+  `sunlight_duration_int` int DEFAULT NULL,
+  `soil_conditions` text DEFAULT NULL,
+  `lifecycle_stage` text DEFAULT NULL,
+  `average_lifespan` text DEFAULT NULL,
+  `average_lifespan_int` int DEFAULT NULL,
+  `growth_rate` text DEFAULT NULL,
+  `growth_rate_int` int DEFAULT NULL,
+  `temperature_optimal_range` text DEFAULT NULL,
+  `temperature_optimal_int` int DEFAULT NULL,
+  `temperature_tolerance` text DEFAULT NULL,
+  `temperature_tolerance_bottom` int DEFAULT NULL,
+  `humidity_optimal` text DEFAULT NULL,
+  `humidity_tolerance` text DEFAULT NULL,
   `important_info` text,
   PRIMARY KEY (`plant_id`),
   FULLTEXT (`plant_common_name`, `plant_scientific_name`, `watering_frequency`, `sunlight_type`, `soil_conditions`, 
