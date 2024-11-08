@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Log</title>
+    <style>
+        #log { margin-top: 20px; }
+        .log-entry { border-bottom: 1px solid #ccc; padding: 10px; }
+        .dead { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Plant Log</h1>
+    
+    <div id="log"></div> <!-- Where the daily log entries are shown -->
+    <button onclick="careForPlant('water')">Water</button>
+    <button onclick="careForPlant('sunlight')">Expose to Sunlight</button>
+    <button onclick="careForPlant('nothing')">Do Nothing</button>
+    
+    <script src="js/plantLog.js">
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
+    </script> <!-- Link to JavaScript file -->
+</body>
+</html>

@@ -131,6 +131,15 @@ Known faults:
     </div>
 
     <script>
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
         function search_plants() {
             const plantName = document.getElementById('searchbar').value.trim();
             

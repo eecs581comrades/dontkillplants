@@ -68,6 +68,15 @@ Known faults:
     <p id="login-message"></p> <!-- Paragraph for displaying login messages -->
     </div>
     <script>
+
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
         document.getElementById('login-form').addEventListener('submit', function(e) { // Event listener for form submission
             e.preventDefault(); // Prevent the default form submission behavior
             const username = document.getElementById('username').value; // Get username input value
