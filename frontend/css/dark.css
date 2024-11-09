@@ -16,15 +16,21 @@ Known faults: N/A
 body{
     background-color: rgb(28, 11, 121);
     font-family: Arial, sans-serif;
-    background-image: url("img/nightPlant.png"), url("img/the_guy.png"),  url("img/nightGround.png"); /*Background Image*/
-    background-repeat: no-repeat, no-repeat, repeat-x;
-    background-position: 98% 82%, 50% 82%, bottom;
+    background-image: url("img/nightPlant.png"),  url("img/nightGround.png"); /*Background Image*/
+    background-repeat: no-repeat, repeat-x;
+    background-position: 98% 82%, bottom;
     background-size: none, cover
 }
 
 /*Makes the header text white*/
-h1{
+h1,h2{
     font-size: 48px;
+    margin-bottom: 20px;
+    color: #cbcbcb;
+}
+
+p{
+    font-size: 18px;
     margin-bottom: 20px;
     color: #cbcbcb;
 }
@@ -42,6 +48,20 @@ button{
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
+}
+
+.homeButton {
+    position: absolute;
+    z-index: 800;
+    left: 30px;
+    top: 550px;
+}
+
+.homeButton { /*Mandrake button*/
+    position: absolute;
+    z-index: 800;
+    left: 30px;
+    bottom: 10px;
 }
 
 /*Centers anything with the divider class*/
@@ -63,6 +83,6 @@ button{
 */
 
 /*Styles form input instruction text*/
-label {
+p, label {
     color: rgb(255, 255, 255);
 }
