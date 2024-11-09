@@ -43,7 +43,7 @@ function careForPlant(action) {
 // Logs a new entry in the plant log
 function displayLog(message, className = "") {
     const log = document.getElementById('log');
-    const entry = document.createElement('div');
+    const entry = document.createElement('p');
     entry.className = `log-entry ${className}`;
     entry.textContent = message;
     log.appendChild(entry);
