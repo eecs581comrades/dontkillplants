@@ -4,16 +4,21 @@
       "Plant Scientific Name": "Lavandula",
       "Plant Watering Schedule": {
         "Frequency": "Once per week",
-        "Amount": "250ml per watering"
+        "Frequency Int": 1,
+        "Amount": "250ml per watering",
+        "Amount Int": 250
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
-        "Duration": "6 hours per day"
+        "Duration": "6 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 6
       },
       "Plant Soil Conditions": "Well-drained, sandy soil",
       "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "15 years",
+        "Average Lifespan Int": 15,
         "Growth Rate": "Slow to moderate"
       },
       "Plant Temperature Conditions": {
@@ -36,16 +41,21 @@
       "Plant Scientific Name": "Aloe barbadensis miller",
       "Plant Watering Schedule": {
         "Frequency": "Once every 2-3 weeks",
-        "Amount": "100ml per watering"
+        "Frequency Int": 0.5,
+        "Amount": "100ml per watering",
+        "Amount Int": 100
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Top": 4,
+        "Duration Bottom": 6
       },
       "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
       "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "12 years",
+        "Average Lifespan Int": 12,
         "Growth Rate": "Slow"
       },
       "Plant Temperature Conditions": {
@@ -68,16 +78,21 @@
       "Plant Scientific Name": "Ocimum basilicum",
       "Plant Watering Schedule": {
         "Frequency": "Twice per week",
-        "Amount": "300ml per watering"
+        "Frequency Int": 2,
+        "Amount": "300ml per watering",
+        "Amount Int": 300
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
-        "Duration": "6-8 hours per day"
+        "Duration": "6-8 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 8
       },
       "Plant Soil Conditions": "Moist, well-drained soil",
       "Plant Lifecycle Information": {
         "Lifecycle Stage": "Annual",
         "Average Lifespan": "1 year",
+        "Average Lifespan Int": 1,
         "Growth Rate": "Fast"
       },
       "Plant Temperature Conditions": {
@@ -100,16 +115,21 @@
       "Plant Scientific Name": "Sansevieria trifasciata",
       "Plant Watering Schedule": {
         "Frequency": "Once per month",
-        "Amount": "200ml per watering"
+        "Frequency Int": 0.25,
+        "Amount": "200ml per watering",
+        "Amount Int": 200
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "Low light tolerance"
+        "Duration": "Low light tolerance",
+        "Duration Top": 2,
+        "Duration Bottom": 0
       },
       "Plant Soil Conditions": "Well-drained, sandy soil",
       "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "25 years",
+        "Average Lifespan Int": 25,
         "Growth Rate": "Slow"
       },
       "Plant Temperature Conditions": {
@@ -132,16 +152,21 @@
       "Plant Scientific Name": "Spathiphyllum",
       "Plant Watering Schedule": {
         "Frequency": "Twice per week",
-        "Amount": "400ml per watering"
+        "Frequency Int": 2,
+        "Amount": "400ml per watering",
+        "Amount Int": 400
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 4
       },
       "Plant Soil Conditions": "Moist, well-drained soil",
       "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "5 years",
+        "Average Lifespan Int": 5,
         "Growth Rate": "Moderate"
       },
       "Plant Temperature Conditions": {
@@ -163,17 +188,22 @@
         "Plant Common Name": "Spider Plant",
         "Plant Scientific Name": "Chlorophytum comosum",
         "Plant Watering Schedule": {
-        "Frequency": "Once per week",
-        "Amount": "200ml per watering"
+          "Frequency": "Once per week",
+          "Frequency Int": 1,
+          "Amount": "200ml per watering",
+          "Amount Int": 200
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Bottom": 4,
+        "Duration Top": 6
         },
         "Plant Soil Conditions": "Well-drained, loamy soil",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "5-10 years",
+        "Average Lifespan Int": 7.5,
         "Growth Rate": "Fast"
         },
         "Plant Temperature Conditions": {
@@ -196,16 +226,21 @@
         "Plant Scientific Name": "Mentha",
         "Plant Watering Schedule": {
         "Frequency": "Twice per week",
-        "Amount": "300ml per watering"
+        "Frequency Int": 2,
+        "Amount": "300ml per watering",
+        "Amount Int": 300
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Partial Sun",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Top": 4,
+        "Duration Bottom": 6
         },
         "Plant Soil Conditions": "Moist, rich soil",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "3-5 years",
+        "Average Lifespan Int": 4,
         "Growth Rate": "Fast"
         },
         "Plant Temperature Conditions": {
@@ -228,16 +263,21 @@
         "Plant Scientific Name": "Nephrolepis exaltata",
         "Plant Watering Schedule": {
         "Frequency": "Twice per week",
-        "Amount": "150ml per watering"
+        "Frequency Int": 2,
+        "Amount": "150ml per watering",
+        "Amount Int": 150
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 4
         },
         "Plant Soil Conditions": "Moist, well-drained soil",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "5-10 years",
+        "Average Lifespan Int": 7.5,
         "Growth Rate": "Moderate"
         },
         "Plant Temperature Conditions": {
@@ -260,16 +300,21 @@
         "Plant Scientific Name": "Crassula ovata",
         "Plant Watering Schedule": {
         "Frequency": "Once every 2 weeks",
-        "Amount": "100ml per watering"
+        "Frequency Int": 0.5,
+        "Amount": "100ml per watering",
+        "Amount Int": 100
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
-        "Duration": "4-6 hours per day"
+        "Duration": "4-6 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 4
         },
         "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "50-70 years",
+        "Average Lifespan Int": 60,
         "Growth Rate": "Slow"
         },
         "Plant Temperature Conditions": {
@@ -292,16 +337,21 @@
         "Plant Scientific Name": "Orchidaceae",
         "Plant Watering Schedule": {
         "Frequency": "Once per week",
-        "Amount": "150ml per watering"
+        "Frequency Int": 1,
+        "Amount": "150ml per watering",
+        "Amount Int": 150
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
-        "Duration": "6 hours per day"
+        "Duration": "6 hours per day",
+        "Duration Top": 6,
+        "Duration Bottom": 6
         },
         "Plant Soil Conditions": "Well-drained, orchid mix or bark medium",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
         "Average Lifespan": "5-10 years",
+        "Average Lifespan Int": 7.5,
         "Growth Rate": "Slow to moderate"
         },
         "Plant Temperature Conditions": {
