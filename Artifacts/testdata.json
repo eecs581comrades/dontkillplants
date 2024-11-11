@@ -11,8 +11,8 @@
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
         "Duration": "6 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 6
+        "Duration Top": 42,
+        "Duration Bottom": 42
       },
       "Plant Soil Conditions": "Well-drained, sandy soil",
       "Plant Lifecycle Information": {
@@ -41,15 +41,15 @@
       "Plant Scientific Name": "Aloe barbadensis miller",
       "Plant Watering Schedule": {
         "Frequency": "Once every 2-3 weeks",
-        "Frequency Int": 0.5,
+        "Frequency Int": 1,
         "Amount": "100ml per watering",
         "Amount Int": 100
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "4-6 hours per day",
-        "Duration Top": 4,
-        "Duration Bottom": 6
+        "Duration Top": 42,
+        "Duration Bottom": 28
       },
       "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
       "Plant Lifecycle Information": {
@@ -85,8 +85,8 @@
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
         "Duration": "6-8 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 8
+        "Duration Top": 56,
+        "Duration Bottom": 42
       },
       "Plant Soil Conditions": "Moist, well-drained soil",
       "Plant Lifecycle Information": {
@@ -115,14 +115,14 @@
       "Plant Scientific Name": "Sansevieria trifasciata",
       "Plant Watering Schedule": {
         "Frequency": "Once per month",
-        "Frequency Int": 0.25,
+        "Frequency Int": 1,
         "Amount": "200ml per watering",
         "Amount Int": 200
       },
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "Low light tolerance",
-        "Duration Top": 2,
+        "Duration Top": 14,
         "Duration Bottom": 0
       },
       "Plant Soil Conditions": "Well-drained, sandy soil",
@@ -159,8 +159,8 @@
       "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "4-6 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 4
+        "Duration Top": 42,
+        "Duration Bottom": 28
       },
       "Plant Soil Conditions": "Moist, well-drained soil",
       "Plant Lifecycle Information": {
@@ -196,8 +196,8 @@
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "4-6 hours per day",
-        "Duration Bottom": 4,
-        "Duration Top": 6
+        "Duration Bottom": 28,
+        "Duration Top": 48
         },
         "Plant Soil Conditions": "Well-drained, loamy soil",
         "Plant Lifecycle Information": {
@@ -233,8 +233,8 @@
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Partial Sun",
         "Duration": "4-6 hours per day",
-        "Duration Top": 4,
-        "Duration Bottom": 6
+        "Duration Top": 28,
+        "Duration Bottom": 42
         },
         "Plant Soil Conditions": "Moist, rich soil",
         "Plant Lifecycle Information": {
@@ -270,8 +270,8 @@
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "4-6 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 4
+        "Duration Top": 42,
+        "Duration Bottom": 28
         },
         "Plant Soil Conditions": "Moist, well-drained soil",
         "Plant Lifecycle Information": {
@@ -300,15 +300,15 @@
         "Plant Scientific Name": "Crassula ovata",
         "Plant Watering Schedule": {
         "Frequency": "Once every 2 weeks",
-        "Frequency Int": 0.5,
+        "Frequency Int": 1,
         "Amount": "100ml per watering",
         "Amount Int": 100
         },
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Full Sun",
         "Duration": "4-6 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 4
+        "Duration Top": 42,
+        "Duration Bottom": 28
         },
         "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
         "Plant Lifecycle Information": {
@@ -344,8 +344,8 @@
         "Plant Sunlight Schedule": {
         "Sunlight Type": "Indirect sunlight",
         "Duration": "6 hours per day",
-        "Duration Top": 6,
-        "Duration Bottom": 6
+        "Duration Top": 42,
+        "Duration Bottom": 42
         },
         "Plant Soil Conditions": "Well-drained, orchid mix or bark medium",
         "Plant Lifecycle Information": {
