@@ -1,3 +1,38 @@
+<!-- 
+Name of code artifact: Plant Log
+Description: Simulates daily logs of plant care, allowing the user to water, expose to sunlight, or neglect plants, with status updates shown for each action.
+Name(s): Chase Curtis
+Date Created: 11-10-24
+Dates Revised: 
+
+Preconditions: 
+- Browser must support HTML5 and JavaScript.
+- `plantLog.js` and `themeToggle.js` must be in the `js` folder.
+- CSS files (`general.css` and `dark.css`) should be in the `css` folder.
+
+Acceptable/unacceptable input values/types, and meanings:
+- Acceptable inputs: "water", "sunlight", "both", "nothing" for `careForPlant` function.
+- Unacceptable input: Any other value; the log entry will not update.
+
+Postconditions:
+- Daily plant log entries are appended to the `log` div, with status changes for plant health.
+
+Return values/types, and meanings:
+- This code does not return values, as it's for DOM manipulation.
+
+Error and exception condition values/types that can occur, and meanings:
+- Undefined theme file in localStorage may cause the page to load in default theme.
+
+Side effects:
+- None expected beyond visual updates to the page.
+
+Invariants:
+- The `log` div will always display the most recent log entry.
+
+Known faults:
+- Missing CSS or JS files will prevent proper theme toggling and log functionality.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,40 +40,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for different devices -->
     <title>Plant Log</title> <!-- Title of the webpage -->
     <link rel="icon" href="css/img/the_guy.png" type="image/png"> <!-- Favicon for the webpage -->
-    <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
-    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!-- Connects JavaScript for theme switching -->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!-- Connects default CSS for theme switching -->
     <style>
-        #log { margin-top: 20px; }
-        .log-entry { border-bottom: 1px solid #ccc; padding: 10px; }
-        .dead { color: red; font-weight: bold; }
+        #log { margin-top: 20px; } 
+        .log-entry { border-bottom: 1px solid #ccc; padding: 10px; } 
+        .dead { color: red; font-weight: bold; } 
     </style>
 </head>
 <body>
-    <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
+    <button class="themeButton" onclick="toggleTheme()"></button> <!-- Button to toggle theme by calling JavaScript function -->
     <div class="container">
-    <h1>Plant Log</h1>
-    
-    <div id="log"></div> <!-- Where the daily log entries are shown -->
+        <h1>Plant Log</h1> <!-- Main heading for the page -->
+
+        <div id="log"></div> <!-- Area where daily log entries are displayed -->
         <div>
-            <button onclick="careForPlant('water')">Water</button>
-            <button onclick="careForPlant('sunlight')">Expose to Sunlight</button>
-            <button onclick="careForPlant('both')">Do Both</button>
-            <button onclick="careForPlant('nothing')">Do Nothing</button>
+            <button onclick="careForPlant('water')">Water</button> <!-- Button to log a watering action -->
+            <button onclick="careForPlant('sunlight')">Expose to Sunlight</button> <!-- Button to log sunlight exposure -->
+            <button onclick="careForPlant('both')">Do Both</button> <!-- Button to log both actions -->
+            <button onclick="careForPlant('nothing')">Do Nothing</button> <!-- Button to log no action -->
         </div>
     </div>
-    <input class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/>
+    <input class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'" /> <!-- Button that redirects to home page -->
 
-    <script src="js/plantLog.js"></script>
+    <script src="js/plantLog.js"></script> <!-- Link to the JavaScript file handling plant log actions -->
     <script>
-
-        const darkMode = localStorage.getItem('darkMode');
+        const darkMode = localStorage.getItem('darkMode'); // Retrieves dark mode preference from localStorage 
 
         if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css');
+            theme.setAttribute('href', 'css/dark.css'); // Sets theme to dark if dark mode is enabled 
         } else {
-            theme.setAttribute('href', 'css/general.css');
+            theme.setAttribute('href', 'css/general.css'); // Sets theme to general if dark mode is not enabled
         }
-
-    </script> <!-- Link to JavaScript file -->
+    </script> 
 </body>
 </html>
