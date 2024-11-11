@@ -22,6 +22,7 @@
         <div>
             <button onclick="careForPlant('water')">Water</button>
             <button onclick="careForPlant('sunlight')">Expose to Sunlight</button>
+            <button onclick="careForPlant('both')">Do Both</button>
             <button onclick="careForPlant('nothing')">Do Nothing</button>
         </div>
     </div>
@@ -29,6 +30,7 @@
 
     <script src="js/plantLog.js"></script>
     <script>
+
         const darkMode = localStorage.getItem('darkMode');
 
         if (darkMode === 'enabled') {
