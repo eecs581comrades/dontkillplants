@@ -9,6 +9,73 @@
 <body>
     <div class="container">
         <i>occidere homines, non plantae</i>
+<<<<<<< Updated upstream
+=======
+    
+
+        <!-- Meet the Authors Section -->
+        <div class="authors-section">
+            <h2>Meet the Authors</h2>
+            
+            <!-- Shared Author Image -->
+            <div class="author">
+                <img src="css/img/authors.PNG" alt="Authors Image">
+            </div>
+
+            <!-- List of Authors -->
+            <div class="author-list">
+                <div class="author-card">
+                    <div class="author-info">
+                        <h3>Wil Johnson</h3>
+                        <p>Computer Science Major with Cybersecurity Certificate</p>
+                    </div>
+                </div>
+                <div class="author-card">
+                    <div class="author-info">
+                        <h3>Matthew Petillo</h3>
+                        <p>Computer Science Major and Journalism Major</p>
+                    </div>
+                </div>
+                <div class="author-card">
+                    <div class="author-info">
+                        <h3>Chase Curtis</h3>
+                        <p>Computer Science Major</p>
+                    </div>
+                </div>
+                <div class="author-card">
+                    <div class="author-info">
+                        <h3>Katie Golder</h3>
+                        <p>Computer Science Major with Cybersecurity Certificate</p>
+                    </div>
+                </div>
+                <div class="author-card">
+                    <div class="author-info">
+                        <h3>Emily Tso</h3>
+                        <p>Computer Science Major with Cybersecurity Certificate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/>
+        <script>
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                theme.setAttribute('href', 'css/dark.css');
+            } else {
+                theme.setAttribute('href', 'css/general.css');
+            }
+
+            function toggleAnswer(element) {
+                const faqSection = element.parentElement;
+                faqSection.classList.toggle("open");
+
+                // Toggle visibility of the answer
+                const answer = element.nextElementSibling;
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            }
+        </script>
+>>>>>>> Stashed changes
     </div>
     <input class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/>
 </body>
