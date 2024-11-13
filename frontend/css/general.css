@@ -16,14 +16,14 @@ Known faults: N/A
 body{
     background-color: rgb(122, 193, 255);
     font-family: Arial, sans-serif;
-    background-image: url("img/plant.png"), url("img/ground.png"); /*Background Image*/
-    background-repeat: no-repeat, repeat-x;
-    background-position: 98% 82%, bottom;
+    background-image: url("img/plant.png"), url("img/the_guy.png"), url("img/ground.png"); /*Background Image*/
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: 98% 82%, 50% 82%, bottom;
     background-size: none, cover
 }
 
 /*Makes the header text white*/
-h1,h2{
+h1{
     font-size: 48px;
     margin-bottom: 20px;
     color: #333;
@@ -37,18 +37,12 @@ button{
     padding: 10px 20px;
 }
 
-.themeButton { /*Mandrake button*/
+
+.themeButton {
     background-color: rgb(244, 210, 86);
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
-}
-
-.homeButton {
-    position: absolute;
-    z-index: 800;
-    left: 30px;
-    top: 550px;
 }
 
 /*Centers anything with the divider class*/
