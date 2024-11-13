@@ -19,7 +19,7 @@ body{
     background-image: url("img/plant.png"), url("img/the_guy.png"), url("img/ground.png"); /*Background Image*/
     background-repeat: no-repeat, no-repeat, repeat-x;
     background-position: 98% 82%, 50% 82%, bottom;
-    background-size: none, cover
+    background-size: none, cover;
 }
 
 /*Makes the header text white*/
@@ -53,6 +53,16 @@ button{
     /*justify-content: center;*/
     height: 80vh;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(0, 255, 21);
+    color: white;
+    text-align: center;
+  }
 
 /*
 .box {
