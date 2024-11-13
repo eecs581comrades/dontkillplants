@@ -72,6 +72,8 @@ async function load_data() {
       const humidityOptimal = plant["Plant Humidity Conditions"]["Optimal Humidity"];
       const humidityTolerance = plant["Plant Humidity Conditions"]["Tolerance"];
       const soilImage = plant["Plant Soil Image"];
+      const lightingImage = plant["Plant Lighting Image"];
+      const wateringImage = plant["Plant Watering Image"];
       const importantInfo = JSON.stringify(plant["Important Plant Information"]);
 
       // SQL to check if the plant already exists
@@ -118,6 +120,8 @@ async function load_data() {
               humidity_optimal, 
               humidity_tolerance, 
               soil_image,
+              lighting_image,
+              watering_image,
               important_info
             ) VALUES (
               '${commonName.replace(/'/g, "''")}',
@@ -140,6 +144,8 @@ async function load_data() {
               '${humidityOptimal.replace(/'/g, "''")}',
               '${humidityTolerance.replace(/'/g, "''")}',
               '${soilImage.replace(/'/g, "''")}',
+              '${lightingImage.replace(/'/g, "''")}',
+              '${wateringImage.replace(/'/g, "''")}',
               '${importantInfo.replace(/'/g, "''")}'
             );
           `;
