@@ -37,14 +37,14 @@ button{
     padding: 10px 20px;
 }
 
-.themeButton { /*Mandrake button*/
+.themeButton { /*Dark Mode button*/
     background-color: rgb(244, 210, 86);
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
 }
 
-.homeButton {
+.homeButton { /*Mandrake button*/
     position: absolute;
     z-index: 800;
     left: 30px;
