@@ -34,7 +34,9 @@
         "Pruning": "Prune lightly after flowering",
         "Special Care": "Avoid overwatering to prevent root rot"
       },
-      "Plant Soil Image": "css/img/soil/sandy.webp"
+      "Plant Soil Image": "css/img/soil/sandy.webp",
+      "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
     },
     {
       "Plant Common Name": "Aloe Vera",
@@ -71,7 +73,9 @@
         "Pruning": "Remove dead or damaged leaves",
         "Special Care": "Allow soil to dry out between waterings"
       },
-      "Plant Soil Image": "css/img/soil/sandy.webp"
+      "Plant Soil Image": "css/img/soil/sandy.webp",
+      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
     },
     {
       "Plant Common Name": "Basil",
@@ -108,7 +112,9 @@
         "Pruning": "Pinch back regularly to promote growth",
         "Special Care": "Avoid wetting leaves to prevent fungal issues"
       },
-      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
+      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+      "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
     },
     {
       "Plant Common Name": "Snake Plant",
@@ -145,7 +151,9 @@
         "Pruning": "Remove damaged leaves as needed",
         "Special Care": "Avoid overwatering to prevent root rot"
       },
-      "Plant Soil Image": "css/img/soil/sandy.webp"
+      "Plant Soil Image": "css/img/soil/sandy.webp",
+      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
     },
     {
       "Plant Common Name": "Peace Lily",
@@ -182,7 +190,9 @@
         "Pruning": "Remove faded blooms to promote growth",
         "Special Care": "Mist leaves regularly in dry climates"
       },
-      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
+      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
     },
     {
         "Plant Common Name": "Spider Plant",
@@ -219,7 +229,9 @@
         "Pruning": "Remove dead leaves regularly",
         "Special Care": "Repot every 1-2 years for optimal growth"
         },
-        "Plant Soil Image": "css/img/soil/loam.webp"
+        "Plant Soil Image": "css/img/soil/loam.webp",
+        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
     },
     {
         "Plant Common Name": "Mint",
@@ -256,7 +268,9 @@
         "Pruning": "Trim regularly to encourage bushy growth",
         "Special Care": "Keep contained as it spreads quickly"
         },
-        "Plant Soil Image": "css/img/soil/rich.webp"
+        "Plant Soil Image": "css/img/soil/rich.webp",
+        "Plant Lighting Image": "css/img/lighting/PartialSun.webp",
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
     },
     {
         "Plant Common Name": "Fern",
@@ -293,7 +307,9 @@
         "Pruning": "Remove dead fronds regularly",
         "Special Care": "Mist regularly in dry climates"
         },
-        "Plant Soil Image": "css/img/soil/wellDrainMoist.webp"
+        "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
     },
     {
         "Plant Common Name": "Jade Plant",
@@ -330,7 +346,9 @@
         "Pruning": "Prune lightly to shape",
         "Special Care": "Allow soil to dry completely between waterings"
         },
-        "Plant Soil Image": "css/img/soil/sandy.webp"
+        "Plant Soil Image": "css/img/soil/sandy.webp",
+        "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
     },
     {
         "Plant Common Name": "Orchid",
@@ -367,6 +385,8 @@
         "Pruning": "Remove dead or wilted blooms",
         "Special Care": "Avoid overwatering; mist leaves lightly"
         },
-        "Plant Soil Image": "css/img/soil/willow.webp"
+        "Plant Soil Image": "css/img/soil/willow.webp",
+        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
     }      
 ]
