@@ -147,17 +147,16 @@ app.post('/search/:plantInfoPartial', async (req, res) => {
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
   const password = req.params.password;
-  connection.query('SELECT user_id FROM user_pass_combo WHERE username = ? AND password = ?', [username, password], (err, results) => {
+  connection.query('SELECT user_id, password FROM user_pass_combo WHERE username = ?', [username], (err, results) => {
     if (err) {
       console.error('Error fetching user:', err);
       res.status(500).send('Server error');
       return;
     }
     if (results.length > 0) {
-      const hashedPassword = results[0].password;
-      bcrypt.compare(password, hashedPassword, (err, result) => {
+      bcrypt.compare(password, results[0].password, (err, result) => {
         if (err) {
-          console.error('Error comparing passowrds:', err);
+          console.error('Error comparing passwords:', err);
           res.status(500).send('Server error');
           return;
         }

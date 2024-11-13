@@ -55,18 +55,25 @@ async function load_data() {
       const commonName = plant["Plant Common Name"];
       const scientificName = plant["Plant Scientific Name"];
       const wateringFrequency = plant["Plant Watering Schedule"]["Frequency"];
+      const wateringFrequencyInt = plant["Plant Watering Schedule"]["Frequency Int"]
       const wateringAmount = plant["Plant Watering Schedule"]["Amount"];
+      const wateringAmountInt = plant["Plant Watering Schedule"]["Amount Int"]
       const sunlightType = plant["Plant Sunlight Schedule"]["Sunlight Type"];
       const sunlightDuration = plant["Plant Sunlight Schedule"]["Duration"];
+      const sunlightDurationTop = plant["Plant Sunlight Schedule"]["Duration Top"];
+      const sunlightDurationBottom = plant["Plant Sunlight Schedule"]["Duration Bottom"];
       const soilConditions = plant["Plant Soil Conditions"];
       const lifecycleStage = plant["Plant Lifecycle Information"]["Lifecycle Stage"];
       const averageLifespan = plant["Plant Lifecycle Information"]["Average Lifespan"];
+      const averageLifespanInt = plant["Plant Lifecycle Information"]["Average Lifespan Int"];
       const growthRate = plant["Plant Lifecycle Information"]["Growth Rate"];
       const temperatureRange = plant["Plant Temperature Conditions"]["Optimal Range"];
       const temperatureTolerance = plant["Plant Temperature Conditions"]["Tolerance"];
       const humidityOptimal = plant["Plant Humidity Conditions"]["Optimal Humidity"];
       const humidityTolerance = plant["Plant Humidity Conditions"]["Tolerance"];
       const soilImage = plant["Plant Soil Image"];
+      const lightingImage = plant["Plant Lighting Image"];
+      const wateringImage = plant["Plant Watering Image"];
       const importantInfo = JSON.stringify(plant["Important Plant Information"]);
 
       // SQL to check if the plant already exists
@@ -96,35 +103,49 @@ async function load_data() {
               plant_common_name, 
               plant_scientific_name, 
               watering_frequency, 
+              watering_frequency_int,
               watering_amount, 
+              watering_amount_int,
               sunlight_type, 
               sunlight_duration, 
+              sunlight_duration_top,
+              sunlight_duration_bottom,
               soil_conditions, 
               lifecycle_stage, 
               average_lifespan, 
+              average_lifespan_int,
               growth_rate, 
               temperature_optimal_range, 
               temperature_tolerance, 
               humidity_optimal, 
               humidity_tolerance, 
               soil_image,
+              lighting_image,
+              watering_image,
               important_info
             ) VALUES (
               '${commonName.replace(/'/g, "''")}',
               '${scientificName.replace(/'/g, "''")}',
               '${wateringFrequency.replace(/'/g, "''")}',
+              '${wateringFrequencyInt}',
               '${wateringAmount.replace(/'/g, "''")}',
+              '${wateringAmountInt}',
               '${sunlightType.replace(/'/g, "''")}',
               '${sunlightDuration.replace(/'/g, "''")}',
+              '${sunlightDurationTop}',
+              '${sunlightDurationBottom}',
               '${soilConditions.replace(/'/g, "''")}',
               '${lifecycleStage.replace(/'/g, "''")}',
               '${averageLifespan.replace(/'/g, "''")}',
+              '${averageLifespanInt}',
               '${growthRate.replace(/'/g, "''")}',
               '${temperatureRange.replace(/'/g, "''")}',
               '${temperatureTolerance.replace(/'/g, "''")}',
               '${humidityOptimal.replace(/'/g, "''")}',
               '${humidityTolerance.replace(/'/g, "''")}',
               '${soilImage.replace(/'/g, "''")}',
+              '${lightingImage.replace(/'/g, "''")}',
+              '${wateringImage.replace(/'/g, "''")}',
               '${importantInfo.replace(/'/g, "''")}'
             );
           `;
