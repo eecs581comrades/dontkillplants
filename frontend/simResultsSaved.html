@@ -41,6 +41,14 @@ Known faults:
 </head>
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
+    <!-- Plant Raw Data Modal -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal">
+            <span class="modal-close" id="closeModalButton">&times;</span>
+            <div class="modal-header" id="modal-header">Raw Data for Plant</div>
+            <pre class="modal-body" id="modal-body">Loading...</pre>
+        </div>
+    </div>
     <div class="container"> <!-- Container for the page content -->
         <h1>Plant Simulation Results</h1> <!-- Main heading of the page -->
         <div id="plant-results"> <!-- Placeholder for displaying plant details -->
@@ -82,12 +90,24 @@ Known faults:
                 })
                 .then(data => { // Processes the received plant data
                     const resultsDiv = document.getElementById('plant-results'); // Gets the results div for output
+                    const modalBody = document.getElementById('modal-body');
+                    const modalHeader = document.getElementById('modal-header');
                     console.log("Received data:", data); // Logs the received data for debugging
                     if (data.length > 0) { // Checks if any data was returned
                         const plant = data[0]; // Gets the first plant object from the returned array
                         localStorage.setItem('plantId', plant.plant_id); // Saves the plant ID in localStorage
+                        let formattedText = JSON.stringify(plant, null, 2).replace('\,', ',\n');
+                        modalBody.textContent = formattedText;
+                        modalHeader.textContent = plant.plant_common_name + (" Raw Data");
                         resultsDiv.innerHTML = ` <!-- Inserts plant details into the results div -->
-                            <h2>${plant.plant_common_name}</h2> <!-- Displays the common name of the plant -->
+                            <div style="display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                width: 100%;
+                            ">
+                                <h2>${plant.plant_common_name}</h2>
+                                <button id="openModalButton" onClick="openModal()">View Raw Plant Data</button>
+                            </div><!-- Displays the common name of the plant -->
                             <p><strong>Scientific Name:</strong> ${plant.plant_scientific_name}</p> <!-- Displays the scientific name -->
                             <p><strong>Watering Frequency:</strong> ${plant.watering_frequency}</p> <!-- Displays watering frequency -->
                             <p><strong>Watering Amount:</strong> ${plant.watering_amount}</p> <!-- Displays watering amount -->
@@ -114,6 +134,26 @@ Known faults:
         } else {
             document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant ID
         }
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalButton = document.getElementById('closeModalButton');
+
+        // Open modal function
+        function openModal() {
+            modalOverlay.style.display = 'flex'; // Show the modal overlay
+        };
+
+        // Close modal function
+        closeModalButton.onclick = () => {
+            modalOverlay.style.display = 'none'; // Hide the modal overlay
+        };
+
+        // Close modal if clicking outside of it
+        modalOverlay.onclick = (e) => {
+            if (e.target === modalOverlay) {
+            modalOverlay.style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>

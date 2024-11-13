@@ -67,3 +67,62 @@ button{
     align-items: center;
     justify-content: center;
 }*/
+
+/* Dark overlay behind modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  /* Modal container styling */
+  .modal {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Optional close button */
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  /* Inner elements styling */
+  .modal-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .modal-body {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: left;
+    overflow: auto;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
