@@ -23,7 +23,7 @@ body{
 }
 
 /*Makes the header text white*/
-h1,h2{
+h1, h2{
     font-size: 48px;
     margin-bottom: 20px;
     color: #cbcbcb;
@@ -32,6 +32,11 @@ h1,h2{
 p{
     margin-bottom: 20px;
     color: #cbcbcb;
+}
+
+p.italic {
+  font-style: italic;
+  color: #cbcbcb;
 }
 
 /*Styles the buttons*/
@@ -143,4 +148,8 @@ p, label {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+  }
+
+  .author-card {/*background for author cards*/
+    background-color: rgb(90, 128, 90);
   }
