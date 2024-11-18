@@ -74,21 +74,36 @@ Known faults:
                 })
                 .then(data => {
                     const simulationsDiv = document.getElementById('simulations'); // Get the simulations div
-                    
+
                     // Clear any existing content
                     simulationsDiv.innerHTML = ''; // Clear the div before displaying new simulations
 
                     // Check if there are simulations
                     if (data.length > 0) { // If data contains simulations
                         data.forEach(simulation => { // Iterate over each simulation
-                            const button = document.createElement('button'); // Create a new button element
-                            button.innerText = `Plant ID: ${simulation.plant_id}`; // Set button text to plant ID
-                            button.onclick = () => { // Set button click event
-                                localStorage.setItem('plantId', simulation.plant_id); // Store plant ID in localStorage
-                                window.location.href = `simResultsSaved.html`; // Redirect to the results page
-                            };
-                            button.style.margin = '5px';  // Optional styling to add space between buttons
-                            simulationsDiv.appendChild(button); // Add button to the simulations div
+                            // Fetch plant name by plant ID
+                            fetch(`http://localhost:5100/search/id/${encodeURIComponent(simulation.plant_id)}`) // GET request to fetch plant details
+                                .then(response => {
+                                    if (!response.ok) { // Check if the response is not okay
+                                        throw new Error("Failed to fetch plant details"); // Throw an error if the response is bad
+                                    }
+                                    return response.json(); // Parse the response JSON
+                                })
+                                .then(data2 => {
+                                    const plant = data2[0]
+                                    // Create button with plant name
+                                    const button = document.createElement('button'); // Create a new button element
+                                    button.innerText = `Plant Name: ${plant.plant_common_name}`; // Set button text to plant name
+                                    button.onclick = () => { // Set button click event
+                                        localStorage.setItem('plantId', simulation.plant_id); // Store plant ID in localStorage
+                                        window.location.href = `simResultsSaved.html`; // Redirect to the results page
+                                    };
+                                    button.style.margin = '5px';  // Optional styling to add space between buttons
+                                    simulationsDiv.appendChild(button); // Add button to the simulations div
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching plant details:', error); // Log any errors to the console
+                                });
                         });
                     } else {
                         simulationsDiv.innerHTML = '<p>No simulations found.</p>'; // Message if no simulations are available

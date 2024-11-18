@@ -215,15 +215,35 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
 app.post('/simulations/add/:user_id/:plant_id', (req, res) => { 
   const user_id = parseInt(req.params.user_id, 10); 
   const plant_id = parseInt(req.params.plant_id, 10); 
-  connection.query("INSERT INTO simulations (plant_id, user_id) VALUES (?, ?)", [plant_id, user_id], (err, results) => {
+
+  // Check if the simulation already exists for this user and plant
+  const checkQuery = "SELECT COUNT(*) AS count FROM simulations WHERE plant_id = ? AND user_id = ?";
+  connection.query(checkQuery, [plant_id, user_id], (err, results) => {
     if (err) {
-      console.error('Error adding simulation:', err.message);  // Log detailed error
-      res.status(500).send(`Server error: ${err.message}`);    // Return error message to client
+      console.error('Error checking existing simulation:', err.message); // Log detailed error
+      res.status(500).send(`Server error: ${err.message}`);             // Return error message to client
       return;
     }
-    res.status(201).send("Simulation created successfully");
+
+    const simulationExists = results[0].count > 0;
+
+    if (simulationExists) {
+      res.status(200).send("Simulation already exists for this plant and user.");
+    } else {
+      // Insert the simulation if it does not exist
+      const insertQuery = "INSERT INTO simulations (plant_id, user_id) VALUES (?, ?)";
+      connection.query(insertQuery, [plant_id, user_id], (err, results) => {
+        if (err) {
+          console.error('Error adding simulation:', err.message);      // Log detailed error
+          res.status(500).send(`Server error: ${err.message}`);        // Return error message to client
+          return;
+        }
+        res.status(201).send("Simulation created successfully");
+      });
+    }
   });
 });
+
 
 app.get('/simulations/:userId', (req, res) => {
   const userId = parseInt(req.params.userId, 10);
