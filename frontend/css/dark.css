@@ -55,10 +55,11 @@ button{
 }
 
 .homeButton {
-    position: absolute;
-    z-index: 800;
-    left: 30px;
-    top: 550px;
+  position: absolute;
+  z-index: 800;
+  left: 30px;
+  top: 550px;
+  filter:invert(1);
 }
 
 .homeButton { /*Mandrake button*/
