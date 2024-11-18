@@ -98,6 +98,7 @@ Known faults:
                                     button.innerText = `Plant Name: ${plant.plant_common_name}`; // Set button text to plant name
                                     button.onclick = () => { // Set button click event
                                         localStorage.setItem('plantId', simulation.plant_id); // Store plant ID in localStorage
+                                        localStorage.setItem('simulationId', simulation.simulation_id); // Store simulation ID in localStorage
                                         window.location.href = `simResultsSaved.html`; // Redirect to the results page
                                     };
                                     button.style.margin = '5px';  // Optional styling to add space between buttons

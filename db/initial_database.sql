@@ -64,6 +64,8 @@ CREATE TABLE `simulations` (
   `plant_id` int DEFAULT NULL,
   `plant_log` text,
   `user_id` int NOT NULL,
+  `dead` int DEFAULT NULL,
+  `log_day` int DEFAULT NULL,
   PRIMARY KEY (`simulation_id`),
   FOREIGN KEY (`user_id`) REFERENCES `user_pass_combo`(`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -34,6 +34,7 @@ Known faults:
 
 // Retrieve plant ID from localStorage
 const plantId = localStorage.getItem('plantId'); // Gets the plant ID stored in localStorage
+const userId = localStorage.getItem('userId'); // Gets the user ID stored in localStorage
 
 // Check if plant ID exists
 if (plantId) { // Verifies that a plant ID was retrieved
@@ -69,12 +70,51 @@ if (plantId) { // Verifies that a plant ID was retrieved
     document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant ID
 }
 
-let day = 1; // Tracks the current day in the plant care log
+if (userId) { // Check if user ID exists
+    // Fetch simulations for the user
+    fetch(`http://localhost:5100/simulations/${userId}`) // Send a GET request to the server for simulations
+        .then(response => {
+            if (!response.ok) { // Check if the response is not okay
+                throw new Error("Failed to fetch simulations"); // Throw an error if the response is bad
+            }
+            return response.json(); // Parse the response JSON
+        })
+        .then(data => {
+            const temp = localStorage.getItem('simulationId'); // Get the simulations div for output
+            // Check if there are simulations
+            if (data.length > 0) { // If data contains simulations
+                data.forEach(simulation => { // Iterate over each simulation
+                    if (simulation.simulation_id == temp) { // Check if the simulation has an ID
+                        localStorage.setItem('dead', simulation.dead)
+                        localStorage.setItem('log_day', simulation.log_day)
+                     }
+                });
+            } else {
+                simulationsDiv.innerHTML = '<p>No simulations found.</p>'; // Message if no simulations are available
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching simulations:', error); // Log any errors to the console
+            document.getElementById('simulations').innerHTML = '<p>Error retrieving simulations. Please try again.</p>'; // Show error message on the page
+        });
+} else {
+    document.getElementById('simulations').innerHTML = '<p>User not logged in. Please log in to see simulations.</p>'; // Message if user is not logged in
+}
+
+let day = localStorage.getItem('log_day'); // Tracks the current day in the plant care log
+let dead = localStorage.getItem('dead'); // Tracks if the plant is dead
+if (day == null) {
+    day = 1;
+}
+if (dead != null) {
+    displayLog(`The plant has died. Refresh to restart.`, "dead");
+}
 let careHistory = { water: 0, sunlight: 0, neglect: 0, both: 0 }; // Tracks number of care actions taken
 
 // Tracks plant care per day and logs the actions taken
 function careForPlant(action) {
     if (isPlantDead()) { // Checks if plant is already dead
+        clearLogs();
         displayLog(`The plant has died. Refresh to restart.`, "dead");
         return;
     }
@@ -101,6 +141,8 @@ function careForPlant(action) {
 
     // Check every 7 days if the plant survives
     if (day % 7 === 0) {
+        const currentDay = day; // Save current day for log output
+        clearLogs();
         checkPlantHealth();
     }
 
@@ -146,11 +188,17 @@ function checkPlantHealth() {
     } else if (careHistory.neglect > neglectLimit) { // Checks if plant died from neglect
         displayLog("Plant has died from neglect.", "dead");
     } else {
-        displayLog(`Day ${day}: Plant is healthy after a week.`);
+        displayLog(`Day ${day}: Plant is healthy.`);
     }
 
     // Reset weekly care history
     careHistory = { water: 0, sunlight: 0, neglect: 0, both: 0 };
+}
+
+// Clear logs from previous weeks
+function clearLogs() {
+    const log = document.getElementById('log');
+    log.innerHTML = ''; // Remove all child elements (log entries)
 }
 
 // Checks if the plant is dead based on previous entries
