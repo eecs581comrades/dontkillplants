@@ -54,19 +54,6 @@ button{
     z-index: 900;
 }
 
-.homeButton {
-    position: absolute;
-    z-index: 800;
-    left: 30px;
-    top: 550px;
-}
-
-.homeButton { /*Mandrake button*/
-    position: absolute;
-    z-index: 800;
-    left: 30px;
-    bottom: 10px;
-}
 
 /*Centers anything with the divider class*/
 .container {
@@ -153,3 +140,12 @@ p, label {
   .author-card {/*background for author cards*/
     background-color: rgb(90, 128, 90);
   }
+
+
+.homeButton {
+  position: absolute;
+  z-index: 800;
+  left: 30px;
+  top: 550px;
+  filter:invert(1);
+}
