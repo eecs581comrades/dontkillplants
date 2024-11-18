@@ -23,7 +23,7 @@ body{
 }
 
 /*Makes the header text white*/
-h1, h2{
+h1, h2, h3{
     font-size: 48px;
     margin-bottom: 20px;
     color: #cbcbcb;
@@ -152,5 +152,5 @@ p, label {
   }
 
   .author-card {/*background for author cards*/
-    background-color: rgb(90, 128, 90);
+    background-color: rgb(65,25,108);
   }
