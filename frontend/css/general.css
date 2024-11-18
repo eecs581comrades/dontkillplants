@@ -130,3 +130,7 @@ button{
     justify-content: flex-end;
     width: 100%;
   }
+
+  .author-card { /*background for author cards*/
+    background-color: white;
+  }
