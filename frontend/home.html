@@ -32,8 +32,9 @@ Known faults: About button goes nowhere
         <button onclick="location.href='about.html'">About</button><!--Button to go to about page-->
         </div>
     </div>
-    <input class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/>
-    
+    <input id="filterable" class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/> <!--Mandrake Button to go home and able to change look of-->
+    <script src="js/changeTheGuy.js"></script><!--Loads user's mandrake filter-->
+
     <script>
         let plantId = null;
         let userId = null;
