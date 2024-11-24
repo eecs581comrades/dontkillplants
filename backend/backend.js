@@ -212,6 +212,52 @@ app.post('/account/add/:username/:password', (req, res) => { //returns 200 if cr
   };
 })});
 
+app.post('/account/change/:username/:oldpassword/:newpassword', (req, res) => { //returns 200 if created, 400 if account already exists
+  const username = req.params.username;
+  const oldpassword = req.params.oldpassword;
+  const newpassword = req.params.newpassword
+  connection.query('SELECT user_id, password FROM user_pass_combo WHERE username = ?', [username], (err, results) => {
+    if (err) {
+      console.error('Error checking for user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    if (results.length === 0) {
+      res.status(400).send('Username or Password is incorrect');
+      return;
+    }
+    else {
+      bcrypt.compare(oldpassword, results[0].password, (err, results2) => {
+        if (err) {
+          console.error('Error hashing password:', err);
+          res.status(500).send('Server error');
+          return;
+        }
+        else{
+          if (results2) {
+            bcrypt.hash(newpassword, saltRounds, (err, saltedPassword) => {
+              connection.query('UPDATE user_pass_combo SET password = ? WHERE user_id = ?', [saltedPassword, results[0].user_id], (err, results3) => {
+                if (err) {
+                  console.error('Error updating password:', err);
+                  res.status(500).send('Server error');
+                  return;
+                }
+                else {
+                  res.status(200).send('Password Updated Successfully');
+                }
+              })
+            });
+          }
+          else {
+            res.status(400).send('Username or Password is incorrect');
+            return
+          }
+        }
+    });
+  }
+});
+});
+
 app.post('/simulations/add/:user_id/:plant_id', (req, res) => { 
   const user_id = parseInt(req.params.user_id, 10); 
   const plant_id = parseInt(req.params.plant_id, 10); 
