@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Store Locator</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Nearby Plant Stores</h1>
+    <input id="address" type="text" placeholder="Enter your address">
+    <button onclick="findPlantStores()">Search</button>
+    <div id="map">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnyA8wsaJDRRfVzgbtKO6BO5kylG86a7A&libraries=places&callback=initMap" async defer></script>
+    </div>
+
+    <script src="AIzaSyCnyA8wsaJDRRfVzgbtKO6BO5kylG86a7A"></script>
+    <script src="script.js"></script>
+</body>
+</html>
