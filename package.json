@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
     "bcrypt": "^5.1.1",
     "choco": "^0.2.1",
     "express": "^4.21.1",
