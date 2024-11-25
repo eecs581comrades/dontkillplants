@@ -103,10 +103,10 @@ if (userId) { // Check if user ID exists
 
 let day = localStorage.getItem('log_day'); // Tracks the current day in the plant care log
 let dead = localStorage.getItem('dead'); // Tracks if the plant is dead
-if (day == null) {
+if (day == 'null') {
     day = 1;
 }
-if (dead != null) {
+if (dead != 'null') {
     displayLog(`The plant has died. Refresh to restart.`, "dead");
 }
 let careHistory = { water: 0, sunlight: 0, neglect: 0, both: 0 }; // Tracks number of care actions taken
