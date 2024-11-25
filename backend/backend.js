@@ -290,6 +290,29 @@ app.post('/simulations/add/:user_id/:plant_id', (req, res) => {
   });
 });
 
+app.delete('/simulations/delete/:simulation_id', (req, res) => {
+  const simulationId = parseInt(req.params.simulation_id, 10);
+
+  if (isNaN(simulationId)) {
+      return res.status(400).send('Invalid simulation ID');
+  }
+
+  const deleteQuery = 'DELETE FROM simulations WHERE simulation_id = ?';
+  connection.query(deleteQuery, [simulationId], (err, results) => {
+      if (err) {
+          console.error('Error deleting simulation:', err);
+          return res.status(500).send('Server error');
+      }
+
+      if (results.affectedRows === 0) {
+          return res.status(404).send('Simulation not found');
+      }
+
+      res.status(200).send('Simulation deleted successfully');
+  });
+});
+
+
 
 app.get('/simulations/:userId', (req, res) => {
   const userId = parseInt(req.params.userId, 10);

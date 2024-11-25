@@ -1,0 +1,124 @@
+<!-- 
+Name of code artifact: User Customization
+Description: 
+This code artifact is a webpage that allows users to change their password. It provides a form where the user can input their username, current password, and new password. The page includes functionality for theme toggling (light/dark mode) and provides feedback to the user upon successful or unsuccessful password changes. If successful, the user is redirected to another page displaying their current simulations. 
+Name(s): Chase Curtis
+Date Created: 11-24-24
+Dates Revised: 
+
+Preconditions: 
+- The user must be logged into the system before changing their password.
+- A valid username and current password are required for the password change process.
+- The system must have a backend endpoint available at `http://localhost:5100/account/change/{username}/{currentPassword}/{newPassword}`.
+
+Acceptable/unacceptable input values/types, and meanings:
+- Username: A string representing the username of the account whose password is to be changed.
+- Current Password: A string representing the current password of the user.
+- New Password: A string representing the new password to set.
+
+Postconditions:
+- If the credentials are valid, the password is changed, and the user is redirected to a page showing their current simulations.
+- If the credentials are invalid, an error message is displayed.
+
+Return values/types, and meanings:
+- Success: A success message is displayed in green, and the user is redirected.
+- Error: An error message is displayed in red if there was an issue with the password change (e.g., invalid current password or server error).
+
+Error and exception condition values/types that can occur, and meanings:
+- 400 (Bad Request): Invalid input values or missing parameters.
+- 401 (Unauthorized): Invalid current password.
+- 500 (Internal Server Error): A server-side error occurred during the request.
+
+Side effects:
+- Changes the user's password if the provided credentials are valid.
+- Modifies local storage for theme preferences (dark mode if enabled).
+- Updates the UI with messages indicating success or failure.
+
+Invariants:
+- The user’s password will only be changed if the correct current password is provided.
+- The UI is updated with the correct feedback messages after submission.
+
+Known faults:
+- None identified as of now. 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="icon" href="css/img/the_guy.png" type="image/png"> <!-- Favicon for the page -->
+    <script type="text/javascript" src="js/themeToggle.js"></script> <!-- Script for theme toggle -->
+    <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!-- Default stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="themeButton" onclick="toggleTheme()"></button> <!-- Button to toggle theme -->
+    <div class="container">
+        <h1>Change Password</h1>
+        <form id="change-password-form">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" placeholder="Enter your username" required><br><br> <!-- Username input -->
+            
+            <label for="current-password">Current Password:</label><br>
+            <input type="password" id="current-password" placeholder="Enter current password" required><br><br> <!-- Current password input -->
+            
+            <label for="new-password">New Password:</label><br>
+            <input type="password" id="new-password" placeholder="Enter new password" required><br><br> <!-- New password input -->
+            
+            <button type="submit">Change Password</button> <!-- Submit button -->
+        </form>
+        <p id="message"></p> <!-- Message display area -->
+    </div>
+    <input id="filterable" class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'" /> <!-- Home button -->
+
+    <script src="js/changeTheGuy.js"></script> <!-- Script for additional functionality -->
+    <script>
+        // Handle theme toggle
+        const theme = document.getElementById('theme');
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css'); // Apply dark theme if enabled
+        }
+
+        // Form submission handler
+        document.getElementById('change-password-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            // Use the API endpoint with URL parameters
+            fetch(`http://localhost:5100/account/change/${username}/${currentPassword}/${newPassword}`, {
+                method: 'POST',
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text().then(() => {
+                        document.getElementById('message').textContent = "Password changed successfully!";
+                        document.getElementById('message').style.color = "green";
+                        window.location.href = 'viewCurrentSimulations.html'; // Redirect on success
+                    });
+                } else {
+                    return response.text().then(text => {
+                        document.getElementById('message').textContent = text;
+                        document.getElementById('message').style.color = "red"; // Display error message
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error during password change:', error);
+                document.getElementById('message').textContent = "An error occurred. Please try again.";
+                document.getElementById('message').style.color = "red"; // Display error message
+            });
+        });
+    </script>
+</body>
+</html>

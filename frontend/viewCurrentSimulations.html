@@ -82,32 +82,92 @@ Known faults:
 
                     // Check if there are simulations
                     if (data.length > 0) { // If data contains simulations
-                        data.forEach(simulation => { // Iterate over each simulation
+                        data.forEach(simulation => {
                             // Fetch plant name by plant ID
-                            fetch(`http://localhost:5100/search/id/${encodeURIComponent(simulation.plant_id)}`) // GET request to fetch plant details
+                            fetch(`http://localhost:5100/search/id/${encodeURIComponent(simulation.plant_id)}`) 
                                 .then(response => {
-                                    if (!response.ok) { // Check if the response is not okay
-                                        throw new Error("Failed to fetch plant details"); // Throw an error if the response is bad
+                                    if (!response.ok) {
+                                        throw new Error("Failed to fetch plant details");
                                     }
-                                    return response.json(); // Parse the response JSON
+                                    return response.json();
                                 })
                                 .then(data2 => {
-                                    const plant = data2[0]
-                                    // Create button with plant name
-                                    const button = document.createElement('button'); // Create a new button element
-                                    button.innerText = `Plant Name: ${plant.plant_common_name}`; // Set button text to plant name
-                                    button.onclick = () => { // Set button click event
-                                        localStorage.setItem('plantId', simulation.plant_id); // Store plant ID in localStorage
-                                        localStorage.setItem('simulationId', simulation.simulation_id); // Store simulation ID in localStorage
-                                        window.location.href = `simResultsSaved.html`; // Redirect to the results page
+                                    const plant = data2[0];
+                                    const simulationDiv = document.createElement('div'); // Create a container for the simulation
+
+                                    // Create button for viewing the simulation
+                                    const viewButton = document.createElement('button');
+                                    viewButton.innerText = `Plant Name: ${plant.plant_common_name}`;
+                                    viewButton.onclick = () => {
+                                        localStorage.setItem('plantId', simulation.plant_id);
+                                        localStorage.setItem('simulationId', simulation.simulation_id);
+                                        window.location.href = `simResultsSaved.html`;
                                     };
-                                    button.style.margin = '5px';  // Optional styling to add space between buttons
-                                    simulationsDiv.appendChild(button); // Add button to the simulations div
+                                    viewButton.style.margin = '5px';
+                                    viewButton.style.position = 'relative'; // Make view button a positioning context
+
+                                    // Delete button (gray circle with "X")
+                                    const deleteButton = document.createElement('button');
+                                    deleteButton.innerText = '×'; // The "X" character
+                                    deleteButton.style.position = 'absolute';
+                                    deleteButton.style.top = '-10px'; // Move the button slightly higher
+                                    deleteButton.style.right = '-10px'; // Move the button slightly to the right
+                                    deleteButton.style.width = '30px'; // Circle size (adjust this as needed)
+                                    deleteButton.style.height = '30px'; // Circle size (same as width for circle)
+                                    deleteButton.style.borderRadius = '50%'; // Make it round
+                                    deleteButton.style.backgroundColor = '#888'; // Gray background
+                                    deleteButton.style.color = 'white'; // White "X"
+                                    deleteButton.style.border = 'none';
+                                    deleteButton.style.fontSize = '20px'; // Size of the "X"
+                                    deleteButton.style.textAlign = 'center';
+                                    deleteButton.style.lineHeight = '30px'; // Center the "X" vertically
+                                    deleteButton.style.cursor = 'pointer';
+                                    deleteButton.style.padding = '0'; // Remove any extra padding around the "X"
+
+                                    // hover effect 
+                                    deleteButton.onmouseover = () => {
+                                        deleteButton.style.backgroundColor = '#555'; // Darken when hovered
+                                    };
+
+                                    deleteButton.onmouseout = () => {
+                                        deleteButton.style.backgroundColor = '#888'; // Return to original gray
+                                    };
+
+                                    // Button action for delete
+                                    deleteButton.onclick = () => {
+                                        if (confirm('Are you sure you want to delete this simulation?')) {
+                                            fetch(`http://localhost:5100/simulations/delete/${simulation.simulation_id}`, {
+                                                method: 'DELETE',
+                                            })
+                                                .then(response => {
+                                                    if (!response.ok) {
+                                                        throw new Error('Failed to delete simulation');
+                                                    }
+                                                    alert('Simulation deleted successfully.');
+                                                    location.reload(); // Reload the page to reflect changes
+                                                })
+                                                .catch(error => {
+                                                    console.error('Error deleting simulation:', error);
+                                                });
+                                        }
+                                    };
+
+                                    // Make a container for the view button and delete button
+                                    const buttonContainer = document.createElement('div');
+                                    buttonContainer.style.position = 'relative';
+                                    buttonContainer.style.display = 'inline-block'; // Ensure proper wrapping of the buttons
+                                    buttonContainer.appendChild(viewButton);
+                                    buttonContainer.appendChild(deleteButton);
+
+                                    // Add the container to the simulations div
+                                    simulationsDiv.appendChild(buttonContainer);
+
                                 })
                                 .catch(error => {
-                                    console.error('Error fetching plant details:', error); // Log any errors to the console
+                                    console.error('Error fetching plant details:', error);
                                 });
                         });
+
                     } else {
                         simulationsDiv.innerHTML = '<p>No simulations found.</p>'; // Message if no simulations are available
                     }
