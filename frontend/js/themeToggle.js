@@ -14,12 +14,32 @@ Known faults: None
 
 function toggleTheme() {//Switchs between dark and light mode and sets across all pages
     let theme = document.getElementById('theme'); //Gets and sets theme of html page
+    let userId = localStorage.getItem('userId'); //
+    let newMode;
     const darkMode = localStorage.getItem('darkMode'); //Gets last saved theme
     if (darkMode === 'enabled') { //Checks if dark mode is being used
         theme.setAttribute('href', 'css/general.css'); //Switchs to light mode
         localStorage.setItem('darkMode', null); //Saves light mode as current theme
+        newMode = null;
     } else {//Checks if light mode is being used
         theme.setAttribute('href', 'css/dark.css');//Switches to dark mode
         localStorage.setItem('darkMode', 'enabled');//Saves dark mode as current theme
+        newMode = 'enabled';
+    }
+
+    if (userId) {
+        // Send API request to update darkMode in the database
+        fetch(`http://localhost:5100/account/${userId}/${newMode}`, {
+            method: 'POST',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to update dark mode preference in the database');
+            }
+            console.log('Dark mode preference updated successfully.');
+        })
+        .catch(error => {
+            console.error('Error updating dark mode preference:', error);
+        });
     }
 }

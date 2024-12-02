@@ -54,6 +54,8 @@ CREATE TABLE `user_pass_combo` (
   `username` text,
   `password` text,
   `user_id` int NOT NULL AUTO_INCREMENT,
+  `darkMode` text DEFAULT NULL,
+  `filter` int DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
