@@ -96,8 +96,12 @@ Known faults:
                     }
                 })
                 .then(data => {
-                    const user = Array.isArray(data) ? data[0] : data;
+                    const user = data;
+                    console.log('User data:', user);
+                    const darkMode = JSON.stringify(user.darkMode);
                     localStorage.setItem('userId', user.user_id); // Save user ID to local storage
+                    localStorage.setItem('darkMode', darkMode); // Save dark mode preference to local storage
+                    //loaclStorage.setItem('filter', filter);
 
                     if (plantId !== 'null') { // Check if plant ID is stored
                         console.log('Attempting to add simulation with:', { user_id: user.user_id, plant_id: plantId });
@@ -117,7 +121,7 @@ Known faults:
                         })
                         .catch(error => console.error('Error saving simulation:', error)); // Log errors if they occur
                     } else {
-                        window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
+                        //window.location.href = 'viewCurrentSimulations.html'; // Redirect to results page
                     }
                 })
                 .catch(error => {

@@ -147,7 +147,7 @@ app.post('/search/:plantInfoPartial', async (req, res) => {
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;
   const password = req.params.password;
-  connection.query('SELECT user_id, password FROM user_pass_combo WHERE username = ?', [username], (err, results) => {
+  connection.query('SELECT user_id, password, darkMode FROM user_pass_combo WHERE username = ?', [username], (err, results) => {
     if (err) {
       console.error('Error fetching user:', err);
       res.status(500).send('Server error');
@@ -312,8 +312,6 @@ app.delete('/simulations/delete/:simulation_id', (req, res) => {
   });
 });
 
-
-
 app.get('/simulations/:userId', (req, res) => {
   const userId = parseInt(req.params.userId, 10);
   console.log(`Fetching simulations for userId: ${userId}`); // Log userId
@@ -329,6 +327,27 @@ app.get('/simulations/:userId', (req, res) => {
       res.json(results);
   });
 });
+
+app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created, 400 if account already exists
+  const userId = parseInt(req.params.userId, 10);
+  const darkMode = req.params.darkMode;
+  connection.query('UPDATE user_pass_combo SET darkMode = ? WHERE user_id = ?', [darkMode, userId], (err, results) => {
+    if (err) {
+      console.error('Error checking for user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    if (results.length === 0) {
+      res.status(400).send('Something is wrong');
+      return;
+    }
+    else {
+      res.status(200).send('Dark Mode Updated Successfully');
+      return;
+        }
+      });
+      
+    });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
