@@ -37,14 +37,16 @@ button{
     padding: 10px 20px;
 }
 
-.themeButton {/*Dark Mode button*/
+/*Dark Mode button*/
+.themeButton {
     background-color: rgb(244, 210, 86);
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
 }
 
-.homeButton { /*Mandrake button*/
+/*Mandrake button*/
+.homeButton {
   position: absolute;
   z-index: 800;
   left: 30px;
@@ -56,21 +58,8 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*justify-content: center;*/
     height: 80vh;
 }
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(0, 255, 21);
-    color: white;
-    text-align: center;
-  }
-
-
 
 /* Dark overlay behind modal */
 .modal-overlay {
@@ -116,7 +105,8 @@ button{
     margin-bottom: 10px;
     color: #333;
   }
-  
+
+  /*Raw data popup*/
   .modal-body {
     font-size: 1em;
     color: #666;
@@ -125,11 +115,12 @@ button{
     overflow: auto;
   }
   
+  /*Raw data popup*/
   .modal-footer {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-  }
+}
 
   .author-card { /*background for author cards*/
     background-color: white;

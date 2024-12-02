@@ -15,7 +15,7 @@ Known faults: About button goes nowhere
 <html lang="en">
 <head>
     <title>Don't Kill Plants</title>
-    <link rel="icon" href="css/img/the_guy.png" type="image/png">
+    <link rel="icon" href="css/img/the_guy.png" type="image/png"><!--Icon of Mandrake-->
     <script type="text/javascript" src="js/themeToggle.js"></script> <!--Connects Javascript for theme switching-->
     <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" /> <!--Connects default CSS for theme switching-->
     
@@ -23,12 +23,12 @@ Known faults: About button goes nowhere
 
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
-    <div class="container">
+    <div class="container"> <!--Centers content in div-->
         <h1>Don't Kill Plants</h1> <!--Tab words-->
         <div>
         <button onclick="location.href='simulation.html'">Simulation</button><!--Button to go to simulation-->
-        <button onclick="location.href='viewLoad.html'">Login</button>
-        <button onclick="location.href='createUser.html'">Create User</button>
+        <button onclick="location.href='viewLoad.html'">Login</button><!--Button to login page-->
+        <button onclick="location.href='createUser.html'">Create User</button><!--Button to page to go create new user-->
         <button onclick="location.href='about.html'">About</button><!--Button to go to about page-->
         </div>
     </div>
@@ -36,19 +36,20 @@ Known faults: About button goes nowhere
     <script src="js/changeTheGuy.js"></script><!--Loads user's mandrake filter-->
 
     <script>
+        //Set starting values for plants and user's IDs for storage
         let plantId = null;
         let userId = null;
 
-        // Store in local storage
+        //Store the plants and user's IDs to local storage
         localStorage.setItem('plantId', plantId);
         localStorage.setItem('userId', userId);
 
-        const darkMode = localStorage.getItem('darkMode');
-
-        if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css');
+        //Theme switching
+        const darkMode = localStorage.getItem('darkMode');//Get last saved theme value
+        if (darkMode === 'enabled') {//Checks if light mode was last saved
+            theme.setAttribute('href', 'css/dark.css');//switches to dark mode
         } else {
-            theme.setAttribute('href', 'css/general.css');
+            theme.setAttribute('href', 'css/general.css');//switches to light mode
         }
 
     </script>
