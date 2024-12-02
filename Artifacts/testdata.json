@@ -36,7 +36,8 @@
       },
       "Plant Soil Image": "css/img/soil/sandy.webp",
       "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
+      "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+      "Plant Image": "css/img/plants/lavender.webp"
     },
     {
       "Plant Common Name": "Aloe Vera",
@@ -75,7 +76,8 @@
       },
       "Plant Soil Image": "css/img/soil/sandy.webp",
       "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
+      "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+      "Plant Image": "css/img/plants/aloe.webp"
     },
     {
       "Plant Common Name": "Basil",
@@ -114,7 +116,8 @@
       },
       "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
       "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
+      "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+      "Plant Image": "css/img/plants/basil.webp"
     },
     {
       "Plant Common Name": "Snake Plant",
@@ -153,7 +156,8 @@
       },
       "Plant Soil Image": "css/img/soil/sandy.webp",
       "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
+      "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+      "Plant Image": "css/img/plants/snakePlant.webp"
     },
     {
       "Plant Common Name": "Peace Lily",
@@ -191,8 +195,9 @@
         "Special Care": "Mist leaves regularly in dry climates"
       },
       "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
-        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
+      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+      "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+      "Plant Image": "css/img/plants/peaceLily.webp"
     },
     {
         "Plant Common Name": "Spider Plant",
@@ -231,7 +236,8 @@
         },
         "Plant Soil Image": "css/img/soil/loam.webp",
         "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
+        "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+        "Plant Image": "css/img/plants/spiderPlant.webp"
     },
     {
         "Plant Common Name": "Mint",
@@ -270,7 +276,8 @@
         },
         "Plant Soil Image": "css/img/soil/rich.webp",
         "Plant Lighting Image": "css/img/lighting/PartialSun.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+        "Plant Image": "css/img/plants/mint.webp"
     },
     {
         "Plant Common Name": "Fern",
@@ -309,7 +316,8 @@
         },
         "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
         "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp"
+        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+        "Plant Image": "css/img/plants/fern.webp"
     },
     {
         "Plant Common Name": "Jade Plant",
@@ -348,7 +356,8 @@
         },
         "Plant Soil Image": "css/img/soil/sandy.webp",
         "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp"
+        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+        "Plant Image": "css/img/plants/jadePlant.webp"
     },
     {
         "Plant Common Name": "Orchid",
@@ -387,6 +396,7 @@
         },
         "Plant Soil Image": "css/img/soil/willow.webp",
         "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/OnceWeek.webp"
+        "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+        "Plant Image": "css/img/plants/orchid.webp"
     }      
 ]

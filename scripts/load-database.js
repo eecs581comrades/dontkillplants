@@ -1,9 +1,9 @@
 // Name of code artifact: All of them
 // Description: Node.js setup script for configuring the local database
-// Name(s): William Johnson
+// Name(s): William Johnson, Katie Golder
 // Date Created: 10-25-24
-// Dates Revised:
-// Brief description of each revision & author:
+// Dates Revised: 12-2-24
+// Brief description of each revision & author: Katie added plant image support on 12-2-24
 
 const { spawn } = require('child_process');
 const path = require('path');
@@ -74,6 +74,7 @@ async function load_data() {
       const soilImage = plant["Plant Soil Image"];
       const lightingImage = plant["Plant Lighting Image"];
       const wateringImage = plant["Plant Watering Image"];
+      const plantImage = plant["Plant Image"];
       const importantInfo = JSON.stringify(plant["Important Plant Information"]);
 
       // SQL to check if the plant already exists
@@ -122,6 +123,7 @@ async function load_data() {
               soil_image,
               lighting_image,
               watering_image,
+              plant_image,
               important_info
             ) VALUES (
               '${commonName.replace(/'/g, "''")}',
@@ -146,6 +148,7 @@ async function load_data() {
               '${soilImage.replace(/'/g, "''")}',
               '${lightingImage.replace(/'/g, "''")}',
               '${wateringImage.replace(/'/g, "''")}',
+              '${plantImage.replace(/'/g, "''")}',
               '${importantInfo.replace(/'/g, "''")}'
             );
           `;

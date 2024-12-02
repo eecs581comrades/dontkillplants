@@ -43,6 +43,7 @@ CREATE TABLE `plants` (
   `soil_image` text DEFAULT NULL,
   `lighting_image` text DEFAULT NULL,
   `watering_image` text DEFAULT NULL,
+  `plant_image` text DEFAULT NULL,
   `important_info` text,
   PRIMARY KEY (`plant_id`),
   FULLTEXT (`plant_common_name`, `plant_scientific_name`, `watering_frequency`, `sunlight_type`, `soil_conditions`, 
