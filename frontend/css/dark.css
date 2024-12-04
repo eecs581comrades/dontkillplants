@@ -19,7 +19,8 @@ body{
     background-image: url("img/nightPlant.png"),  url("img/nightGround.png"); /*Background Image*/
     background-repeat: no-repeat, repeat-x;
     background-position: 98% 82%, bottom;
-    background-size: none, cover
+    background-size: none, cover;
+    background-attachment: fixed;
 }
 
 /*Makes the header text white*/
@@ -52,14 +53,7 @@ button{
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
-}
-
-.homeButton {
-  position: absolute;
-  z-index: 800;
-  left: 30px;
-  top: 550px;
-  filter:invert(1);
+    position: fixed;
 }
 
 .homeButton { /*Mandrake button*/
@@ -67,6 +61,7 @@ button{
     z-index: 800;
     left: 30px;
     bottom: 10px;
+    position: fixed;
 }
 
 /*Centers anything with the divider class*/

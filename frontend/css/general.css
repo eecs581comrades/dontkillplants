@@ -13,6 +13,12 @@ Known faults: N/A
 */
 
 /*Makes the background blue*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; 
+}
 body{
     background-color: rgb(122, 193, 255);
     font-family: Arial, sans-serif;
@@ -20,6 +26,7 @@ body{
     background-repeat: no-repeat, repeat-x;
     background-position: 98% 82%, bottom;
     background-size: none, cover;
+    background-attachment: fixed;
 }
 
 /*Makes the header text white*/
@@ -43,6 +50,7 @@ button{
     border-radius: 50%;
     padding: 70px;
     z-index: 900;
+    position: fixed;
 }
 
 /*Mandrake button*/
@@ -51,6 +59,7 @@ button{
   z-index: 800;
   left: 30px;
   top: 550px;
+  position: fixed;
 }
 
 /*Centers anything with the divider class*/
