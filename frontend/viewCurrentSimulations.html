@@ -40,7 +40,7 @@ Known faults:
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 50vh;
         }
         .calendar {
             width: 300px;
@@ -151,35 +151,43 @@ Known faults:
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <div class="container"> <!-- Main container for the page layout -->
-        <div class="box" style="height: 500px; width: 500px;"> <!-- Box containing the simulation title and buttons -->
-            <h1 style="text-align: center;">View Simulations</h1> <!-- Header for the page -->
-            <div id="simulations"></div> <!-- Div to hold the simulation buttons -->
-        </div>
-        <div class="calendar-wrapper">
-            <div class="calendar">
-                <div class="header">
-                    <button id="prev">❮</button>
-                    <span id="monthYear"></span>
-                    <button id="next">❯</button>
-                </div>
-                <div class="days">
-                    <div class="day">Sun</div>
-                    <div class="day">Mon</div>
-                    <div class="day">Tue</div>
-                    <div class="day">Wed</div>
-                    <div class="day">Thu</div>
-                    <div class="day">Fri</div>
-                    <div class="day">Sat</div>
-                </div>
-                <div id="dates" class="dates"></div>
-            </div>
-    
-            <div id="eventInput" class="event-input">
-                <input id="eventText" type="text" placeholder="Enter event">
-                <button id="addEvent">Add Event</button>
-                <button id="cancelEvent" class="cancel">Cancel</button>
-            </div>
-        </div>
+        <h1 style="text-align: center;">View Simulations</h1> <!-- Header for the page -->
+        <table>
+            <tr>
+                <td>
+                    <div class="box" style="height: 500px; width: 500px;"> <!-- Box containing the simulation title and buttons -->
+                        <div id="simulations"></div> <!-- Div to hold the simulation buttons -->
+                    </div>
+                </td>
+                <td>
+                    <div class="calendar-wrapper">
+                        <div class="calendar">
+                            <div class="header">
+                                <button id="prev">❮</button>
+                                <span id="monthYear"></span>
+                                <button id="next">❯</button>
+                            </div>
+                            <div class="days">
+                                <div class="day">Sun</div>
+                                <div class="day">Mon</div>
+                                <div class="day">Tue</div>
+                                <div class="day">Wed</div>
+                                <div class="day">Thu</div>
+                                <div class="day">Fri</div>
+                                <div class="day">Sat</div>
+                            </div>
+                            <div id="dates" class="dates"></div>
+                        </div>
+                
+                        <div id="eventInput" class="event-input">
+                            <input id="eventText" type="text" placeholder="Enter event">
+                            <button id="addEvent">Add Event</button>
+                            <button id="cancelEvent" class="cancel">Cancel</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <div>
             <button onclick="location.href='simulation.html'">New Simulation</button><!-- Button to navigate to the new simulation page -->
             <button onclick="window.location.href='home.html'">Home</button> <!-- Button to navigate to the home page -->
@@ -319,7 +327,7 @@ Known faults:
         }
     </script>
     <script>
-            const monthYear = document.getElementById("monthYear");
+        const monthYear = document.getElementById("monthYear");
         const dates = document.getElementById("dates");
         const prev = document.getElementById("prev");
         const next = document.getElementById("next");
