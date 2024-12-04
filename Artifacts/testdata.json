@@ -398,5 +398,165 @@
         "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
         "Plant Watering Image": "css/img/watering/OnceWeek.webp",
         "Plant Image": "css/img/plants/orchid.webp"
-    }      
+    },     
+{
+  "Plant Common Name": "Sunflower",
+  "Plant Scientific Name": "Helianthus annuus",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "250ml per watering",
+    "Amount Int": 250
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "15 years",
+    "Average Lifespan Int": 15,
+    "Growth Rate": "Slow to moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 10°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Aphids, Leafhoppers",
+    "Pruning": "Prune lightly after flowering",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+  "Plant Image": "css/img/plants/sunflower.webp"
+},
+{
+  "Plant Common Name": "Clover",
+  "Plant Scientific Name": "Lavandula",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "250ml per watering",
+    "Amount Int": 250
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "15 years",
+    "Average Lifespan Int": 15,
+    "Growth Rate": "Slow to moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 10°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Aphids, Leafhoppers",
+    "Pruning": "Prune lightly after flowering",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+  "Plant Image": "css/img/plants/clover.webp"
+},
+{
+  "Plant Common Name": "Corn",
+  "Plant Scientific Name": "Lavandula",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "250ml per watering",
+    "Amount Int": 250
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "15 years",
+    "Average Lifespan Int": 15,
+    "Growth Rate": "Slow to moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 10°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Aphids, Leafhoppers",
+    "Pruning": "Prune lightly after flowering",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+  "Plant Image": "css/img/plants/corn.webp"
+},
+{
+  "Plant Common Name": "Dandelion",
+  "Plant Scientific Name": "Taraxacum officinale",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "250ml per watering",
+    "Amount Int": 250
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun to Partial Shade",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "15 years",
+    "Average Lifespan Int": 15,
+    "Growth Rate": "Slow to moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 10°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Aphids, Leafhoppers",
+    "Pruning": "Prune lightly after flowering",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+  "Plant Image": "css/img/plants/dandelion.webp"
+}
 ]
