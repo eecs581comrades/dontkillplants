@@ -51,6 +51,8 @@ button{
     padding: 70px;
     z-index: 900;
     position: fixed;
+    top: 8px;
+    left: 8px;
 }
 
 /*Mandrake button*/
@@ -58,7 +60,7 @@ button{
   position: absolute;
   z-index: 800;
   left: 30px;
-  top: 550px;
+  bottom: 10px;
   position: fixed;
 }
 
