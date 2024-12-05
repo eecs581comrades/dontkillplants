@@ -66,11 +66,14 @@ button{
 
 /*Centers anything with the divider class*/
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 80vh;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; 
+  overflow-y: auto;
+  box-sizing: border-box; 
+  }
 
 /* Dark overlay behind modal */
 .modal-overlay {

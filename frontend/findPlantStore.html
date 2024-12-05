@@ -22,7 +22,6 @@ Known faults: no address verification, could be used for overflow buffer attack
         #map {
             height: 500px;
             width: 750px;
-            
         }
         .wrapper{
             padding-left: 20%;
@@ -33,8 +32,8 @@ Known faults: no address verification, could be used for overflow buffer attack
 <body>
     <button class="themeButton" onclick="toggleTheme()"></button> <!--Calls Javascript function to change css theme when button is pressed-->
     <h1 style="text-align: center;">Find Nearby Plant Stores</h1>    
-    <div class="wrapper">
-        <input id="address" type="text" placeholder="Enter your address, zipcode, or city">
+    <div class="wrapper container">
+        <input id="address" type="text" placeholder="Enter your address or city">
         <button onclick="findPlantStores()">Search</button>
         <div style="display: flex; height: 100vh;">
             <div id="list" style="width: 30%; overflow-y: auto; padding: 10px; border-right: 1px solid #ccc; max-height: 475px;"></div>
