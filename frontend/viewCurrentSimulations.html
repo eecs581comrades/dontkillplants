@@ -202,16 +202,40 @@ Known faults:
     <script src="js/catMode.js"></script>
     <script>
 
-        const darkMode = localStorage.getItem('darkMode');
-
-        if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css');
-        } else {
-            theme.setAttribute('href', 'css/general.css');
-        }
-
         // Retrieve user ID from localStorage
         const userId = localStorage.getItem('userId'); // Fetch the user ID from local storage
+
+        if(userId != 'null'){
+            fetch(`http://localhost:5100/account/pull_preference/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch user preferences");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const user = data[0];
+                    if (user.darkMode === 1) {
+                        localStorage.setItem('darkMode', 'true');
+                    } else {
+                        localStorage.setItem('darkMode', 'false');
+                    }
+                    updateDarkModeState();
+                })
+        } else {
+            updateDarkModeState();
+        }
+
+        function updateDarkModeState(){
+            const darkMode = localStorage.getItem('darkMode'); // Fetch the dark mode preference from local storage
+            console.log('Dark mode:', darkMode); // Log the dark mode preference
+
+            if (darkMode === 'true') {
+                theme.setAttribute('href', 'css/dark.css');
+            } else {
+                theme.setAttribute('href', 'css/general.css');
+            }
+        }
 
         if (userId) { // Check if user ID exists
             // Fetch simulations for the user
