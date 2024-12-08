@@ -20,7 +20,7 @@
     "@googlemaps/google-maps-services-js": "^3.4.0",
     "bcrypt": "^5.1.1",
     "choco": "^0.2.1",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "mysql2": "^3.11.3",
     "pg": "^8.13.0"
   },
