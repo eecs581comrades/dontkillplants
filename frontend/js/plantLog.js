@@ -36,6 +36,40 @@ Known faults:
 const plantId = localStorage.getItem('plantId'); // Gets the plant ID stored in localStorage
 const userId = localStorage.getItem('userId'); // Gets the user ID stored in localStorage
 
+const randomCATs = [
+    { status: "The local squirrels ate your plant... The plant has died.", died: true, water: 0, sunlight: 0 },
+    { status: "It rained heavily last night and you forgot to cover your plant. An extra watering has occurred.", died: false, water: 1, sunlight: 0 },
+    { status: "A cat has knocked over your plant! The plant has died.", died: true, water: 0, sunlight: 0 },
+    { status: "It was unexpectedly bright outside today. Your plant has received an extra serving of sunlight.", died: false, water: 0, sunlight: 1 },
+    { status: "The military has confiscated your plant. (It's probably dead).", died: true, water: 0, sunlight: 0 },
+    { status: "You stubbed your toe! This has nothing to do with the plant.", died: false, water: 0, sunlight: 0 },
+    { status: "You thought about the plant. It probably didn't think about you.", died: false, water: 0, sunlight: 0 },
+    { status: "Your plant was replaced in the night by a changeling! Practically, nothing has changed...", died: false, water: 0, sunlight: 0},
+    { status: "An ominous silence hangs over the garden...", died: false, water: 0, sunlight: 0},
+    { status: "The universe was against you today (-1 to all actions)", died: false, water: -1, sunlight: -1},
+    { status: "A portal has opened to another dimension! The other dimension was full of water and sunlight. (+2 to water and sunlight)", died: false, water: 2, sunlight: 2},
+    { status: "The tears of your enemies have flooded the garden! (+3 watering, -1 sunlight)", died: false, water: 3, sunlight: -1 },
+    { status: "Today was a good day. The plant is happy.", died: false, water: 0, sunlight: 0},
+    { status: "A business of ferrets has destroyed your garden while performing a tapdance... oh well...", died: true, water: 0, sunlight: 0 },
+    { status: "You spent the day watching British TV shows. It was nice.", died: false, water: 0, sunlight: 0 },
+    { status: "A rival plant gang stole your plants water! (-1 watering)", died: false, water: -1, sunlight: 0},
+    { status: "The local schoolboard has decided plants are bad. This makes your plant sad. It takes one psychic damage.", died: false, water: 0, sunlight: 0 },
+    { status: "A portal has opened to another dimension! It was full of vegans! They ate your plant.", died: true, water: 0, sunlight: 0 },
+    { status: "Your plant has become enlightened! (+5 sunlight)", died: false, water: 0, sunlight: 5 },
+    { status: "Your plant has descended into the depths of hell! Thankfully, it's sunny there and they make it back unscathed (+3 sunlight).", died: false, water: 0, sunlight: 3 },
+    { status: "You dress up your plant for the holidays. Unfortunately this blocks out the sun. (-1 sunlight, +1 kawaii plant aura)", died: false, water: 0, sunlight: -1 },
+    { status: "Your plant gains protection from blue until end of turn. (-1 watering)", died: false, water: -1, sunlight: 0 },
+    { status: "Your plant exploded. Nice.", died: true, water: 0, sunlight: 0 },
+    { status: "A cheerful silence hangs over the garden...", died: false, water: 0, sunlight: 1 },
+    { status: "You woke up on the wrong side of the bed... The plant doesn't care.", died: false, water: 0, sunlight: 0 },
+    { status: "Somehow you have time traveled back to the 1800s. (-200 water, -200 sunlight, +200 tachyons).", died: true, water: -200, sunlight: -100 },
+    { status: "The cops have arrested your plant for posession of illegal narcotics. You maintain plausible deniability.", died: true, water: 0, sunlight: 0 },
+    { status: "Your plant got tired of waiting and decided to water itself (+1 watering).", died: false, water: 1, sunlight: 0 },
+    { status: "Your plant has discovered the internet! It is now enjoying ASMR on YouTube.", died: false, water: 0, sunlight: 0}
+];
+
+const CATOdds = 0.15;
+
 // Check if plant ID exists
 if (plantId) { // Verifies that a plant ID was retrieved
     // Log plant ID for debugging
@@ -103,10 +137,11 @@ if (userId) { // Check if user ID exists
 
 let day = localStorage.getItem('log_day'); // Tracks the current day in the plant care log
 let dead = localStorage.getItem('dead'); // Tracks if the plant is dead
+let randomCATsEnabled = localStorage.getItem('catModeEnabled'); 
 if (day == 'null') {
     day = 1;
 }
-if (dead != 'null') {
+if (dead != 'null' && dead != null && dead != "false" && dead != false) {
     displayLog(`The plant has died. Refresh to restart.`, "dead");
 }
 let careHistory = { water: 0, sunlight: 0, neglect: 0, both: 0 }; // Tracks number of care actions taken
@@ -119,23 +154,40 @@ function careForPlant(action) {
         return;
     }
 
+    let catActionText = "";
+    if (randomCATsEnabled) {
+        const catRand = (Math.floor(Math.random() * 100) + 1) / 100;
+        if (catRand <= CATOdds) {
+            const randomIndex = Math.floor(Math.random() * randomCATs.length);
+            catAction = randomCATs[randomIndex];
+            careHistory.water += catAction.water;
+            careHistory.sunlight += catAction.sunlight;
+            if (catAction.died) {
+                displayLog(catAction.status, "dead");
+                return;
+            } else {
+                catActionText = "\n" + catAction.status;
+            }
+        }
+    }
+
     switch(action) { // Records action based on user input
         case 'water':
             careHistory.water++;
-            displayLog(`Day ${day}: Watered the plant.`);
+            displayLog(`Day ${day}: Watered the plant.` + catActionText);
             break;
         case 'sunlight':
             careHistory.sunlight++;
-            displayLog(`Day ${day}: Exposed plant to sunlight.`);
+            displayLog(`Day ${day}: Exposed plant to sunlight.` + catActionText);
             break;
         case 'nothing':
             careHistory.neglect++;
-            displayLog(`Day ${day}: No action taken.`);
+            displayLog(`Day ${day}: No action taken.` + catActionText);
             break;
         case 'both':
             careHistory.water++;
             careHistory.sunlight++;
-            displayLog(`Day ${day}: Watered and exposed to sunlight.`);
+            displayLog(`Day ${day}: Watered and exposed to sunlight.` + catActionText);
             break;
     }
 
@@ -204,5 +256,5 @@ function clearLogs() {
 // Checks if the plant is dead based on previous entries
 function isPlantDead() {
     const entries = document.querySelectorAll('.log-entry'); // Selects all log entries
-    return Array.from(entries).some(entry => entry.classList.contains('dead')); // Returns true if any entry marks plant as dead
+    const a = Array.from(entries).some(entry => entry.classList.contains('dead')); // Returns true if any entry marks plant as dead
 }
