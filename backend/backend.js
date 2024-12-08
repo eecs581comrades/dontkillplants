@@ -328,7 +328,7 @@ app.get('/simulations/:userId', (req, res) => {
   });
 });
 
-app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created, 400 if account already exists
+app.post('/account/darkMode/:userId/:darkMode', (req, res) => { //returns 200 if created, 400 if account already exists
   const userId = parseInt(req.params.userId);
   const darkMode = req.params.darkMode;
   connection.query('UPDATE user_pass_combo SET darkMode = ? WHERE user_id = ?', [darkMode, userId], (err, results) => {
@@ -349,9 +349,29 @@ app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created,
       
     });
 
+app.post('/account/guy/:userId/:guyPreference', (req, res) => { //returns 200 if created, 400 if account already exists
+  const userId = parseInt(req.params.userId);
+  const guyPreference = req.params.guyPreference;
+  connection.query('UPDATE user_pass_combo SET guy = ? WHERE user_id = ?', [guyPreference, userId], (err, results) => {
+    if (err) {
+      console.error('Error checking for user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    if (results.length === 0) {
+      res.status(400).send('Something is wrong');
+      return;
+    }
+    else {
+      res.status(200).send('Guy Preference Updated Successfully');
+      return;
+    }
+  });
+});
+
 app.get('account/pull_preference/:userId', (req, res) => {
   const userId = parseInt(req.params.userId)
-  connection.query('SELECT darkMode FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+  connection.query('SELECT darkMode, guy FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
     if (err) {
       console.error('Error checking for user:', err);
       res.status(500).send('Server error');
