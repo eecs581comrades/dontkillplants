@@ -397,6 +397,36 @@ app.get('/account/pull_preference/guy/:userId', (req, res) => {
   })
 })
 
+app.get('/account/calendar/:userId', (req, res) => {
+  const userId = parseInt(req.params.userId);
+  connection.query('SELECT calendar_info FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+    if (err) {
+      console.error('Error getting calendar info:', err);
+      res.status(500).send('Server error');
+      return;
+    } else {
+      res.status(200).json(results);
+    }
+  })
+})
+
+app.post('/account/calendar/:userId)', (req, res) => {
+  console.log(req.body);
+  if (typeof(req.body) !== "string"){
+    res.status(403).send("Missing or invalid data provided");
+    return;
+  }
+  connection.query('UPDATE user_pass_combo SET calendar_info = ? WHERE user_id = ?', [req.body, userId], (err, results) => {
+    if (err) {
+      console.error('Error getting calendar info:', err);
+      res.status(500).send('Server error');
+      return;
+    } else {
+      res.status(200).json(results);
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 })
