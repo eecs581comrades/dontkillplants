@@ -137,7 +137,8 @@ if (userId) { // Check if user ID exists
 
 let day = localStorage.getItem('log_day'); // Tracks the current day in the plant care log
 let dead = localStorage.getItem('dead'); // Tracks if the plant is dead
-let randomCATsEnabled = localStorage.getItem('catModeEnabled'); 
+let catsEnabledFlag = localStorage.getItem('catModeEnabled'); 
+let randomCATsEnabled = catsEnabledFlag === "true" || catsEnabledFlag === true;
 if (day == 'null') {
     day = 1;
 }
