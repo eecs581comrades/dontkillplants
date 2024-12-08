@@ -339,3 +339,20 @@ p, label {
   font-size: 14px; /* Slightly smaller text for better fit */
   color: #fff; 
 }
+
+/*Style for the sources button */
+#source-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #9e9e9e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+#source-btn:hover {
+  background-color: #414141;
+}
