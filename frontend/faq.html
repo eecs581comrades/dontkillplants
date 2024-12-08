@@ -89,8 +89,8 @@ Known faults:
     <script>
         const darkMode = localStorage.getItem('darkMode'); //activates dark mode
 
-        if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css'); //dark.css
+        if (darkMode === true) {
+            theme.setAttribute('href', 'css/dark.css');
         } else {
             theme.setAttribute('href', 'css/general.css'); //general.css
         }
