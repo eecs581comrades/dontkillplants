@@ -29,7 +29,7 @@ function toggleTheme() {//Switchs between dark and light mode and sets across al
 
     if (userId != 'null') {
         // Send API request to update darkMode in the database
-        fetch(`http://localhost:5100/account/${userId}/${newMode}`, {
+        fetch(`http://localhost:5100/account/darkMode/${userId}/${newMode}`, {
             method: 'POST',
         })
         .then(response => {
