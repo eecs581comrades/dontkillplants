@@ -197,21 +197,45 @@ Known faults:
         </div>
     </div>
     <input id="filterable" class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/>
-    <script src="js/changeTheGuy.js"></script><!--Loads user's mandrake filter-->
     <image id="cat" src="css/img/the_cat.png">
+    <script src="js/changeTheGuy.js"></script> <!--Connects Javascript for mandrake filters-->
     <script src="js/catMode.js"></script>
     <script>
 
-        const darkMode = localStorage.getItem('darkMode');
-
-        if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css');
-        } else {
-            theme.setAttribute('href', 'css/general.css');
-        }
-
         // Retrieve user ID from localStorage
         const userId = localStorage.getItem('userId'); // Fetch the user ID from local storage
+
+        if(userId != 'null'){
+            fetch(`http://localhost:5100/account/pull_preference/darkMode/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch user preferences");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const user = data[0];
+                    if (user.darkMode === 1) {
+                        localStorage.setItem('darkMode', 'true');
+                    } else {
+                        localStorage.setItem('darkMode', 'false');
+                    }
+                    updateDarkModeState();
+                })
+        } else {
+            updateDarkModeState();
+        }
+
+        function updateDarkModeState(){
+            const darkMode = localStorage.getItem('darkMode'); // Fetch the dark mode preference from local storage
+            console.log('Dark mode:', darkMode); // Log the dark mode preference
+
+            if (darkMode === 'true') {
+                theme.setAttribute('href', 'css/dark.css');
+            } else {
+                theme.setAttribute('href', 'css/general.css');
+            }
+        }
 
         if (userId) { // Check if user ID exists
             // Fetch simulations for the user

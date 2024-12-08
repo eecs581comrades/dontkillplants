@@ -41,6 +41,22 @@ function applyFilter() {//Applies chosen filter
 
 function cycleFilter() {//Cycles through filters
     currentFilterIndex = (currentFilterIndex + 1) % filters.length; // Increases filter index and loops through possibilities
+    const userId = localStorage.getItem('userId'); //Gets user id
+    if (userId != 'null') {
+        // Send API request to update darkMode in the database
+        fetch(`http://localhost:5100/account/guy/${userId}/${currentFilterIndex}`, {
+            method: 'POST',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to update guy preference in the database');
+            }
+            console.log('guy preference updated successfully.');
+        })
+        .catch(error => {
+            console.error('Error updating guy preference:', error);
+        });
+    }
     applyFilter(); //Applies chosen filter
 }
 

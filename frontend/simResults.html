@@ -62,7 +62,7 @@ Known faults:
         <div>
             <button onclick="window.location.href='viewLoad.html'">Log In</button>
             <button onclick="window.location.href='createUser.html'">Create Account</button>
-            <button onclick="window.location.href='home.html'">Home</button>
+            <button onclick="window.location.href='sources.html'">Sources</button>
             <button onclick="window.location.href='simulation.html'">New Simulation</button>
             <button onclick="window.location.href='log.html'">Plant Log</button>
         </div>
@@ -73,7 +73,7 @@ Known faults:
     <script src="js/catMode.js"></script>
     <script>
         const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === 'enabled') {
+        if (darkMode === 'true') {
             theme.setAttribute('href', 'css/dark.css');
         } else {
             theme.setAttribute('href', 'css/general.css');
@@ -105,35 +105,35 @@ Known faults:
                         resultsDiv.innerHTML = `
                             <div class="plant-card">
                                 <h2>${plant.plant_common_name}</h2>
-                                <table>
-                                    <tr>
-                                        <td><img src="${plant.watering_image}" alt="Watering Image" width="100" height="100"></td>
-                                        <td><img src="${plant.soil_image}" alt="Soil Image" width="100" height="100"></td>
-                                        <td><img src="${plant.lighting_image}" alt="Lighting Image" width="100" height="100"></td>
-                                        <td><img src="${plant.plant_image}" alt="Plant Image" width="100" height="100"></td>
-                                    </tr>
-                                </table>
-                                <button id="openModalButton" onClick="openModal()">View Raw Plant Data</button>
-                                <div class="general-info" onclick="toggleInfo(this)">
-                                    <div class="hidden-info" style="display: none;">
-                                        <p><strong>Scientific Name:</strong> ${plant.plant_scientific_name}</p>
-                                        <p><strong>Watering Frequency:</strong> ${plant.watering_frequency}</p>
-                                        <p><strong>Watering Amount:</strong> ${plant.watering_amount}</p>
-                                        <p><strong>Sunlight Type:</strong> ${plant.sunlight_type}</p>
-                                        <p><strong>Sunlight Duration:</strong> ${plant.sunlight_duration}</p>
-                                        <p><strong>Soil Conditions:</strong> ${plant.soil_conditions}</p>
+                                <div class="card-container">
+                                    <div class="result-card">
+                                        <h3>Watering</h3>
+                                        <img src="${plant.watering_image}" alt="Watering Image" />
+                                        <p><strong>Frequency:</strong> ${plant.watering_frequency}</p>
+                                        <p><strong>Amount:</strong> ${plant.watering_amount}</p>
+                                    </div>
+                                    <div class="result-card">
+                                        <h3>Soil</h3>
+                                        <img src="${plant.soil_image}" alt="Soil Image" />
+                                        <p><strong>Conditions:</strong> ${plant.soil_conditions}</p>
+                                    </div>
+                                    <div class="result-card">
+                                        <h3>Lighting</h3>
+                                        <img src="${plant.lighting_image}" alt="Lighting Image" />
+                                        <p><strong>Type:</strong> ${plant.sunlight_type}</p>
+                                        <p><strong>Duration:</strong> ${plant.sunlight_duration}</p>
+                                    </div>
+                                    <div class="result-card">
+                                        <h3>Plant</h3>
+                                        <img src="${plant.plant_image}" alt="Plant Image" />
                                         <p><strong>Lifecycle Stage:</strong> ${plant.lifecycle_stage}</p>
-                                        <p><strong>Average Lifespan:</strong> ${plant.average_lifespan}</p>
                                         <p><strong>Growth Rate:</strong> ${plant.growth_rate}</p>
-                                        <p><strong>Optimal Temperature Range:</strong> ${plant.temperature_optimal_range}</p>
-                                        <p><strong>Temperature Tolerance:</strong> ${plant.temperature_tolerance}</p>
-                                        <p><strong>Optimal Humidity:</strong> ${plant.humidity_optimal}</p>
-                                        <p><strong>Humidity Tolerance:</strong> ${plant.humidity_tolerance}</p>
-                                        <p><strong>Important Information:</strong> ${plant.important_info}</p>
                                     </div>
                                 </div>
+                                <button id="openModalButton" onClick="openModal()">View Raw Plant Data</button>
                             </div>
                         `;
+
 
                         const userId = localStorage.getItem('userId');
                         if (userId !== 'null') {

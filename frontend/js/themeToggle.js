@@ -20,16 +20,16 @@ function toggleTheme() {//Switchs between dark and light mode and sets across al
     if (darkMode === 'true') { //Checks if dark mode is being used
         theme.setAttribute('href', 'css/general.css'); //Switchs to light mode
         localStorage.setItem('darkMode', false); //Saves light mode as current theme
-        newMode = false;
+        newMode = 0;
     } else {//Checks if light mode is being used
         theme.setAttribute('href', 'css/dark.css');//Switches to dark mode
         localStorage.setItem('darkMode', true);//Saves dark mode as current theme
-        newMode = true;
+        newMode = 1;
     }
 
-    if (userId != "null") {
+    if (userId != 'null') {
         // Send API request to update darkMode in the database
-        fetch(`http://localhost:5100/account/${userId}/${newMode}`, {
+        fetch(`http://localhost:5100/account/darkMode/${userId}/${newMode}`, {
             method: 'POST',
         })
         .then(response => {

@@ -85,7 +85,7 @@ Known faults:
         // Handle theme toggle
         const theme = document.getElementById('theme');
         const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === true) {
+        if (darkMode === 'true') {
             theme.setAttribute('href', 'css/dark.css'); // Apply dark theme if enabled
         } else {
                 theme.setAttribute('href', 'css/general.css');
