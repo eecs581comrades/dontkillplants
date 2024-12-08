@@ -37,58 +37,7 @@ Known faults:
     <link rel="icon" href="css/img/the_guy.png" type="image/png">
     <script type="text/javascript" src="js/themeToggle.js"></script>
     <link id="theme" rel="stylesheet" type="text/css" href="css/general.css" />
-    <style>
-    /* Styling for Meet the Authors section */
-    .authors-section {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: transparent; /* Clear background for the section */
-    }
-    .authors-section h2 {
-        font-size: 24px;
-        text-align: center; /* Center the title */
-    }
-    .author {
-    display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    margin-bottom: 20px;
-    text-align: center; /* Center-aligns any text within the author section */
-}
-
-    .author img {
-    width: 300px; /* Increase the width to make the image larger */
-    height: 300px; /* Match height to width for a square shape */
-    margin-right: 15px;
-    margin-bottom: 20px;
-    /* Remove border-radius for a square shape */
-    }
-
-    .author-info {
-        display: flex;
-        align-items: flex-start; /* Aligns items at the start */
-        flex-direction: column; /* Aligns content vertically */
-    }
-
-    .author-info h3 {
-        margin: 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .author-list {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column; /* Align cards vertically */
-        gap: 20px; /* Adds space between cards */
-        justify-content: flex-start; /* Align items to the start */
-    }
-    .author-card {
-        width: 300px; 
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-    }
-
-    </style>
+ 
 </head>
 
 <body>
@@ -102,26 +51,25 @@ Known faults:
             <p>The most important part is where you are located in the world - your availability of plants will heavily depend on what plants are native to your region. We encourage you to primarily focus on growing native plants, as they have a better likelihood of surviving.</p>
             
         </div>
-        <script>
-            const darkMode = localStorage.getItem('darkMode');
-
-            if (darkMode === 'enabled') {
-                theme.setAttribute('href', 'css/dark.css');
-            } else {
-                theme.setAttribute('href', 'css/general.css');
-            }
-
-            function toggleAnswer(element) {
-                const faqSection = element.parentElement;
-                faqSection.classList.toggle("open");
-
-                // Toggle visibility of the answer
-                const answer = element.nextElementSibling;
-                answer.style.display = answer.style.display === "block" ? "none" : "block";
-            }
-        </script>
-
     </div>
+    <script>
+        const darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode === 'enabled') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css');
+        }
+
+        function toggleAnswer(element) {
+            const faqSection = element.parentElement;
+            faqSection.classList.toggle("open");
+
+            // Toggle visibility of the answer
+            const answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
     <input id="filterable" class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/> <!--Mandrake Button to go home and able to change look of-->
     <script src="js/changeTheGuy.js"></script><!--Loads user's mandrake filter-->
 </body>

@@ -70,7 +70,7 @@
         "Tolerance": "Highly tolerant to low humidity"
       },
       "Important Plant Information": {
-        "Pests": "Aphids, Mealybugs",
+        "Pests": "Mealy Bugs, Spider Mites",
         "Pruning": "Remove dead or damaged leaves",
         "Special Care": "Allow soil to dry out between waterings"
       },
@@ -110,7 +110,7 @@
         "Tolerance": "Prefers moderate humidity"
       },
       "Important Plant Information": {
-        "Pests": "Aphids, Whiteflies",
+        "Pests": "Caterpillars, Thrips",
         "Pruning": "Pinch back regularly to promote growth",
         "Special Care": "Avoid wetting leaves to prevent fungal issues"
       },
@@ -190,8 +190,8 @@
         "Tolerance": "Prefers higher humidity"
       },
       "Important Plant Information": {
-        "Pests": "Spider Mites, Aphids",
-        "Pruning": "Remove faded blooms to promote growth",
+        "Pests": "Spider Mites, Mealy Bugs",
+        "Pruning": "Remove faded blooms",
         "Special Care": "Mist leaves regularly in dry climates"
       },
       "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
@@ -217,8 +217,8 @@
         "Plant Soil Conditions": "Well-drained, loamy soil",
         "Plant Lifecycle Information": {
         "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "5-10 years",
-        "Average Lifespan Int": 7.5,
+        "Average Lifespan": "20 years",
+        "Average Lifespan Int": 20,
         "Growth Rate": "Fast"
         },
         "Plant Temperature Conditions": {
@@ -230,9 +230,9 @@
         "Tolerance": "Adaptable to low humidity"
         },
         "Important Plant Information": {
-        "Pests": "Spider Mites, Aphids",
+        "Pests": "Caterpillars, Scale insect",
         "Pruning": "Remove dead leaves regularly",
-        "Special Care": "Repot every 1-2 years for optimal growth"
+        "Special Care": "Repot every 2-3 years for optimal growth"
         },
         "Plant Soil Image": "css/img/soil/loam.webp",
         "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
@@ -241,7 +241,7 @@
     },
     {
         "Plant Common Name": "Mint",
-        "Plant Scientific Name": "Mentha",
+        "Plant Scientific Name": "Mentha spicata",
         "Plant Watering Schedule": {
         "Frequency": "Twice per week",
         "Frequency Int": 2,
@@ -262,7 +262,7 @@
         "Growth Rate": "Fast"
         },
         "Plant Temperature Conditions": {
-        "Optimal Range": "55°F to 70°F",
+        "Optimal Range": "32°F to 95°F",
         "Tolerance": "Frost tolerant"
         },
         "Plant Humidity Conditions": {
@@ -542,15 +542,11 @@
     "Growth Rate": "Slow to moderate"
   },
   "Plant Temperature Conditions": {
-    "Optimal Range": "60°F to 80°F",
-    "Tolerance": "Can tolerate down to 10°F"
-  },
-  "Plant Humidity Conditions": {
-    "Optimal Humidity": "30-50%",
-    "Tolerance": "Prefers dry conditions"
+    "Optimal Range": "32°F to 95°F",
+    "Tolerance": "Can tolerate cold temperatues"
   },
   "Important Plant Information": {
-    "Pests": "Aphids, Leafhoppers",
+    "Pests": "Leaf white mold, Leafminer",
     "Pruning": "Prune lightly after flowering",
     "Special Care": "Avoid overwatering to prevent root rot"
   },
