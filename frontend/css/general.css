@@ -75,6 +75,21 @@ button{
   box-sizing: border-box; 
   }
 
+.info-container {
+  width: 95vw;
+  height: 95vh;
+  border-radius: 20px;
+  padding: 10px;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 20px;
+  border-style: solid;
+  max-width: 400px;
+  margin: 10px;
+  max-height: 400px;
+  background-image: radial-gradient(white 65%, lightgrey);
+}
+
 /* Dark overlay behind modal */
 .modal-overlay {
     position: fixed;

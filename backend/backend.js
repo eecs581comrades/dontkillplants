@@ -329,7 +329,7 @@ app.get('/simulations/:userId', (req, res) => {
 });
 
 app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created, 400 if account already exists
-  const userId = parseInt(req.params.userId, 10);
+  const userId = parseInt(req.params.userId);
   const darkMode = req.params.darkMode;
   connection.query('UPDATE user_pass_combo SET darkMode = ? WHERE user_id = ?', [darkMode, userId], (err, results) => {
     if (err) {
@@ -348,6 +348,20 @@ app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created,
       });
       
     });
+
+app.get('account/pull_preference/:userId', (req, res) => {
+  const userId = parseInt(req.params.userId)
+  connection.query('SELECT darkMode FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+    if (err) {
+      console.error('Error checking for user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    else {
+      res.status(200).json(results)
+    }
+  })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
