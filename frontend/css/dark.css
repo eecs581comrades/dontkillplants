@@ -24,10 +24,22 @@ body{
 }
 
 /*Makes the header text white*/
-h1, h2, h3{
+h1{
     font-size: 48px;
     margin-bottom: 20px;
     color: #cbcbcb;
+}
+
+h2{
+  font-size: 38px;
+  margin-bottom: 20px;
+  color: #cbcbcb;
+}
+
+h3{
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #cbcbcb;
 }
 
 p{
