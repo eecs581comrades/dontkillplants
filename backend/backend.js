@@ -369,9 +369,23 @@ app.post('/account/guy/:userId/:guyPreference', (req, res) => { //returns 200 if
   });
 });
 
-app.get('/account/pull_preference/:userId', (req, res) => {
+app.get('/account/pull_preference/darkMode/:userId', (req, res) => {
   const userId = parseInt(req.params.userId)
-  connection.query('SELECT darkMode, guy FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+  connection.query('SELECT darkMode FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+    if (err) {
+      console.error('Error checking for user:', err);
+      res.status(500).send('Server error');
+      return;
+    }
+    else {
+      res.status(200).json(results)
+    }
+  })
+})
+
+app.get('/account/pull_preference/guy/:userId', (req, res) => {
+  const userId = parseInt(req.params.userId)
+  connection.query('SELECT guy FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
     if (err) {
       console.error('Error checking for user:', err);
       res.status(500).send('Server error');
