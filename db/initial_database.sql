@@ -55,7 +55,7 @@ CREATE TABLE `user_pass_combo` (
   `username` text,
   `password` text,
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `darkMode` boolean DEFAULT 1,
+  `darkMode` boolean DEFAULT 0,
   `guy` int DEFAULT 0,
   `filter` int DEFAULT NULL,
   PRIMARY KEY (`user_id`)
