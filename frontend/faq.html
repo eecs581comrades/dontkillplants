@@ -44,7 +44,7 @@ Known faults:
 
     <button class="themeButton" onclick="toggleTheme()"></button> <!--calls js function to change css theme when button is pressed-->
     <div class="container">
-    <h1>Frequently Asked Questions</h1>
+    <h1>Frequently Asked Questions</h1> <!--FAQs sections with questions and answers that users may have-->
 
     <div class="faq-section">
         <div class="faq-question" onclick="toggleAnswer(this)">What is Plant Simulation?</div>
@@ -73,16 +73,26 @@ Known faults:
     
     <div class="faq-section">
         <div class="faq-question" onclick="toggleAnswer(this)">Can I save my overwatered plant?</div>
-        <div class="faq-answer">Yes, you can save your overwatered plant by tilting the pot and draining the water. You can also repot the plant and add more dry soil to absorb the water.</div>
+        <div class="faq-answer">Yes, you can save your overwatered plant by tilting the pot and draining the water. You can also repot the plant and add more dry soil to absorb the water. You can activate it by logging into the website and change the modes in the settings page.</div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-question" onclick="toggleAnswer(this)">What does cat mode do?</div>
+        <div class="faq-answer">When the cat mode is on, it will create random chaotic events in the logs. CAT stands for Chaotic Additional Things.</div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-question" onclick="toggleAnswer(this)">How can I go back to homepage?</div>
+        <div class="faq-answer">You can simply go back to the homepage by just clicking on the website icon down left of the pages.</div>
     </div>
 
     <script>
-        const darkMode = localStorage.getItem('darkMode');
+        const darkMode = localStorage.getItem('darkMode'); //activates dark mode
 
         if (darkMode === 'enabled') {
-            theme.setAttribute('href', 'css/dark.css');
+            theme.setAttribute('href', 'css/dark.css'); //dark.css
         } else {
-            theme.setAttribute('href', 'css/general.css');
+            theme.setAttribute('href', 'css/general.css'); //general.css
         }
 
         function toggleAnswer(element) {
@@ -98,7 +108,7 @@ Known faults:
     <input id="filterable" class="homeButton" type="image" src="css/img/the_guy.png" onclick="window.location.href='home.html'"Home/> <!--Mandrake Button to go home and able to change look of-->
     <script src="js/changeTheGuy.js"></script><!--Loads user's mandrake filter-->
     <image id="cat" src="css/img/the_cat.png">
-    <script src="js/catMode.js"></script>
+    <script src="js/catMode.js"></script> <!-- cat mode -->
 </body>
 
 </html>
