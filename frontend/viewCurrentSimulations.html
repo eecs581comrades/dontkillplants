@@ -361,27 +361,40 @@ Known faults:
         const eventText = document.getElementById("eventText");
         const addEvent = document.getElementById("addEvent");
         const cancelEvent = document.getElementById("cancelEvent");
-
+    
         let currentDate = new Date();
         let events = {}; // Object to store events
         let selectedDate = null;
-
+    
+        // Load saved events from localStorage
+        function loadEvents() {
+            const savedEvents = localStorage.getItem("calendarEvents");
+            if (savedEvents) {
+                events = JSON.parse(savedEvents);
+            }
+        }
+    
+        // Save events to localStorage
+        function saveEvents() {
+            localStorage.setItem("calendarEvents", JSON.stringify(events));
+        }
+    
         function renderCalendar(date) {
             dates.innerHTML = "";
             const year = date.getFullYear();
             const month = date.getMonth();
             const firstDay = new Date(year, month, 1).getDay();
             const lastDate = new Date(year, month + 1, 0).getDate();
-
+    
             const options = { month: "long", year: "numeric" };
             monthYear.textContent = new Intl.DateTimeFormat("en-US", options).format(date);
-
+    
             for (let i = 0; i < firstDay; i++) {
                 const blank = document.createElement("div");
                 blank.className = "date";
                 dates.appendChild(blank);
             }
-
+    
             for (let day = 1; day <= lastDate; day++) {
                 const dateDiv = document.createElement("div");
                 dateDiv.className = "date";
@@ -393,7 +406,7 @@ Known faults:
                     dateDiv.classList.add("today");
                 }
                 dateDiv.textContent = day;
-
+    
                 const eventKey = `${year}-${month}-${day}`;
                 if (events[eventKey]) {
                     const eventDiv = document.createElement("div");
@@ -401,41 +414,45 @@ Known faults:
                     eventDiv.textContent = events[eventKey];
                     dateDiv.appendChild(eventDiv);
                 }
-
+    
                 dateDiv.addEventListener("click", () => {
                     selectedDate = eventKey;
                     eventInput.style.display = "flex";
                 });
-
+    
                 dates.appendChild(dateDiv);
             }
         }
-
+    
         prev.addEventListener("click", () => {
             currentDate.setMonth(currentDate.getMonth() - 1);
             renderCalendar(currentDate);
         });
-
+    
         next.addEventListener("click", () => {
             currentDate.setMonth(currentDate.getMonth() + 1);
             renderCalendar(currentDate);
         });
-
+    
         addEvent.addEventListener("click", () => {
             if (selectedDate && eventText.value.trim()) {
                 events[selectedDate] = eventText.value.trim();
+                saveEvents(); // Save the updated events to localStorage
                 eventText.value = "";
                 eventInput.style.display = "none";
                 renderCalendar(currentDate);
             }
         });
-
+    
         cancelEvent.addEventListener("click", () => {
             eventText.value = "";
             eventInput.style.display = "none";
         });
-
+    
+        // Initialize the calendar
+        loadEvents(); // Load saved events when the page loads
         renderCalendar(currentDate);
     </script>
+    
 </body>
 </html>
