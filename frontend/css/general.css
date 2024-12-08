@@ -364,6 +364,7 @@ button{
 /* Styling for the card */
 .card-section {
   margin-top: 40px;
+  padding: 20px;
   background-color: transparent;
   display: flex;
   flex-direction: column;
