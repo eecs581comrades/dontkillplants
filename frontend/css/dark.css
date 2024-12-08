@@ -75,14 +75,14 @@ button{
   box-sizing: border-box; 
   }
 
-/*
+
 .box {
     background-color: rgb(0, 0, 0);
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-*/
+
 
 /*Styles form input instruction text*/
 p, label {
@@ -302,7 +302,7 @@ p, label {
 }
 
 .result-card {
-  background-color: #fff; /* White card background */
+  background-color: rgb(65,25,108); 
   border: 1px solid #ddd; /* Light border */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -312,7 +312,7 @@ p, label {
 }
 
 .result-card h3 {
-  color: #4CAF50; /* Green heading */
+  color: #fff;
   margin-bottom: 10px; /* Space below heading */
 }
 
