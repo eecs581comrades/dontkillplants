@@ -104,6 +104,7 @@ if (plantId) { // Verifies that a plant ID was retrieved
     document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant ID
 }
 
+let day = 1; // Initializes the day counter
 let catsEnabledFlag = localStorage.getItem('catModeEnabled'); 
 let randomCATsEnabled = catsEnabledFlag === "true" || catsEnabledFlag === true;
 
