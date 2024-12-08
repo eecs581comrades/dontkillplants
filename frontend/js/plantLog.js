@@ -104,6 +104,9 @@ if (plantId) { // Verifies that a plant ID was retrieved
     document.getElementById('plant-results').innerHTML = '<p>No plant specified. Please go back and enter a plant name.</p>'; // Message for missing plant ID
 }
 
+let catsEnabledFlag = localStorage.getItem('catModeEnabled'); 
+let randomCATsEnabled = catsEnabledFlag === "true" || catsEnabledFlag === true;
+
 let careHistory = { water: 0, sunlight: 0, neglect: 0, both: 0 }; // Tracks number of care actions taken
 
 // Tracks plant care per day and logs the actions taken
