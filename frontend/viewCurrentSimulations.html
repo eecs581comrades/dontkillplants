@@ -368,8 +368,8 @@ Known faults:
     
         // Load saved events from localStorage
         function loadEvents() {
-            const userId = localStorage.getItem("userId");
-            const savedEvents = localStorage.getItem("calendarEvents");
+            const userId = localStorage.getItem("userId").toString();
+            const savedEvents = localStorage.getItem(userId + "_calendarEvents");
             if (savedEvents) {
                 events = JSON.parse(savedEvents);
             }
@@ -383,15 +383,16 @@ Known faults:
                     })
                     .then(data => {
                         const user = data[0];
-                        events = JSON.parse(user.calendar_info);
-                        localStorage.setItem("calendarEvents", JSON.stringify(events));
+                        events = user.calendar_info ? JSON.parse(user.calendar_info) : events;
+                        localStorage.setItem(userId + "_calendarEvents", JSON.stringify(events));
                     });
                 }
             }
     
         // Save events to localStorage
         function saveEvents() {
-            localStorage.setItem("calendarEvents", JSON.stringify(events));
+            const userId = localStorage.getItem("userId").toString();
+            localStorage.setItem(userId + "_calendarEvents", JSON.stringify(events));
         }
     
         function renderCalendar(date) {
