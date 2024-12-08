@@ -58,6 +58,13 @@ function findPlantStores() {
                     const listDiv = document.getElementById("list");
                     listDiv.innerHTML = "";
 
+                    const mapResultsArea = document.getElementById("mapResults");
+                    if (results.length > 0){
+                        mapResultsArea.style.display = "flex";
+                    } else {
+                        mapResultsArea.style.display = "none";
+                    }
+
                     results.forEach(place => {
                         addToList(place);
                     });
