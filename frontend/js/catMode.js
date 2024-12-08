@@ -19,7 +19,7 @@ let catModeEnabled = false;
 function loadSavedCatMode() {//Loads saved cat mode state from localStorage if available
     const isEnabled = localStorage.getItem('catModeEnabled'); //retrieve local storage to variable
     if (isEnabled !== null) {//Checks if previously cat mode was set
-        catModeEnabled = isEnabled; //updates to match cat state saved
+        catModeEnabled = isEnabled === "true" || isEnabled === true;  //updates to match cat state saved
         applyCatMode(); //Applies state
     } 
 }
