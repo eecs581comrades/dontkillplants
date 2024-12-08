@@ -47,4 +47,13 @@ Known faults: no address verification, could be used for overflow buffer attack
     <script src="js/map.js"></script>
     <image id="cat" src="css/img/the_cat.png">
     <script src="js/catMode.js"></script>
+    <script>
+        const darkMode = localStorage.getItem('darkMode'); //activates dark mode
+
+        if (darkMode === 'true') {
+            theme.setAttribute('href', 'css/dark.css');
+        } else {
+            theme.setAttribute('href', 'css/general.css'); //general.css
+        }
+    </script>
 </body>

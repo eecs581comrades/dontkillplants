@@ -70,7 +70,7 @@ Known faults:
     <script>
         const darkMode = localStorage.getItem('darkMode'); // Retrieves dark mode preference from localStorage 
 
-        if (darkMode === true) {
+        if (darkMode === 'true') {
             theme.setAttribute('href', 'css/dark.css'); // Sets theme to dark if dark mode is enabled 
         } else {
             theme.setAttribute('href', 'css/general.css'); // Sets theme to general if dark mode is not enabled

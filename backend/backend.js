@@ -349,7 +349,7 @@ app.post('/account/:userId/:darkMode', (req, res) => { //returns 200 if created,
       
     });
 
-app.get('account/pull_preference/:userId', (req, res) => {
+app.get('/account/pull_preference/:userId', (req, res) => {
   const userId = parseInt(req.params.userId)
   connection.query('SELECT darkMode FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
     if (err) {
