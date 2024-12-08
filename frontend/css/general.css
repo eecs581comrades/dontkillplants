@@ -30,7 +30,7 @@ body{
 }
 
 /*Makes the header text white*/
-h1{
+h1, h2, h3{
     font-size: 48px;
     margin-bottom: 20px;
     color: #333;
