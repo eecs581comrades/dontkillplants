@@ -1,404 +1,404 @@
 [
-    {
-      "Plant Common Name": "Lavender",
-      "Plant Scientific Name": "Lavandula",
-      "Plant Watering Schedule": {
-        "Frequency": "Once per week",
-        "Frequency Int": 1,
-        "Amount": "250ml per watering",
-        "Amount Int": 250
-      },
-      "Plant Sunlight Schedule": {
-        "Sunlight Type": "Full Sun",
-        "Duration": "6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 42
-      },
-      "Plant Soil Conditions": "Well-drained, sandy soil",
-      "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "15 years",
-        "Average Lifespan Int": 15,
-        "Growth Rate": "Slow to moderate"
-      },
-      "Plant Temperature Conditions": {
-        "Optimal Range": "60°F to 80°F",
-        "Tolerance": "Can tolerate down to 10°F"
-      },
-      "Plant Humidity Conditions": {
-        "Optimal Humidity": "30-50%",
-        "Tolerance": "Prefers dry conditions"
-      },
-      "Important Plant Information": {
-        "Pests": "Aphids, Leafhoppers",
-        "Pruning": "Prune lightly after flowering",
-        "Special Care": "Avoid overwatering to prevent root rot"
-      },
-      "Plant Soil Image": "css/img/soil/sandy.webp",
-      "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-      "Plant Watering Image": "css/img/watering/OnceWeek.webp",
-      "Plant Image": "css/img/plants/lavender.webp"
+{
+  "Plant Common Name": "Lavender",
+  "Plant Scientific Name": "Lavandula",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "250ml per watering",
+    "Amount Int": 250
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "15 years",
+    "Average Lifespan Int": 15,
+    "Growth Rate": "Slow to moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 10°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Aphids, Leafhoppers",
+    "Pruning": "Prune lightly after flowering",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+  "Plant Image": "css/img/plants/lavender.webp"
+},
+{
+  "Plant Common Name": "Aloe Vera",
+  "Plant Scientific Name": "Aloe barbadensis miller",
+  "Plant Watering Schedule": {
+    "Frequency": "Once every 2-3 weeks",
+    "Frequency Int": 1,
+    "Amount": "100ml per watering",
+    "Amount Int": 100
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "4-6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 28
+  },
+  "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "12 years",
+    "Average Lifespan Int": 12,
+    "Growth Rate": "Slow"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "55°F to 80°F",
+    "Tolerance": "Can tolerate down to 40°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "20-40%",
+    "Tolerance": "Highly tolerant to low humidity"
+  },
+  "Important Plant Information": {
+    "Pests": "Mealy Bugs, Spider Mites",
+    "Pruning": "Remove dead or damaged leaves",
+    "Special Care": "Allow soil to dry out between waterings"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+  "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+  "Plant Image": "css/img/plants/aloe.webp"
+},
+{
+  "Plant Common Name": "Basil",
+  "Plant Scientific Name": "Ocimum basilicum",
+  "Plant Watering Schedule": {
+    "Frequency": "Twice per week",
+    "Frequency Int": 2,
+    "Amount": "300ml per watering",
+    "Amount Int": 300
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "6-8 hours per day",
+    "Duration Top": 56,
+    "Duration Bottom": 42
+  },
+  "Plant Soil Conditions": "Moist, well-drained soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Annual",
+    "Average Lifespan": "1 year",
+    "Average Lifespan Int": 1,
+    "Growth Rate": "Fast"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "70°F to 85°F",
+    "Tolerance": "Sensitive to frost"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "40-60%",
+    "Tolerance": "Prefers moderate humidity"
+  },
+  "Important Plant Information": {
+    "Pests": "Caterpillars, Thrips",
+    "Pruning": "Pinch back regularly to promote growth",
+    "Special Care": "Avoid wetting leaves to prevent fungal issues"
+  },
+  "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+  "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+  "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+  "Plant Image": "css/img/plants/basil.webp"
+},
+{
+  "Plant Common Name": "Snake Plant",
+  "Plant Scientific Name": "Sansevieria trifasciata",
+  "Plant Watering Schedule": {
+    "Frequency": "Once per month",
+    "Frequency Int": 1,
+    "Amount": "200ml per watering",
+    "Amount Int": 200
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "Low light tolerance",
+    "Duration Top": 14,
+    "Duration Bottom": 0
+  },
+  "Plant Soil Conditions": "Well-drained, sandy soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "25 years",
+    "Average Lifespan Int": 25,
+    "Growth Rate": "Slow"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "65°F to 80°F",
+    "Tolerance": "Can tolerate down to 45°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Tolerant of dry conditions"
+  },
+  "Important Plant Information": {
+    "Pests": "Mealybugs, Spider Mites",
+    "Pruning": "Remove damaged leaves as needed",
+    "Special Care": "Avoid overwatering to prevent root rot"
+  },
+  "Plant Soil Image": "css/img/soil/sandy.webp",
+  "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+  "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+  "Plant Image": "css/img/plants/snakePlant.webp"
+},
+{
+  "Plant Common Name": "Peace Lily",
+  "Plant Scientific Name": "Spathiphyllum",
+  "Plant Watering Schedule": {
+    "Frequency": "Twice per week",
+    "Frequency Int": 2,
+    "Amount": "400ml per watering",
+    "Amount Int": 400
+  },
+  "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "4-6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 28
+  },
+  "Plant Soil Conditions": "Moist, well-drained soil",
+  "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "5 years",
+    "Average Lifespan Int": 5,
+    "Growth Rate": "Moderate"
+  },
+  "Plant Temperature Conditions": {
+    "Optimal Range": "65°F to 75°F",
+    "Tolerance": "Can tolerate down to 50°F"
+  },
+  "Plant Humidity Conditions": {
+    "Optimal Humidity": "50-80%",
+    "Tolerance": "Prefers higher humidity"
+  },
+  "Important Plant Information": {
+    "Pests": "Spider Mites, Mealy Bugs",
+    "Pruning": "Remove faded blooms",
+    "Special Care": "Mist leaves regularly in dry climates"
+  },
+  "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+  "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+  "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+  "Plant Image": "css/img/plants/peaceLily.webp"
+},
+{
+    "Plant Common Name": "Spider Plant",
+    "Plant Scientific Name": "Chlorophytum comosum",
+    "Plant Watering Schedule": {
+      "Frequency": "Once per week",
+      "Frequency Int": 1,
+      "Amount": "200ml per watering",
+      "Amount Int": 200
     },
-    {
-      "Plant Common Name": "Aloe Vera",
-      "Plant Scientific Name": "Aloe barbadensis miller",
-      "Plant Watering Schedule": {
-        "Frequency": "Once every 2-3 weeks",
-        "Frequency Int": 1,
-        "Amount": "100ml per watering",
-        "Amount Int": 100
-      },
-      "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 28
-      },
-      "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
-      "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "12 years",
-        "Average Lifespan Int": 12,
-        "Growth Rate": "Slow"
-      },
-      "Plant Temperature Conditions": {
-        "Optimal Range": "55°F to 80°F",
-        "Tolerance": "Can tolerate down to 40°F"
-      },
-      "Plant Humidity Conditions": {
-        "Optimal Humidity": "20-40%",
-        "Tolerance": "Highly tolerant to low humidity"
-      },
-      "Important Plant Information": {
-        "Pests": "Mealy Bugs, Spider Mites",
-        "Pruning": "Remove dead or damaged leaves",
-        "Special Care": "Allow soil to dry out between waterings"
-      },
-      "Plant Soil Image": "css/img/soil/sandy.webp",
-      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-      "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
-      "Plant Image": "css/img/plants/aloe.webp"
+    "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "4-6 hours per day",
+    "Duration Bottom": 28,
+    "Duration Top": 48
     },
-    {
-      "Plant Common Name": "Basil",
-      "Plant Scientific Name": "Ocimum basilicum",
-      "Plant Watering Schedule": {
-        "Frequency": "Twice per week",
-        "Frequency Int": 2,
-        "Amount": "300ml per watering",
-        "Amount Int": 300
-      },
-      "Plant Sunlight Schedule": {
-        "Sunlight Type": "Full Sun",
-        "Duration": "6-8 hours per day",
-        "Duration Top": 56,
-        "Duration Bottom": 42
-      },
-      "Plant Soil Conditions": "Moist, well-drained soil",
-      "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Annual",
-        "Average Lifespan": "1 year",
-        "Average Lifespan Int": 1,
-        "Growth Rate": "Fast"
-      },
-      "Plant Temperature Conditions": {
-        "Optimal Range": "70°F to 85°F",
-        "Tolerance": "Sensitive to frost"
-      },
-      "Plant Humidity Conditions": {
-        "Optimal Humidity": "40-60%",
-        "Tolerance": "Prefers moderate humidity"
-      },
-      "Important Plant Information": {
-        "Pests": "Caterpillars, Thrips",
-        "Pruning": "Pinch back regularly to promote growth",
-        "Special Care": "Avoid wetting leaves to prevent fungal issues"
-      },
-      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
-      "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-      "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
-      "Plant Image": "css/img/plants/basil.webp"
+    "Plant Soil Conditions": "Well-drained, loamy soil",
+    "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "20 years",
+    "Average Lifespan Int": 20,
+    "Growth Rate": "Fast"
     },
-    {
-      "Plant Common Name": "Snake Plant",
-      "Plant Scientific Name": "Sansevieria trifasciata",
-      "Plant Watering Schedule": {
-        "Frequency": "Once per month",
-        "Frequency Int": 1,
-        "Amount": "200ml per watering",
-        "Amount Int": 200
-      },
-      "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "Low light tolerance",
-        "Duration Top": 14,
-        "Duration Bottom": 0
-      },
-      "Plant Soil Conditions": "Well-drained, sandy soil",
-      "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "25 years",
-        "Average Lifespan Int": 25,
-        "Growth Rate": "Slow"
-      },
-      "Plant Temperature Conditions": {
-        "Optimal Range": "65°F to 80°F",
-        "Tolerance": "Can tolerate down to 45°F"
-      },
-      "Plant Humidity Conditions": {
-        "Optimal Humidity": "30-50%",
-        "Tolerance": "Tolerant of dry conditions"
-      },
-      "Important Plant Information": {
-        "Pests": "Mealybugs, Spider Mites",
-        "Pruning": "Remove damaged leaves as needed",
-        "Special Care": "Avoid overwatering to prevent root rot"
-      },
-      "Plant Soil Image": "css/img/soil/sandy.webp",
-      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-      "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
-      "Plant Image": "css/img/plants/snakePlant.webp"
+    "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 75°F",
+    "Tolerance": "Can tolerate down to 50°F"
     },
-    {
-      "Plant Common Name": "Peace Lily",
-      "Plant Scientific Name": "Spathiphyllum",
-      "Plant Watering Schedule": {
-        "Frequency": "Twice per week",
-        "Frequency Int": 2,
-        "Amount": "400ml per watering",
-        "Amount Int": 400
-      },
-      "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 28
-      },
-      "Plant Soil Conditions": "Moist, well-drained soil",
-      "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "5 years",
-        "Average Lifespan Int": 5,
-        "Growth Rate": "Moderate"
-      },
-      "Plant Temperature Conditions": {
-        "Optimal Range": "65°F to 75°F",
-        "Tolerance": "Can tolerate down to 50°F"
-      },
-      "Plant Humidity Conditions": {
-        "Optimal Humidity": "50-80%",
-        "Tolerance": "Prefers higher humidity"
-      },
-      "Important Plant Information": {
-        "Pests": "Spider Mites, Mealy Bugs",
-        "Pruning": "Remove faded blooms",
-        "Special Care": "Mist leaves regularly in dry climates"
-      },
-      "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
-      "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-      "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
-      "Plant Image": "css/img/plants/peaceLily.webp"
+    "Plant Humidity Conditions": {
+    "Optimal Humidity": "40-60%",
+    "Tolerance": "Adaptable to low humidity"
     },
-    {
-        "Plant Common Name": "Spider Plant",
-        "Plant Scientific Name": "Chlorophytum comosum",
-        "Plant Watering Schedule": {
-          "Frequency": "Once per week",
-          "Frequency Int": 1,
-          "Amount": "200ml per watering",
-          "Amount Int": 200
-        },
-        "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day",
-        "Duration Bottom": 28,
-        "Duration Top": 48
-        },
-        "Plant Soil Conditions": "Well-drained, loamy soil",
-        "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "20 years",
-        "Average Lifespan Int": 20,
-        "Growth Rate": "Fast"
-        },
-        "Plant Temperature Conditions": {
-        "Optimal Range": "60°F to 75°F",
-        "Tolerance": "Can tolerate down to 50°F"
-        },
-        "Plant Humidity Conditions": {
-        "Optimal Humidity": "40-60%",
-        "Tolerance": "Adaptable to low humidity"
-        },
-        "Important Plant Information": {
-        "Pests": "Caterpillars, Scale insect",
-        "Pruning": "Remove dead leaves regularly",
-        "Special Care": "Repot every 2-3 years for optimal growth"
-        },
-        "Plant Soil Image": "css/img/soil/loam.webp",
-        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/OnceWeek.webp",
-        "Plant Image": "css/img/plants/spiderPlant.webp"
+    "Important Plant Information": {
+    "Pests": "Caterpillars, Scale insect",
+    "Pruning": "Remove dead leaves regularly",
+    "Special Care": "Repot every 2-3 years for optimal growth"
     },
-    {
-        "Plant Common Name": "Mint",
-        "Plant Scientific Name": "Mentha spicata",
-        "Plant Watering Schedule": {
-        "Frequency": "Twice per week",
-        "Frequency Int": 2,
-        "Amount": "300ml per watering",
-        "Amount Int": 300
-        },
-        "Plant Sunlight Schedule": {
-        "Sunlight Type": "Partial Sun",
-        "Duration": "4-6 hours per day",
-        "Duration Top": 28,
-        "Duration Bottom": 42
-        },
-        "Plant Soil Conditions": "Moist, rich soil",
-        "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "3-5 years",
-        "Average Lifespan Int": 4,
-        "Growth Rate": "Fast"
-        },
-        "Plant Temperature Conditions": {
-        "Optimal Range": "32°F to 95°F",
-        "Tolerance": "Frost tolerant"
-        },
-        "Plant Humidity Conditions": {
-        "Optimal Humidity": "50-70%",
-        "Tolerance": "Prefers moderate humidity"
-        },
-        "Important Plant Information": {
-        "Pests": "Aphids, Spider Mites",
-        "Pruning": "Trim regularly to encourage bushy growth",
-        "Special Care": "Keep contained as it spreads quickly"
-        },
-        "Plant Soil Image": "css/img/soil/rich.webp",
-        "Plant Lighting Image": "css/img/lighting/PartialSun.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
-        "Plant Image": "css/img/plants/mint.webp"
+    "Plant Soil Image": "css/img/soil/loam.webp",
+    "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+    "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+    "Plant Image": "css/img/plants/spiderPlant.webp"
+},
+{
+    "Plant Common Name": "Mint",
+    "Plant Scientific Name": "Mentha spicata",
+    "Plant Watering Schedule": {
+    "Frequency": "Twice per week",
+    "Frequency Int": 2,
+    "Amount": "300ml per watering",
+    "Amount Int": 300
     },
-    {
-        "Plant Common Name": "Fern",
-        "Plant Scientific Name": "Nephrolepis exaltata",
-        "Plant Watering Schedule": {
-        "Frequency": "Twice per week",
-        "Frequency Int": 2,
-        "Amount": "150ml per watering",
-        "Amount Int": 150
-        },
-        "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "4-6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 28
-        },
-        "Plant Soil Conditions": "Moist, well-drained soil",
-        "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "5-10 years",
-        "Average Lifespan Int": 7.5,
-        "Growth Rate": "Moderate"
-        },
-        "Plant Temperature Conditions": {
-        "Optimal Range": "60°F to 75°F",
-        "Tolerance": "Can tolerate down to 40°F"
-        },
-        "Plant Humidity Conditions": {
-        "Optimal Humidity": "50-80%",
-        "Tolerance": "Prefers high humidity"
-        },
-        "Important Plant Information": {
-        "Pests": "Mealybugs, Scale",
-        "Pruning": "Remove dead fronds regularly",
-        "Special Care": "Mist regularly in dry climates"
-        },
-        "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
-        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
-        "Plant Image": "css/img/plants/fern.webp"
+    "Plant Sunlight Schedule": {
+    "Sunlight Type": "Partial Sun",
+    "Duration": "4-6 hours per day",
+    "Duration Top": 28,
+    "Duration Bottom": 42
     },
-    {
-        "Plant Common Name": "Jade Plant",
-        "Plant Scientific Name": "Crassula ovata",
-        "Plant Watering Schedule": {
-        "Frequency": "Once every 2 weeks",
-        "Frequency Int": 1,
-        "Amount": "100ml per watering",
-        "Amount Int": 100
-        },
-        "Plant Sunlight Schedule": {
-        "Sunlight Type": "Full Sun",
-        "Duration": "4-6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 28
-        },
-        "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
-        "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "50-70 years",
-        "Average Lifespan Int": 60,
-        "Growth Rate": "Slow"
-        },
-        "Plant Temperature Conditions": {
-        "Optimal Range": "65°F to 75°F",
-        "Tolerance": "Can tolerate down to 40°F"
-        },
-        "Plant Humidity Conditions": {
-        "Optimal Humidity": "30-50%",
-        "Tolerance": "Prefers dry conditions"
-        },
-        "Important Plant Information": {
-        "Pests": "Mealybugs, Scale",
-        "Pruning": "Prune lightly to shape",
-        "Special Care": "Allow soil to dry completely between waterings"
-        },
-        "Plant Soil Image": "css/img/soil/sandy.webp",
-        "Plant Lighting Image": "css/img/lighting/FullSun.webp",
-        "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
-        "Plant Image": "css/img/plants/jadePlant.webp"
+    "Plant Soil Conditions": "Moist, rich soil",
+    "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "3-5 years",
+    "Average Lifespan Int": 4,
+    "Growth Rate": "Fast"
     },
-    {
-        "Plant Common Name": "Orchid",
-        "Plant Scientific Name": "Orchidaceae",
-        "Plant Watering Schedule": {
-        "Frequency": "Once per week",
-        "Frequency Int": 1,
-        "Amount": "150ml per watering",
-        "Amount Int": 150
-        },
-        "Plant Sunlight Schedule": {
-        "Sunlight Type": "Indirect sunlight",
-        "Duration": "6 hours per day",
-        "Duration Top": 42,
-        "Duration Bottom": 42
-        },
-        "Plant Soil Conditions": "Well-drained, orchid mix or bark medium",
-        "Plant Lifecycle Information": {
-        "Lifecycle Stage": "Perennial",
-        "Average Lifespan": "5-10 years",
-        "Average Lifespan Int": 7.5,
-        "Growth Rate": "Slow to moderate"
-        },
-        "Plant Temperature Conditions": {
-        "Optimal Range": "60°F to 80°F",
-        "Tolerance": "Can tolerate down to 55°F"
-        },
-        "Plant Humidity Conditions": {
-        "Optimal Humidity": "50-70%",
-        "Tolerance": "Prefers moderate to high humidity"
-        },
-        "Important Plant Information": {
-        "Pests": "Mealybugs, Aphids",
-        "Pruning": "Remove dead or wilted blooms",
-        "Special Care": "Avoid overwatering; mist leaves lightly"
-        },
-        "Plant Soil Image": "css/img/soil/willow.webp",
-        "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
-        "Plant Watering Image": "css/img/watering/OnceWeek.webp",
-        "Plant Image": "css/img/plants/orchid.webp"
-    },     
+    "Plant Temperature Conditions": {
+    "Optimal Range": "32°F to 95°F",
+    "Tolerance": "Frost tolerant"
+    },
+    "Plant Humidity Conditions": {
+    "Optimal Humidity": "50-70%",
+    "Tolerance": "Prefers moderate humidity"
+    },
+    "Important Plant Information": {
+    "Pests": "Aphids, Spider Mites",
+    "Pruning": "Trim regularly to encourage bushy growth",
+    "Special Care": "Keep contained as it spreads quickly"
+    },
+    "Plant Soil Image": "css/img/soil/rich.webp",
+    "Plant Lighting Image": "css/img/lighting/PartialSun.webp",
+    "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+    "Plant Image": "css/img/plants/mint.webp"
+},
+{
+    "Plant Common Name": "Fern",
+    "Plant Scientific Name": "Nephrolepis exaltata",
+    "Plant Watering Schedule": {
+    "Frequency": "Twice per week",
+    "Frequency Int": 2,
+    "Amount": "150ml per watering",
+    "Amount Int": 150
+    },
+    "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "4-6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 28
+    },
+    "Plant Soil Conditions": "Moist, well-drained soil",
+    "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "20 years",
+    "Average Lifespan Int": 20,
+    "Growth Rate": "Moderate"
+    },
+    "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 75°F",
+    "Tolerance": "Can tolerate down to 40°F"
+    },
+    "Plant Humidity Conditions": {
+    "Optimal Humidity": "50-80%",
+    "Tolerance": "Prefers high humidity"
+    },
+    "Important Plant Information": {
+    "Pests": "Mealybugs, Aphids",
+    "Pruning": "Remove dead fronds regularly",
+    "Special Care": "Mist regularly in dry climates"
+    },
+    "Plant Soil Image": "css/img/soil/wellDrainMoist.webp",
+    "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+    "Plant Watering Image": "css/img/watering/MoreThanOnceWeek.webp",
+    "Plant Image": "css/img/plants/fern.webp"
+},
+{
+    "Plant Common Name": "Jade Plant",
+    "Plant Scientific Name": "Crassula ovata",
+    "Plant Watering Schedule": {
+    "Frequency": "Once every 2 weeks",
+    "Frequency Int": 1,
+    "Amount": "100ml per watering",
+    "Amount Int": 100
+    },
+    "Plant Sunlight Schedule": {
+    "Sunlight Type": "Full Sun",
+    "Duration": "4-6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 28
+    },
+    "Plant Soil Conditions": "Well-drained, sandy or cactus mix soil",
+    "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "50-70 years",
+    "Average Lifespan Int": 60,
+    "Growth Rate": "Slow"
+    },
+    "Plant Temperature Conditions": {
+    "Optimal Range": "65°F to 75°F",
+    "Tolerance": "Can tolerate down to 40°F"
+    },
+    "Plant Humidity Conditions": {
+    "Optimal Humidity": "30-50%",
+    "Tolerance": "Prefers dry conditions"
+    },
+    "Important Plant Information": {
+    "Pests": "Mealybugs, Scale",
+    "Pruning": "Prune lightly to shape",
+    "Special Care": "Allow soil to dry completely between waterings"
+    },
+    "Plant Soil Image": "css/img/soil/sandy.webp",
+    "Plant Lighting Image": "css/img/lighting/FullSun.webp",
+    "Plant Watering Image": "css/img/watering/LessThanOnceWeek.webp",
+    "Plant Image": "css/img/plants/jadePlant.webp"
+},
+{
+    "Plant Common Name": "Orchid",
+    "Plant Scientific Name": "Orchidaceae",
+    "Plant Watering Schedule": {
+    "Frequency": "Once per week",
+    "Frequency Int": 1,
+    "Amount": "150ml per watering",
+    "Amount Int": 150
+    },
+    "Plant Sunlight Schedule": {
+    "Sunlight Type": "Indirect sunlight",
+    "Duration": "6 hours per day",
+    "Duration Top": 42,
+    "Duration Bottom": 42
+    },
+    "Plant Soil Conditions": "Well-drained, orchid mix or bark medium",
+    "Plant Lifecycle Information": {
+    "Lifecycle Stage": "Perennial",
+    "Average Lifespan": "10-15 years",
+    "Average Lifespan Int": 12.5,
+    "Growth Rate": "Slow to moderate"
+    },
+    "Plant Temperature Conditions": {
+    "Optimal Range": "60°F to 80°F",
+    "Tolerance": "Can tolerate down to 55°F"
+    },
+    "Plant Humidity Conditions": {
+    "Optimal Humidity": "50-70%",
+    "Tolerance": "Prefers moderate to high humidity"
+    },
+    "Important Plant Information": {
+    "Pests": "Mealybugs, Aphids",
+    "Pruning": "Remove dead or wilted blooms",
+    "Special Care": "Avoid overwatering; mist leaves lightly"
+    },
+    "Plant Soil Image": "css/img/soil/willow.webp",
+    "Plant Lighting Image": "css/img/lighting/IndirectLight.webp",
+    "Plant Watering Image": "css/img/watering/OnceWeek.webp",
+    "Plant Image": "css/img/plants/orchid.webp"
+},     
 {
   "Plant Common Name": "Sunflower",
   "Plant Scientific Name": "Helianthus annuus",
