@@ -410,7 +410,8 @@ app.get('/account/calendar/:userId', (req, res) => {
   })
 })
 
-app.post('/account/calendar/:userId)', (req, res) => {
+
+app.post('/account/calendar/:userId', (req, res) => {
   console.log(req.body);
   if (typeof(req.body) !== "string"){
     res.status(403).send("Missing or invalid data provided");
