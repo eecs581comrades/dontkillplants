@@ -47,6 +47,7 @@ connection.connect((err) => {
 http.createServer(app);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/', 'home.html'));
@@ -397,35 +398,72 @@ app.get('/account/pull_preference/guy/:userId', (req, res) => {
   })
 })
 
+// GET: Retrieve calendar events for a specific user
 app.get('/account/calendar/:userId', (req, res) => {
-  const userId = parseInt(req.params.userId);
-  connection.query('SELECT calendar_info FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
-    if (err) {
-      console.error('Error getting calendar info:', err);
-      res.status(500).send('Server error');
-      return;
-    } else {
-      res.status(200).json(results);
-    }
-  })
-})
+  const userId = parseInt(req.params.userId, 10);
 
+  connection.query('SELECT calendar_info FROM user_pass_combo WHERE user_id = ?', [userId], (err, results) => {
+      if (err) {
+          console.error('Error fetching calendar info:', err);
+          res.status(500).send('Server error');
+          return;
+      }
+
+      if (results.length === 0) {
+          console.log('No calendar found for user:', userId);
+          res.status(404).send('Calendar not found');
+          return;
+      }
+
+      // Parse the stored calendar string back to an object
+      try {
+          const calendar = JSON.parse(results[0].calendar_info);
+          res.status(200).json(calendar);  // Send the parsed object back
+      } catch (e) {
+          console.error('Error parsing calendar data:', e);
+          res.status(500).send('Error parsing calendar data');
+      }
+  });
+});
+
+
+// POST: Save calendar events for a specific user
 app.post('/account/calendar/:userId', (req, res) => {
-  console.log(req.body);
-  if (typeof(req.body) !== "string"){
-    res.status(403).send("Missing or invalid data provided");
-    return;
-  }
-  connection.query('UPDATE user_pass_combo SET calendar_info = ? WHERE user_id = ?', [req.body, userId], (err, results) => {
-    if (err) {
-      console.error('Error getting calendar info:', err);
-      res.status(500).send('Server error');
+  const userId = parseInt(req.params.userId, 10);
+
+  console.log('Received userId:', userId);
+  console.log('Received calendar data:', req.body);
+
+  if (isNaN(userId)) {
+      console.error('Invalid user ID');
+      res.status(400).send('Invalid user ID');
       return;
-    } else {
-      res.status(200).json(results);
-    }
-  })
-})
+  }
+
+  if (!req.body || typeof req.body !== 'object') {
+      console.error('Invalid calendar data format:', req.body);
+      res.status(400).send('Invalid calendar data');
+      return;
+  }
+
+  const calendarString = JSON.stringify(req.body);
+
+  connection.query(
+      'UPDATE user_pass_combo SET calendar_info = ? WHERE user_id = ?',
+      [calendarString, userId],
+      (err, results) => {
+          if (err) {
+              console.error('Error updating calendar:', err);
+              res.status(500).send('Database error');
+              return;
+          }
+          console.log('Calendar updated successfully:', results);
+          res.status(200).send('Calendar info saved successfully');
+      }
+  );
+});
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -434,5 +472,6 @@ app.listen(port, () => {
 app.post('/', (req, res) => {
     res.send('Got a POST request')
 })
+
 // Registers the app to use bodyParser to make our lives easier and avoid needing to decode json frequently.
 app.use(bodyParser.json());

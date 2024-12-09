@@ -365,33 +365,54 @@ Known faults:
         let currentDate = new Date();
         let events = {}; // Object to store events
         let selectedDate = null;
+        
     
-        // Load saved events from localStorage
-        function loadEvents() {
-            const userId = localStorage.getItem("userId");
-            const savedEvents = localStorage.getItem("calendarEvents");
-            if (savedEvents) {
-                events = JSON.parse(savedEvents);
-            }
-            if(userId != 'null'){
-                fetch(`http://localhost:5100/account/calendar/${userId}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Failed to fetch user calendar events");
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const user = data[0];
-                        events = JSON.parse(user.calendar_info);
-                        localStorage.setItem("calendarEvents", JSON.stringify(events));
-                    });
+        // Load saved events from the backend
+        async function loadEvents(userId, currentDate) {
+            try {
+                console.log(`Loading events for user: ${userId}`);
+                
+                const response = await fetch(`http://localhost:5100/account/calendar/${userId}`);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Error loading events: ${response.status} - ${errorText}`);
                 }
+
+                events = await response.json();  // Get the calendar data as an object
+                if (events != null) {
+                    console.log('Loaded events:', events);
+                    renderCalendar(currentDate); // Render the calendar with the loaded events
+                }
+            } catch (error) {
+                console.error('Error:', error);
             }
+        }
+
     
-        // Save events to localStorage
-        function saveEvents() {
-            localStorage.setItem("calendarEvents", JSON.stringify(events));
+        // Save events to the backend
+        async function saveEvents(userId, events) {
+            try {
+                console.log(`Saving events for user: ${userId}`);
+                console.log('Events being sent:', JSON.stringify(events));
+
+                const response = await fetch(`http://localhost:5100/account/calendar/${userId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(events),
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Error saving events: ${response.status} - ${errorText}`);
+                }
+
+                console.log('Events saved successfully');
+            } catch (error) {
+                console.error(error);
+            }
         }
     
         function renderCalendar(date) {
@@ -452,7 +473,8 @@ Known faults:
         addEvent.addEventListener("click", () => {
             if (selectedDate && eventText.value.trim()) {
                 events[selectedDate] = eventText.value.trim();
-                saveEvents(); // Save the updated events to localStorage
+                const userId = localStorage.getItem("userId");
+                saveEvents(userId, events); // Save the updated events to the backend
                 eventText.value = "";
                 eventInput.style.display = "none";
                 renderCalendar(currentDate);
@@ -465,7 +487,7 @@ Known faults:
         });
     
         // Initialize the calendar
-        loadEvents(); // Load saved events when the page loads
+        loadEvents(userId, currentDate); // Load saved events when the page loads
         renderCalendar(currentDate);
     </script>
     
