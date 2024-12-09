@@ -383,6 +383,8 @@ Known faults:
                 if (events != null) {
                     console.log('Loaded events:', events);
                     renderCalendar(currentDate); // Render the calendar with the loaded events
+                } else {
+                    events = {};
                 }
             } catch (error) {
                 console.error('Error:', error);
