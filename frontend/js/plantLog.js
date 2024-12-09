@@ -65,7 +65,13 @@ const randomCATs = [
     { status: "Somehow you have time traveled back to the 1800s. (-200 water, -200 sunlight, +200 tachyons).", died: true, water: -200, sunlight: -100 },
     { status: "The cops have arrested your plant for posession of illegal narcotics. You maintain plausible deniability.", died: true, water: 0, sunlight: 0 },
     { status: "Your plant got tired of waiting and decided to water itself (+1 watering).", died: false, water: 1, sunlight: 0 },
-    { status: "Your plant has discovered the internet! It is now enjoying ASMR on YouTube.", died: false, water: 0, sunlight: 0}
+    { status: "Your plant has discovered the internet! It is now enjoying ASMR on YouTube.", died: false, water: 0, sunlight: 0},
+    { status: "Your plant has died of alcohol poisoning.", died: true, water: -100, sunlight: 0},
+    { status: "Your plant took a jaunt through the woods. It is much happier. It did not discover the tentacle monster.", died: false, water:0, sunlight:5},
+    { status: "Your plant took a jaunt through the woods. It discovered the tentacle monster. It did not make it out the other side.", died: true, water:0, sunlight:-100},
+    { status: "Your plant took a jaunt through the woods. It became the tentacle monster. You scratch your head as it wiggles its way towards you.", died: false, water:0, sunlight:5},
+    { status: "Your plant found out what it's like to chew 5 Gum.", died:false, water:0, sunlight:0},
+    { status: "You brought your plant to 'Bring your child to work day.' Massive success! (+5 water, +5 sunlight, +5 bonding)", died:false, water:5, sunlight:5}
 ];
 
 const CATOdds = 0.15;
