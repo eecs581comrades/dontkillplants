@@ -4,14 +4,21 @@
 // Name(s): Matthew Petillo, William Johnson
 // Date Created: 10-23-24
 // Dates Revised: 10-2-24
-// Brief description of each revision & author:
+// Brief description of each revision & author: added several more apis, MP 12/8/24
 //
 // THE FOLLOWING APIs EXIST:
 // /search/{plantName}, returns all plants found
+// /search/{plantId}, returns all plants found
 // /account/pull/{username}/{password}, returns account if it exists
 // /account/add/{username}/{password}, returns 201 if works
-// /simulation/pull/{user_id}, returns all simulations found under that user Id
-// /simulation/add/{user_id}/{plant_id}, creates a simulation under that user id with the plant id
+// /account/change/{username}/{oldpassword}/{newpassword}, changes password
+// /simulations/{user_id}, returns all simulations found under that user Id
+// /simulations/delete/{simulation_id}, deletes simulation
+// /simulations/add/{user_id}/{plant_id}, creates a simulation under that user id with the plant id
+// /account/darkMode/{userId}/{darkMode}, updates user's darkmode preference
+// /account/guy/{userId}/{guyPreference}, updates guy preference
+// /account/pull_preference/darkMode/{userId}, returns preference for user of darkmode
+// /account/pull_preference/guy/{userId}, returns preference for user of guy
 // all APIs return 500 if there is an internal server error
 // MySQL has no password, account accordingly
 //
@@ -141,8 +148,6 @@ app.post('/search/:plantInfoPartial', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
-
-
 
 app.get('/account/pull/:username/:password', (req, res) => { //returns account if it exists
   const username = req.params.username;

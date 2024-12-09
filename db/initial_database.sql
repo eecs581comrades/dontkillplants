@@ -5,6 +5,7 @@
 -- Dates Revised: 10-27-24
 -- Brief description of each revision & author:
 -- -- Revision: Added user and simulations tables; Author: Matthew Petillo
+--added preferences MP 12/8/24
 
 
 -- Create database if it doesn't exist
